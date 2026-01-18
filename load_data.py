@@ -7,15 +7,17 @@ into dashboard-ready format with median-first analysis.
 Parses the actual EI CSV structure:
 - Student Performance: Header rows + question-by-question answers
 - Skills: Skill name, questions, section/school performance
+- Question-level responses: Individual student answers (correct/incorrect)
 """
 
 import pandas as pd
 import numpy as np
 import json
 import re
+import csv
 from pathlib import Path
 from typing import Dict, List, Any, Optional, Tuple
-from dataclasses import dataclass, asdict
+from dataclasses import dataclass, asdict, field
 from glob import glob
 
 
@@ -26,6 +28,8 @@ class StudentResult:
     score: int
     total_questions: int
     percentage: float
+    question_responses: List[int] = field(default_factory=list)  # 1=correct, 0=incorrect for each Q
+    skill_performance: Dict[str, float] = field(default_factory=dict)  # skill_name -> percentage
 
 
 @dataclass
@@ -251,6 +255,158 @@ def parse_skills_csv(file_path: str) -> Tuple[str, str, pd.DataFrame]:
     return class_section, subject, df
 
 
+# ==================== NAME MATCHING ====================
+
+# Manual override for known spelling differences between data sources
+# Maps: (class_section, subject, normalized_name_in_existing) -> normalized_name_in_question_csv
+# This handles cases where the same student has different spellings in different sources
+NAME_SPELLING_OVERRIDES = {
+    # No overrides needed - source CSV corrected to SIDDHIKSHA KATIYAR
+}
+
+
+def normalize_name(name: str) -> str:
+    """Remove spaces and convert to uppercase for name comparison."""
+    return name.upper().replace(' ', '').replace('.', '')
+
+
+def get_question_csv_name(normalized_existing_name: str, class_section: str, subject: str) -> str:
+    """
+    Get the normalized name as it appears in the question-level CSV.
+
+    Handles spelling differences between data sources.
+    """
+    override_key = (class_section, subject, normalized_existing_name)
+    if override_key in NAME_SPELLING_OVERRIDES:
+        return NAME_SPELLING_OVERRIDES[override_key]
+    return normalized_existing_name
+
+
+def build_name_matcher(existing_names: List[str], class_section: str, subject: str) -> Dict[str, str]:
+    """
+    Build a mapping from normalized names (no spaces) to original names (with spaces).
+
+    Args:
+        existing_names: List of names with proper spacing from existing CSVs
+        class_section: Class like "3-A"
+        subject: Subject like "English"
+
+    Returns:
+        Dict mapping normalized names to original names
+    """
+    matcher = {}
+    for name in existing_names:
+        normalized = normalize_name(name)
+        matcher[normalized] = name
+
+    return matcher
+
+
+# ==================== QUESTION-LEVEL DATA LOADING ====================
+
+def parse_question_level_csv(file_path: str) -> Tuple[str, str, pd.DataFrame]:
+    """
+    Parse a question-level CSV file from "EI Student Performance by Question CSV".
+
+    These files have format: student_name,score,Q1,Q2,...,Q64
+    - student_name: Name without spaces (e.g., "ABHIRAMDONDETI")
+    - score: Raw score
+    - Q1-Q64: Binary responses (1=correct, 0=incorrect)
+
+    NOTE: Files always have 64 question columns, but actual test may have fewer questions.
+    Questions beyond the actual test length are marked as 0 (not real incorrect answers).
+
+    Returns:
+        Tuple of (class_section, subject, dataframe with question responses)
+    """
+    # Parse filename like "3-A_English.csv"
+    filename = Path(file_path).name
+    parts = filename.replace('.csv', '').split('_')
+    class_section = parts[0]  # "3-A"
+    subject = parts[1]  # "English"
+
+    df = pd.read_csv(file_path)
+
+    # Get question columns (Q1, Q2, etc.)
+    q_cols = [col for col in df.columns if re.match(r'^Q\d+$', col)]
+
+    # Store question responses as list for each student
+    df['question_responses'] = df[q_cols].values.tolist()
+    df['class_section'] = class_section
+    df['subject'] = subject
+
+    return class_section, subject, df
+
+
+def load_all_question_level_data(data_dir: str = "EI Student Performance by Question CSV") -> Dict[Tuple[str, str], pd.DataFrame]:
+    """
+    Load all question-level CSV files.
+
+    Returns:
+        Dict mapping (class_section, subject) to DataFrame with question responses
+    """
+    data_path = Path(data_dir)
+    if not data_path.exists():
+        print(f"  Warning: Question-level data directory not found: {data_dir}")
+        return {}
+
+    csv_files = list(data_path.glob("*.csv"))
+    if not csv_files:
+        print(f"  Warning: No CSV files found in {data_dir}")
+        return {}
+
+    result = {}
+    for csv_file in csv_files:
+        try:
+            class_section, subject, df = parse_question_level_csv(str(csv_file))
+            result[(class_section, subject)] = df
+            print(f"  Loaded question-level: {csv_file.name} -> {class_section} {subject} ({len(df)} students)")
+        except Exception as e:
+            print(f"  Warning: Failed to parse {csv_file.name}: {e}")
+
+    return result
+
+
+def calculate_student_skill_performance(
+    question_responses: List[int],
+    skills: List[SkillPerformance],
+    total_questions: int
+) -> Dict[str, float]:
+    """
+    Calculate a student's performance for each skill based on their question responses.
+
+    Args:
+        question_responses: List of 1/0 for each question
+        skills: List of skills with their question mappings
+        total_questions: Actual number of questions in the test (to ignore padding zeros)
+
+    Returns:
+        Dict mapping skill_name to percentage (0-100)
+    """
+    skill_perf = {}
+
+    for skill in skills:
+        # Get the questions for this skill (1-indexed in skill data)
+        skill_questions = [q for q in skill.questions if q <= total_questions]
+
+        if not skill_questions:
+            continue
+
+        # Calculate how many the student got correct
+        correct = 0
+        for q_num in skill_questions:
+            # question_responses is 0-indexed, questions are 1-indexed
+            q_idx = q_num - 1
+            if q_idx < len(question_responses) and question_responses[q_idx] == 1:
+                correct += 1
+
+        # Calculate percentage
+        perf = (correct / len(skill_questions)) * 100 if skill_questions else 0
+        skill_perf[skill.skill_name] = round(perf, 1)
+
+    return skill_perf
+
+
 def load_all_student_performance(data_dir: str = "EI Student Performance CSV Data") -> pd.DataFrame:
     """
     Load all student performance CSV files from the data directory.
@@ -344,7 +500,8 @@ def calculate_class_statistics(student_df: pd.DataFrame,
 def build_class_report(student_df: pd.DataFrame,
                        skills_df: pd.DataFrame,
                        class_section: str,
-                       subject: str) -> Optional[ClassReport]:
+                       subject: str,
+                       question_level_data: Optional[Dict[Tuple[str, str], pd.DataFrame]] = None) -> Optional[ClassReport]:
     """
     Build a complete class report with median-first statistics.
 
@@ -353,6 +510,7 @@ def build_class_report(student_df: pd.DataFrame,
         skills_df: Skills mapping DataFrame
         class_section: Class identifier (e.g., "3-A")
         subject: Subject name (e.g., "English")
+        question_level_data: Optional dict of question-level responses by (class, subject)
 
     Returns:
         ClassReport object with all data
@@ -369,18 +527,7 @@ def build_class_report(student_df: pd.DataFrame,
     if len(class_students) == 0:
         return None
 
-    # Build student results
-    students = [
-        StudentResult(
-            name=row['student_name'],
-            score=int(row['score']),
-            total_questions=int(row['total_questions']),
-            percentage=float(row['percentage'])
-        )
-        for _, row in class_students.iterrows()
-    ]
-
-    # Build skills list
+    # Build skills list first (needed for per-student skill calculation)
     skills = [
         SkillPerformance(
             skill_name=row['Skill Name'],
@@ -391,9 +538,52 @@ def build_class_report(student_df: pd.DataFrame,
         for _, row in class_skills.iterrows()
     ]
 
+    # Get question-level data if available
+    q_level_df = None
+    name_matcher = {}
+    if question_level_data and (class_section, subject) in question_level_data:
+        q_level_df = question_level_data[(class_section, subject)]
+        # Build name matcher from existing student names
+        existing_names = class_students['student_name'].tolist()
+        name_matcher = build_name_matcher(existing_names, class_section, subject)
+
+    total_questions = int(class_students['total_questions'].iloc[0])
+
+    # Build student results with question-level data
+    students = []
+    for _, row in class_students.iterrows():
+        student_name = row['student_name']
+        question_responses = []
+        skill_performance = {}
+
+        # Try to find question-level data for this student
+        if q_level_df is not None:
+            # Look up by normalized name, applying spelling overrides
+            normalized_name = normalize_name(student_name)
+            lookup_name = get_question_csv_name(normalized_name, class_section, subject)
+            q_row = q_level_df[q_level_df['student_name'].apply(normalize_name) == lookup_name]
+
+            if not q_row.empty:
+                # Get question responses, trimmed to actual test length
+                full_responses = q_row.iloc[0]['question_responses']
+                question_responses = [int(r) for r in full_responses[:total_questions]]
+
+                # Calculate per-student skill performance
+                skill_performance = calculate_student_skill_performance(
+                    question_responses, skills, total_questions
+                )
+
+        students.append(StudentResult(
+            name=student_name,
+            score=int(row['score']),
+            total_questions=total_questions,
+            percentage=float(row['percentage']),
+            question_responses=question_responses,
+            skill_performance=skill_performance
+        ))
+
     # Calculate statistics
     stats = calculate_class_statistics(student_df, class_section, subject)
-    total_questions = int(class_students['total_questions'].iloc[0])
 
     return ClassReport(
         class_section=class_section,
@@ -422,11 +612,19 @@ def sort_class_sections(classes: List[str]) -> List[str]:
 
 
 def build_school_data(student_data_dir: str = "EI Student Performance CSV Data",
-                      skills_data_dir: str = "EI Skills Tested By Question CSV Data") -> Dict[str, Any]:
+                      skills_data_dir: str = "EI Skills Tested By Question CSV Data",
+                      question_level_dir: str = "EI Student Performance by Question CSV",
+                      validate: bool = True) -> Dict[str, Any]:
     """
     Build complete school data structure for dashboard.
 
     This is the main entry point for data loading.
+
+    Args:
+        student_data_dir: Directory with student performance CSVs
+        skills_data_dir: Directory with skills mapping CSVs
+        question_level_dir: Directory with question-level response CSVs
+        validate: Whether to run data validation checks
 
     Returns:
         Dictionary with school_info, classes, subjects, reports, and grade_medians
@@ -436,6 +634,20 @@ def build_school_data(student_data_dir: str = "EI Student Performance CSV Data",
 
     print("\nLoading skills data...")
     skills_df = load_all_skills_data(skills_data_dir)
+
+    print("\nLoading question-level data...")
+    question_level_data = load_all_question_level_data(question_level_dir)
+
+    # Run validation
+    if validate and question_level_data:
+        print("\nValidating data sources...")
+        validation = validate_data_sources(student_df, question_level_data)
+        if validation['warnings']:
+            print(f"  Found {len(validation['warnings'])} potential issues:")
+            for warning in validation['warnings']:
+                print(warning)
+        else:
+            print("  All data sources validated successfully!")
 
     # Get unique classes and subjects
     classes = sort_class_sections(student_df['class_section'].unique().tolist())
@@ -449,11 +661,17 @@ def build_school_data(student_data_dir: str = "EI Student Performance CSV Data",
     reports = []
     for class_section in classes:
         for subject in subjects:
-            report = build_class_report(student_df, skills_df, class_section, subject)
+            report = build_class_report(
+                student_df, skills_df, class_section, subject,
+                question_level_data=question_level_data
+            )
             if report:
                 reports.append(asdict(report))
+                # Count how many students have question-level data
+                students_with_q_data = sum(1 for s in report.students if s.question_responses)
                 print(f"  {class_section} {subject}: {report.total_students} students, "
-                      f"median={report.class_median:.1f}%, avg={report.class_average:.1f}%")
+                      f"median={report.class_median:.1f}%, avg={report.class_average:.1f}%, "
+                      f"q-level: {students_with_q_data}/{report.total_students}")
 
     # Calculate grade-level medians (across all subjects per grade)
     grade_medians = {}
@@ -514,6 +732,70 @@ def load_school_data(json_path: str = "output/school_data.json") -> Dict[str, An
     """Load processed school data from JSON."""
     with open(json_path, 'r') as f:
         return json.load(f)
+
+
+def validate_data_sources(
+    student_df: pd.DataFrame,
+    question_level_data: Dict[Tuple[str, str], pd.DataFrame]
+) -> Dict[str, List[str]]:
+    """
+    Validate that student names match between performance CSVs and question-level CSVs.
+
+    Returns:
+        Dict with 'warnings' list of potential issues found
+    """
+    warnings = []
+
+    # Check each class-subject combination
+    for (class_section, subject), q_df in question_level_data.items():
+        # Get students from performance data
+        mask = (student_df['class_section'] == class_section) & (student_df['subject'] == subject)
+        perf_students = set(student_df[mask]['student_name'].tolist())
+
+        # Get students from question-level data (normalized names)
+        q_students_normalized = set(q_df['student_name'].apply(normalize_name).tolist())
+
+        # Normalize performance student names for comparison
+        perf_students_normalized = {normalize_name(name): name for name in perf_students}
+
+        # Find mismatches
+        perf_only = set(perf_students_normalized.keys()) - q_students_normalized
+        q_only = q_students_normalized - set(perf_students_normalized.keys())
+
+        if perf_only:
+            for norm_name in perf_only:
+                original_name = perf_students_normalized[norm_name]
+                warnings.append(
+                    f"  [{class_section} {subject}] Student in performance CSV but not in question CSV: "
+                    f"'{original_name}' (normalized: '{norm_name}')"
+                )
+
+        if q_only:
+            for norm_name in q_only:
+                warnings.append(
+                    f"  [{class_section} {subject}] Student in question CSV but not in performance CSV: "
+                    f"'{norm_name}'"
+                )
+
+    # Check for potential duplicate students (similar names)
+    all_students = student_df.groupby('class_section')['student_name'].unique()
+    for class_section, students in all_students.items():
+        students = list(students)
+        for i, name1 in enumerate(students):
+            for name2 in students[i+1:]:
+                # Check for very similar names (potential typos)
+                norm1, norm2 = normalize_name(name1), normalize_name(name2)
+                if norm1 != norm2:
+                    # Check edit distance for similar names
+                    common_len = min(len(norm1), len(norm2))
+                    if common_len >= 8:  # Only check longer names
+                        # Simple similarity: check if one is substring of other
+                        if norm1 in norm2 or norm2 in norm1:
+                            warnings.append(
+                                f"  [{class_section}] Potential duplicate: '{name1}' vs '{name2}'"
+                            )
+
+    return {'warnings': warnings}
 
 
 # CLI entry point
