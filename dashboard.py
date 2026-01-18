@@ -787,7 +787,19 @@ def create_class_skill_heatmap(report: dict) -> go.Figure:
         return None
 
     skill_names = [sk['skill_name'] for sk in skills]
-    truncated_skills = [truncate_label(s, 25) for s in skill_names]
+
+    # Create unique truncated labels
+    truncated_skills = []
+    seen = {}
+    for name in skill_names:
+        truncated = truncate_label(name, 30)
+        if truncated in seen:
+            seen[truncated] += 1
+            truncated = f"{truncated[:-3]}({seen[truncated]})"
+        else:
+            seen[truncated] = 1
+        truncated_skills.append(truncated)
+
     student_names = [s['name'] for s in students_with_data]
     truncated_students = [truncate_label(n, 18) for n in student_names]
 
@@ -807,27 +819,33 @@ def create_class_skill_heatmap(report: dict) -> go.Figure:
     df = df.sort_values('_avg', ascending=False)
     df = df.drop('_avg', axis=1)
 
-    fig = px.imshow(
-        df,
-        labels=dict(x="Skill", y="Student", color="Performance %"),
-        color_continuous_scale=["#dc3545", "#ffc107", "#28a745"],
+    # Use go.Heatmap for better control
+    fig = go.Figure(data=go.Heatmap(
+        z=df.values,
+        x=list(df.columns),
+        y=list(df.index),
+        colorscale=[[0, "#dc3545"], [0.5, "#ffc107"], [1, "#28a745"]],
         zmin=0,
         zmax=100,
-        text_auto='.0f',
-        aspect='auto'
-    )
-
-    fig.update_traces(
+        text=[[f"{v:.0f}" for v in row] for row in df.values],
+        texttemplate="%{text}",
         textfont=dict(size=9),
-        hovertemplate='Student: %{y}<br>Skill: %{x}<br>Performance: %{z:.1f}%<extra></extra>'
-    )
+        hovertemplate='Student: %{y}<br>Skill: %{x}<br>Performance: %{z:.1f}%<extra></extra>',
+        colorbar=dict(title="Performance %")
+    ))
+
+    num_skills = len(truncated_skills)
+    num_students = len(students_with_data)
 
     fig.update_layout(
         title="Student Performance by Skill",
-        height=max(400, len(students_with_data) * 32 + 120),
-        margin=dict(l=140, r=40, t=50, b=120),
-        xaxis_tickangle=-45,
-        xaxis=dict(tickfont=dict(size=9)),
+        height=max(400, num_students * 35 + 200),
+        margin=dict(l=140, r=60, t=50, b=180),
+        xaxis=dict(
+            tickangle=-45,
+            tickfont=dict(size=9),
+            side='bottom'
+        ),
         yaxis=dict(tickfont=dict(size=10))
     )
 
@@ -1088,7 +1106,20 @@ def create_group_skill_heatmap(students: list, skills: list, title: str = "Group
         return None
 
     skill_names = [s['skill_name'] for s in skills]
-    truncated_skills = [truncate_label(s, 25) for s in skill_names]
+
+    # Create unique truncated labels by adding index if duplicates exist
+    truncated_skills = []
+    seen = {}
+    for i, name in enumerate(skill_names):
+        truncated = truncate_label(name, 30)
+        if truncated in seen:
+            # Add suffix to make unique
+            seen[truncated] += 1
+            truncated = f"{truncated[:-3]}({seen[truncated]})"
+        else:
+            seen[truncated] = 1
+        truncated_skills.append(truncated)
+
     student_labels = [f"{truncate_label(s['name'], 15)} ({s['class']})" for s in students]
 
     # Build matrix
@@ -1102,28 +1133,42 @@ def create_group_skill_heatmap(students: list, skills: list, title: str = "Group
 
     df = pd.DataFrame(matrix, index=student_labels, columns=truncated_skills)
 
-    fig = px.imshow(
-        df,
-        labels=dict(x="Skill", y="Student", color="Performance %"),
-        color_continuous_scale=["#dc3545", "#ffc107", "#28a745"],
+    # Use go.Heatmap for more control over layout
+    fig = go.Figure(data=go.Heatmap(
+        z=df.values,
+        x=truncated_skills,
+        y=student_labels,
+        colorscale=[[0, "#dc3545"], [0.5, "#ffc107"], [1, "#28a745"]],
         zmin=0,
         zmax=100,
-        text_auto='.0f',
-        aspect='auto'
-    )
+        text=[[f"{v:.0f}" for v in row] for row in df.values],
+        texttemplate="%{text}",
+        textfont=dict(size=10),
+        hovertemplate='Student: %{y}<br>Skill: %{x}<br>Performance: %{z:.1f}%<extra></extra>',
+        colorbar=dict(title="Performance %")
+    ))
 
-    fig.update_traces(
-        textfont=dict(size=9),
-        hovertemplate='Student: %{y}<br>Skill: %{x}<br>Performance: %{z:.1f}%<extra></extra>'
-    )
+    # Calculate dimensions
+    num_skills = len(truncated_skills)
+    num_students = len(student_labels)
 
     fig.update_layout(
         title=title,
-        height=max(320, len(students) * 32 + 120),
-        margin=dict(l=160, r=40, t=50, b=120),
-        xaxis_tickangle=-45,
-        xaxis=dict(tickfont=dict(size=9)),
-        yaxis=dict(tickfont=dict(size=10))
+        height=max(400, num_students * 40 + 200),
+        width=max(600, num_skills * 80 + 200),
+        margin=dict(l=160, r=60, t=60, b=180),
+        xaxis=dict(
+            tickangle=-45,
+            tickfont=dict(size=10),
+            side='bottom',
+            tickmode='array',
+            tickvals=list(range(len(truncated_skills))),
+            ticktext=truncated_skills
+        ),
+        yaxis=dict(
+            tickfont=dict(size=10),
+            autorange='reversed'
+        )
     )
 
     return fig
@@ -1633,8 +1678,6 @@ def main():
         # Initialize session state for groups
         if 'saved_groups' not in st.session_state:
             st.session_state.saved_groups = load_saved_groups()
-        if 'current_group_students' not in st.session_state:
-            st.session_state.current_group_students = []
 
         # Subject selection
         selected_subject = st.selectbox(
@@ -1659,18 +1702,29 @@ def main():
 
             # Multi-select for students (grouped by class)
             student_options = {s['display']: s for s in all_students}
+            all_display_options = list(student_options.keys())
+
+            # Initialize multiselect state if not exists
+            if 'group_selected_students' not in st.session_state:
+                st.session_state.group_selected_students = []
+
+            # Filter to only valid options (in case subject changed)
+            valid_selections = [s for s in st.session_state.group_selected_students if s in student_options]
+            if valid_selections != st.session_state.group_selected_students:
+                st.session_state.group_selected_students = valid_selections
 
             selected_displays = st.multiselect(
                 "Select Students (can be from different classes)",
-                options=list(student_options.keys()),
-                default=[s['display'] for s in st.session_state.current_group_students if s['display'] in student_options],
+                options=all_display_options,
+                default=st.session_state.group_selected_students,
                 key="student_multiselect"
             )
 
-            # Update current group
-            st.session_state.current_group_students = [
-                student_options[display] for display in selected_displays
-            ]
+            # Sync selection to session state
+            st.session_state.group_selected_students = selected_displays
+
+            # Build current group students list
+            group_students = [student_options[display] for display in selected_displays]
 
             # Quick select helpers
             st.markdown("**Quick Select:**")
@@ -1678,13 +1732,10 @@ def main():
             for i, cls in enumerate(data['classes']):
                 with quick_cols[i]:
                     if st.button(f"+ {cls}", key=f"add_{cls}", use_container_width=True):
-                        class_students = [s for s in all_students if s['class'] == cls]
-                        current_displays = set(selected_displays)
-                        for s in class_students:
-                            current_displays.add(s['display'])
-                        st.session_state.current_group_students = [
-                            student_options[d] for d in current_displays if d in student_options
-                        ]
+                        class_students = [s['display'] for s in all_students if s['class'] == cls]
+                        # Add class students to current selection
+                        new_selection = list(set(selected_displays + class_students))
+                        st.session_state.group_selected_students = new_selection
                         st.rerun()
 
             # Save group option
@@ -1721,8 +1772,9 @@ def main():
                             st.caption(f"{len(grp_data['students'])} students")
                         with col_load:
                             if st.button("Load", key=f"load_{grp_name}"):
-                                st.session_state.current_group_students = [
-                                    student_options[d] for d in grp_data['students'] if d in student_options
+                                # Load saved group into selection
+                                st.session_state.group_selected_students = [
+                                    d for d in grp_data['students'] if d in student_options
                                 ]
                                 st.rerun()
                         with col_del:
@@ -1736,7 +1788,6 @@ def main():
         # ==================== GROUP ANALYSIS RESULTS ====================
         st.divider()
 
-        group_students = st.session_state.current_group_students
         if group_students and len(group_students) >= 2:
             # Analyze cross-grade skills
             skill_analysis = analyze_cross_grade_skills(group_students, skills_by_class)
