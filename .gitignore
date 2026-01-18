@@ -17,8 +17,8 @@ ENV/
 *.swp
 *.swo
 
-# Generated output (can be regenerated from CSVs)
-output/
+# Generated output - keeping school_data.json for Streamlit Cloud
+# output/
 
 # Streamlit
 .streamlit/
