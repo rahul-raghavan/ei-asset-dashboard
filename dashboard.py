@@ -634,7 +634,12 @@ def create_skill_treemap(skill_performance: dict, title: str = "Skill Performanc
 
 
 def create_skill_bar_comparison(skill_performance: dict, class_skills: list) -> go.Figure:
-    """Create horizontal bar chart comparing student skills to class average."""
+    """Create horizontal bar chart comparing student skills to class average.
+
+    Uses grouped bars so both student and class values are always visible.
+    Student bars are colored by performance level (green/yellow/red).
+    Class average shown as gray bars with clear labels.
+    """
     if not skill_performance:
         return None
 
@@ -651,9 +656,9 @@ def create_skill_bar_comparison(skill_performance: dict, class_skills: list) -> 
         else:
             class_values.append(0)
 
-    # Sort by difference (weakest first)
+    # Sort by student performance (weakest first)
     combined = list(zip(skills, student_values, class_values))
-    combined.sort(key=lambda x: x[1] - x[2])  # Sort by student - class diff
+    combined.sort(key=lambda x: x[1])  # Sort by student performance
     skills, student_values, class_values = zip(*combined)
 
     # Truncate skill names for display
@@ -661,45 +666,116 @@ def create_skill_bar_comparison(skill_performance: dict, class_skills: list) -> 
 
     fig = go.Figure()
 
-    # Class average bars (background)
+    # Determine bar colors based on comparison to class average
+    student_colors = []
+    for sv, cv in zip(student_values, class_values):
+        if sv >= cv + 10:
+            student_colors.append('#28a745')  # Green - significantly above class
+        elif sv >= cv - 10:
+            student_colors.append('#ffc107')  # Yellow - near class average
+        else:
+            student_colors.append('#dc3545')  # Red - below class average
+
+    # Class average bars (gray, always visible)
     fig.add_trace(go.Bar(
         y=truncated_skills,
         x=class_values,
         name='Class Average',
         orientation='h',
-        marker_color='rgba(255, 152, 0, 0.5)',
+        marker_color='#9e9e9e',
+        marker_line=dict(color='#757575', width=1),
         text=[f"{v:.0f}%" for v in class_values],
-        textposition='inside',
-        textfont=dict(color='black', size=10),
+        textposition='outside',
+        textfont=dict(color='#555', size=10),
         hovertemplate='<b>%{customdata}</b><br>Class Avg: %{x:.1f}%<extra></extra>',
-        customdata=skills
+        customdata=skills,
+        offsetgroup=0
     ))
 
-    # Student bars (foreground)
-    colors = [get_performance_color(v) for v in student_values]
+    # Student bars (colored by comparison, with special handling for 0%)
+    # For 0% values, show a small bar with "0%" label
+    student_display_values = [max(v, 2) for v in student_values]  # Min width for visibility
+    student_text = []
+    for v in student_values:
+        if v == 0:
+            student_text.append("0%")
+        else:
+            student_text.append(f"{v:.0f}%")
+
     fig.add_trace(go.Bar(
         y=truncated_skills,
-        x=student_values,
+        x=student_display_values,
         name='Student',
         orientation='h',
-        marker_color=colors,
-        text=[f"{v:.0f}%" for v in student_values],
-        textposition='inside',
-        textfont=dict(color='white', size=10),
-        hovertemplate='<b>%{customdata}</b><br>Student: %{x:.1f}%<extra></extra>',
-        customdata=skills
+        marker_color=student_colors,
+        marker_line=dict(color='#333', width=1),
+        text=student_text,
+        textposition='outside',
+        textfont=dict(color='#333', size=10, weight='bold'),
+        hovertemplate='<b>%{customdata}</b><br>Student: %{meta:.1f}%<extra></extra>',
+        customdata=skills,
+        meta=student_values,  # Store actual values for hover
+        offsetgroup=1
     ))
 
+    # Add difference indicators (arrows or text showing +/- vs class)
+    annotations = []
+    for i, (skill, sv, cv) in enumerate(zip(truncated_skills, student_values, class_values)):
+        diff = sv - cv
+        if diff > 0:
+            diff_text = f"+{diff:.0f}"
+            diff_color = "#28a745"
+        elif diff < 0:
+            diff_text = f"{diff:.0f}"
+            diff_color = "#dc3545"
+        else:
+            diff_text = "="
+            diff_color = "#666"
+
+        # Position the difference indicator at the right side
+        annotations.append(dict(
+            x=105,
+            y=i,
+            text=diff_text,
+            showarrow=False,
+            font=dict(size=10, color=diff_color, weight='bold'),
+            xanchor='left'
+        ))
+
     fig.update_layout(
-        title="Skill Comparison: Student vs Class",
+        title=dict(
+            text="Skill Comparison: Student vs Class Average",
+            font=dict(size=14)
+        ),
         xaxis_title="Performance (%)",
-        xaxis=dict(range=[0, 105]),
+        xaxis=dict(range=[0, 115], dtick=20),
         yaxis_title="",
-        barmode='overlay',
-        height=max(320, len(skills) * 48),
-        margin=dict(l=260, r=40, t=60, b=40),
+        barmode='group',
+        bargap=0.15,
+        bargroupgap=0.05,
+        height=max(380, len(skills) * 55),
+        margin=dict(l=280, r=60, t=80, b=60),
         yaxis=dict(tickfont=dict(size=10)),
-        legend=dict(orientation='h', yanchor='bottom', y=1.02, xanchor='center', x=0.5)
+        legend=dict(
+            orientation='h',
+            yanchor='bottom',
+            y=1.02,
+            xanchor='center',
+            x=0.5,
+            font=dict(size=11),
+            itemsizing='constant'
+        ),
+        annotations=annotations
+    )
+
+    # Add a subtitle explaining the colors
+    fig.add_annotation(
+        text="<b>Student colors:</b> Green = above class | Yellow = near class | Red = below class | <b>Right column:</b> difference from class",
+        xref="paper", yref="paper",
+        x=0.5, y=-0.08,
+        showarrow=False,
+        font=dict(size=9, color="#666"),
+        xanchor='center'
     )
 
     return fig
