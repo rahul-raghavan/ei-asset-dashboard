@@ -7,14 +7,14 @@
 
 This analysis identifies both **program strengths** to maintain and **foundational skill gaps** that persist across grade levels. The findings support a move toward mastery-based learning by identifying specific skills that need remediation at each level.
 
-**Program Strengths (What's Working Well):**
-1. Grammar and vocabulary instruction consistently strong - vocabulary peaks at 90% in Grade 6
-2. Arithmetic and computational skills solid across grades (73-80%)
-3. Grade 6 is a peak performance year - teaching methods here should be studied and replicated
-4. Classification and recall skills in Science show good progression
+**Program Strengths - Skills Consistently ≥70% Across Multiple Grades:**
+1. **Grammar Usage** (English): 73-81% in Grades 3-6 - only drops in Grade 7
+2. **Arithmetic Operations** (Maths): 73-80% in Grades 3-4, 78% in Grade 6
+3. **Fractions** (Maths): 63-74% stable across Grades 4-7
+4. **Vocabulary/Word Meaning** (English): 67-90% with consistent growth Grades 3-6
 
 **Key Areas for Improvement:**
-1. Spelling/Phonics weak in Grades 3-5 (58%), only fixed by Grade 6
+1. Spelling/Phonics weak in Grades 3-5 (58-64%), only reaches 83% by Grade 6
 2. Real-world math applications critically weak (48%) in Grade 3
 3. Scientific explanation skills weak across ALL elementary grades (44-61%)
 4. Sharp performance cliff in Grade 7 across all subjects
@@ -22,73 +22,70 @@ This analysis identifies both **program strengths** to maintain and **foundation
 
 ---
 
-## SECTION 1: Program Strengths - What We're Doing Well
+## SECTION 1: Program Strengths - Skills We Do Well
 
-Before addressing areas for improvement, it's important to recognize the skills where PEP School V2 consistently performs well. These strengths should be maintained and can serve as models for improving weaker areas.
+These are skills where performance is **consistently ≥70% across 3+ grades** or shows **steady improvement** year over year. These represent effective instruction that should be maintained.
 
-### ENGLISH - Areas of Strength
+### Criteria for "Strength"
+- Performance ≥70% in at least 3 grade levels, OR
+- Consistent upward trend across grades (improving by 10%+ from Grade 3 to Grade 7)
 
-| Skill | Performance Across Grades | Insight |
-|-------|--------------------------|---------|
-| **Grammar Usage** | 77% (Gr3) → 81% (Gr6) | Consistently strong; drops only in Gr7 (63%) |
-| **Vocabulary/Word Meaning** | 67% → 90% (Gr6) | Excellent progression, peaks at Grade 6 |
-| **Inferential Analysis** | 62% → 84% (Gr5-6) | Strong improvement, students develop critical reading skills |
+### ENGLISH - Consistently Strong Skills
 
-**What's Working**: Grammar instruction is solid across elementary. Vocabulary teaching is particularly effective - students show consistent growth year over year.
+| Skill | Gr 3 | Gr 4 | Gr 5 | Gr 6 | Gr 7 | Assessment |
+|-------|------|------|------|------|------|------------|
+| **Grammar Usage** | 77% | 73% | 75% | 81% | 63% | **STRONG** in Gr 3-6 (all ≥73%) |
+| **Vocabulary/Word Meaning** | 67% | 71% | 80% | 90% | 79% | **STRONG** - consistent growth, ≥70% in 4 grades |
+| **Inferential Analysis** | 62% | 76% | 84% | 84% | 73% | **STRONG** from Gr 4 onwards (all ≥73%) |
+| **Punctuation** | 59% | 63% | 75% | 85% | 76% | **IMPROVING** - reaches ≥75% by Gr 5 |
 
-### MATHS - Areas of Strength
+**What This Tells Us**: Grammar and vocabulary instruction is effective. Students who struggle early with inference catch up by Grade 4 and maintain good performance.
 
-| Skill | Performance Across Grades | Insight |
-|-------|--------------------------|---------|
-| **Arithmetic Operations** | 73% (Gr3) → 80% (Gr4) → 78% (Gr6) | Consistently good across grades |
-| **Number Sense** | 71% (Gr3) → 80% (Gr4) | Strong foundation, though declines in upper grades |
-| **Algebra (Grade 6)** | 88% | Excellent when first introduced |
-| **Fractions** | 74% (Gr4) → stable through Gr7 | Solid, consistent performance |
+### MATHS - Consistently Strong Skills
 
-**What's Working**: Basic computational skills are strong. Students master arithmetic fundamentals well. Grade 6 algebra introduction is very successful (88%) - the challenge is maintaining this in Grade 7.
+| Skill | Gr 3 | Gr 4 | Gr 5 | Gr 6 | Gr 7 | Assessment |
+|-------|------|------|------|------|------|------------|
+| **Arithmetic Operations** | 73% | 80% | 59% | 78% | - | **STRONG** in 3 of 4 grades (≥73%) |
+| **Number Sense** | 71% | 80% | 69% | 65% | 63% | **MIXED** - strong start, declines |
+| **Fractions** | - | 74% | 63% | 64% | 65% | **STABLE** - maintains 63-74% |
+| **Geometry** | 59% | 67% | 57% | 84% | 72% | **IMPROVING** - reaches ≥70% by Gr 6-7 |
 
-### SCIENCE - Areas of Strength
+**What This Tells Us**: Basic computation (arithmetic) is taught well. Fractions maintain stability which is positive. Number sense starts strong but needs reinforcement in upper grades.
 
-| Skill | Performance Across Grades | Insight |
-|-------|--------------------------|---------|
-| **Recall & Recognition** | 61% → 80% (Gr6) | Students can remember facts when taught systematically |
-| **Classification/Comparison** | 60% → 75% (Gr4-6) | Categorization skills develop well |
-| **Application (Grade 6)** | 85% | Excellent applied science skills at this level |
-| **Data Analysis** | 64% → 75% (Gr6) | Steady improvement in reading graphs/tables |
+### SCIENCE - Consistently Strong Skills
 
-**What's Working**: Factual science content is being taught effectively. Students develop good classification skills. Grade 6 is a sweet spot where many science skills peak.
+| Skill | Gr 3 | Gr 4 | Gr 5 | Gr 6 | Gr 7 | Assessment |
+|-------|------|------|------|------|------|------------|
+| **Recall & Recognition** | 61% | 75% | 73% | 80% | 61% | **STRONG** in Gr 4-6 (all ≥73%) |
+| **Classification** | 60% | 75% | 68% | 71% | 50% | **MODERATE** - ≥70% in 2 grades |
+| **Data Analysis** | 64% | 65% | 67% | 75% | 55% | **IMPROVING** through Gr 6, drops in Gr 7 |
 
-### Cross-Subject Strengths by Grade
+**What This Tells Us**: Factual recall and classification are taught effectively in middle elementary. However, no science skill maintains ≥70% across all grades - this is a concern.
 
-| Grade | Subject | Top Performing Skills |
-|-------|---------|----------------------|
-| **Grade 4** | English | Direct Recall (80%), Inference (76%) |
-| **Grade 4** | Maths | Number Sense (80%), Arithmetic (80%) |
-| **Grade 5** | English | Inference (84%), Vocabulary (80%) |
-| **Grade 6** | English | Vocabulary (90%), Punctuation (85%), Inference (84%) |
-| **Grade 6** | Maths | Algebra (88%), Geometry (84%) |
-| **Grade 6** | Science | Application (85%), Recall (80%), Prediction (79%) |
+### Summary: Skills That Are Working
 
-**Key Insight**: Grade 6 represents a peak performance year across all subjects. This suggests that:
-1. Teaching quality/methods at this level are effective
-2. Student maturity enables better learning
-3. This is the model to study and replicate in other grades
+| Subject | Skill | Why It's Working |
+|---------|-------|------------------|
+| English | Grammar Usage | Consistent ≥73% in 4 grades - systematic instruction |
+| English | Vocabulary | Steady improvement every year - spiraling curriculum |
+| English | Inference | Once learned (Gr 4), stays strong - good scaffolding |
+| Maths | Arithmetic | ≥73% in most grades - regular practice |
+| Maths | Fractions | Stable 63-74% - maintained through practice |
+| Science | Recall | ≥73% in Gr 4-6 - effective memorization strategies |
 
-### What Makes These Skills Strong?
+### Key Observations
 
-Analyzing the common factors in our high-performing areas:
-
-1. **Consistent Practice**: Grammar, arithmetic, and vocabulary are practiced regularly across years
-2. **Clear Progression**: Skills that improve show they're being built upon each year
-3. **Strong Grade 6 Teaching**: Something in the Grade 6 approach is working exceptionally well
-4. **Concrete → Abstract**: Skills that move from concrete examples to abstract concepts show better results
+1. **English has the most consistent strengths** - Grammar, vocabulary, and inference are reliably strong
+2. **Maths arithmetic is solid** - Basic computation skills are well-developed
+3. **Science has NO skill that stays ≥70% across all grades** - Even "strong" science skills drop in Grade 7
+4. **Grade 7 is a problem across all subjects** - Even strong skills decline sharply
 
 ### Recommendations to Maintain Strengths
 
-1. **Document Grade 6 Teaching Methods**: What teachers are doing at this level should be shared with other grades
-2. **Continue Vocabulary Emphasis**: The consistent focus on word meaning is paying off - don't reduce it
-3. **Maintain Arithmetic Practice**: Regular computational practice is building strong foundations
-4. **Protect Instructional Time**: Don't reduce time for areas that are working well
+1. **Protect grammar and vocabulary instruction time** - These are working, don't reduce them
+2. **Continue regular arithmetic practice** - The consistent drilling is paying off
+3. **Study what's working in inference instruction** - Can similar scaffolding help with scientific explanation?
+4. **Don't assume skills stay strong** - Grade 7 drops suggest need for reinforcement even in "strong" areas
 
 ---
 
