@@ -268,6 +268,90 @@ Many students weak across subjects also show:
 | SHUBHI GOGOI | 7-A | 8 | 8 | 8 |
 | ABHIGYA V URS | 7-A | 5 | 9 | 5 |
 
+### Students with Unusual Skill Profiles
+
+These students show atypical patterns that warrant individual attention - they may have specific learning differences, gaps in instruction, or unique learning styles.
+
+#### Category 1: High Performers with Blind Spots (Avg ≥75% but one skill ≤40%)
+
+These students are strong overall but have one glaring weakness:
+
+| Student | Grade | Overall Avg | Blind Spot Skill |
+|---------|-------|-------------|------------------|
+| ANSHIKA KASLIWAL | 6-A | 90% | English: Identifies main idea (33%) |
+| NEVILLE AMBROSE | 4-A | 90% | English: Text organization (33%) |
+| ISHAN GAJJALA | 3-A | 88% | Maths: Daily life applications (33%) |
+| ZIVA ADIL | 3-A | 87% | Maths: Daily life applications (33%) |
+| SAYAN RAJAKUMAR | 6-A | 86% | English: Identifies main idea (33%) |
+| NITHIL AMBROSE | 6-A | 85% | English: Identifies main idea (33%) |
+
+**Pattern**: Multiple Grade 6 students struggle with "Identifies main idea" despite high overall performance. This specific skill may need targeted instruction.
+
+**Recommendation**: These students need focused mini-lessons on their specific blind spot, not general remediation.
+
+#### Category 2: Subject Specialists (≥80% in one subject, ≤50% in another)
+
+These students show extreme subject-specific strengths:
+
+| Student | Grade | Strong Subject | Weak Subject |
+|---------|-------|----------------|--------------|
+| SHLOK N SRIVASTAVA | 7-A | English: 83% | Maths: 45% |
+| KYRA B JOSEPH | 5-A | English: 80% | Maths: 45% |
+
+**Possible Causes**: Different learning styles, gaps in foundational math skills, or anxiety/attitude toward math.
+
+**Recommendation**: Investigate if math weakness is skill-based or attitude-based. Consider leveraging their English strength (reading about math, word-based math approaches).
+
+#### Category 3: Inverted Skill Patterns (Strong in advanced, weak in basics)
+
+These students show an unusual pattern where they perform better on advanced/higher-order skills than on basic/foundational skills:
+
+| Student | Grade | Basic Skills Avg | Advanced Skills Avg | Gap |
+|---------|-------|------------------|---------------------|-----|
+| ANIK R KOLLI | 7-A | 53% | 88% | +34% |
+| AAKASH ARULKUMAR | 6-A | 51% | 78% | +27% |
+| NUHA M ADIL | 6-A | 46% | 69% | +23% |
+
+**What This Means**: These students can analyze, infer, and problem-solve but struggle with basic recall, spelling, or arithmetic. This is counterintuitive and suggests:
+- Possible attention/focus issues with "boring" basic work
+- May have learned to compensate with reasoning skills
+- Could indicate specific learning differences (e.g., dyslexia with strong comprehension)
+
+**Recommendation**: Do NOT force basic drill - instead, investigate why basics are weak while advanced skills are strong. Consider learning difference screening.
+
+#### Category 4: Extreme Skill Variance Within Same Subject
+
+These students have 100% in some skills and ≤50% in other skills **within the same subject**:
+
+| Student | Grade | Subject | Perfect Skill (100%) | Weak Skill |
+|---------|-------|---------|---------------------|------------|
+| SRIRAM V KALIDINDI | 4-A | English | Analysis, Recall, Main Idea | Text organization: 0% |
+| MANASVITHA BOJJA | 4-A | English | Word meaning, Recall, Grammar | Text organization: 0% |
+| MEHDI M VAKIL | 4-A | English | Recall, Main Idea | Text organization: 0% |
+| ATHARV R ACHARYA | 4-A | Maths | Daily life, Arithmetic | Problem solving: 0% |
+| AARIB N JATU | 5-A | Science | (multiple) | Hypothesis: 0%, Explanation: 0% |
+
+**Pattern**: Grade 4 shows multiple students with 0% in "Text organization" - this may be a teaching/testing gap, not individual issues.
+
+#### Category 5: High Variance Students (100% and ≤40% across subjects)
+
+**69 students** (nearly half) have at least one skill at ≥80% and another at ≤40%. This is a very high number and suggests:
+
+1. Skills are genuinely independent (mastering one doesn't transfer to others)
+2. Instruction may be inconsistent across skill areas
+3. Assessment may have high variability
+
+**Most extreme examples (100% spread - from 0% to 100%):**
+
+| Student | Grade | Strongest Skill | Weakest Skill |
+|---------|-------|-----------------|---------------|
+| AHANA GOWDA | 3-A | English Inference: 100% | Maths Daily Life: 0% |
+| AMAL SHYAM | 3-A | Maths Multiplication: 100% | English Inference: 0%, Maths Applications: 0% |
+| VIKRANT K REDDY | 3-A | Science Instruments: 100% | English Word Meaning: 0%, Spelling: 0% |
+| MAUSAM P G | 3-A | Maths Multiplication: 100% | English Word Meaning: 0%, Spelling: 0% |
+
+**Insight**: Grade 3 shows the most extreme variance. These students know some things very well but have complete gaps in others. This is characteristic of inconsistent instruction or students who've missed foundational learning.
+
 ---
 
 ## SECTION 7: Recommended Actions
