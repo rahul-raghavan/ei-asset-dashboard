@@ -164,7 +164,7 @@ def filter_data_by_role(data: dict, allowed_classes: list) -> dict:
 
 # ==================== DATA LOADING ====================
 
-@st.cache_data
+@st.cache_data(ttl=300)  # Cache for 5 minutes, then refresh
 def load_data():
     """Load school data from JSON (with caching for performance)."""
     json_path = Path("output/school_data.json")
@@ -176,7 +176,20 @@ def load_data():
         return data
 
     with open(json_path, 'r') as f:
-        return json.load(f)
+        data = json.load(f)
+
+    # Validate that skill_performance data exists (critical for group analysis)
+    # If not present, regenerate the data
+    sample_report = data['reports'][0] if data.get('reports') else None
+    if sample_report and sample_report.get('students'):
+        sample_student = sample_report['students'][0]
+        if not sample_student.get('skill_performance'):
+            # Data is stale, regenerate
+            from load_data import build_school_data, save_school_data
+            data = build_school_data()
+            save_school_data(data)
+
+    return data
 
 
 # ==================== HELPER FUNCTIONS ====================

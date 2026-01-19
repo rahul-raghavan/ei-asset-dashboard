@@ -5,18 +5,94 @@
 
 ## Executive Summary
 
-This analysis identifies **foundational skill gaps** that persist across grade levels, **skill progression patterns**, and **students requiring intensive support**. The findings support a move toward mastery-based learning by identifying specific skills that need remediation at each level.
+This analysis identifies both **program strengths** to maintain and **foundational skill gaps** that persist across grade levels. The findings support a move toward mastery-based learning by identifying specific skills that need remediation at each level.
 
-**Key Findings:**
-1. Spelling/Phonics weak in Grades 3-5, only fixed by Grade 6
+**Program Strengths (What's Working Well):**
+1. Grammar and vocabulary instruction consistently strong - vocabulary peaks at 90% in Grade 6
+2. Arithmetic and computational skills solid across grades (73-80%)
+3. Grade 6 is a peak performance year - teaching methods here should be studied and replicated
+4. Classification and recall skills in Science show good progression
+
+**Key Areas for Improvement:**
+1. Spelling/Phonics weak in Grades 3-5 (58%), only fixed by Grade 6
 2. Real-world math applications critically weak (48%) in Grade 3
-3. Scientific explanation skills weak across ALL elementary grades
+3. Scientific explanation skills weak across ALL elementary grades (44-61%)
 4. Sharp performance cliff in Grade 7 across all subjects
 5. 15+ students struggling across ALL THREE subjects need holistic intervention
 
 ---
 
-## SECTION 1: Foundational Gaps in Grades 3-4
+## SECTION 1: Program Strengths - What We're Doing Well
+
+Before addressing areas for improvement, it's important to recognize the skills where PEP School V2 consistently performs well. These strengths should be maintained and can serve as models for improving weaker areas.
+
+### ENGLISH - Areas of Strength
+
+| Skill | Performance Across Grades | Insight |
+|-------|--------------------------|---------|
+| **Grammar Usage** | 77% (Gr3) → 81% (Gr6) | Consistently strong; drops only in Gr7 (63%) |
+| **Vocabulary/Word Meaning** | 67% → 90% (Gr6) | Excellent progression, peaks at Grade 6 |
+| **Inferential Analysis** | 62% → 84% (Gr5-6) | Strong improvement, students develop critical reading skills |
+
+**What's Working**: Grammar instruction is solid across elementary. Vocabulary teaching is particularly effective - students show consistent growth year over year.
+
+### MATHS - Areas of Strength
+
+| Skill | Performance Across Grades | Insight |
+|-------|--------------------------|---------|
+| **Arithmetic Operations** | 73% (Gr3) → 80% (Gr4) → 78% (Gr6) | Consistently good across grades |
+| **Number Sense** | 71% (Gr3) → 80% (Gr4) | Strong foundation, though declines in upper grades |
+| **Algebra (Grade 6)** | 88% | Excellent when first introduced |
+| **Fractions** | 74% (Gr4) → stable through Gr7 | Solid, consistent performance |
+
+**What's Working**: Basic computational skills are strong. Students master arithmetic fundamentals well. Grade 6 algebra introduction is very successful (88%) - the challenge is maintaining this in Grade 7.
+
+### SCIENCE - Areas of Strength
+
+| Skill | Performance Across Grades | Insight |
+|-------|--------------------------|---------|
+| **Recall & Recognition** | 61% → 80% (Gr6) | Students can remember facts when taught systematically |
+| **Classification/Comparison** | 60% → 75% (Gr4-6) | Categorization skills develop well |
+| **Application (Grade 6)** | 85% | Excellent applied science skills at this level |
+| **Data Analysis** | 64% → 75% (Gr6) | Steady improvement in reading graphs/tables |
+
+**What's Working**: Factual science content is being taught effectively. Students develop good classification skills. Grade 6 is a sweet spot where many science skills peak.
+
+### Cross-Subject Strengths by Grade
+
+| Grade | Subject | Top Performing Skills |
+|-------|---------|----------------------|
+| **Grade 4** | English | Direct Recall (80%), Inference (76%) |
+| **Grade 4** | Maths | Number Sense (80%), Arithmetic (80%) |
+| **Grade 5** | English | Inference (84%), Vocabulary (80%) |
+| **Grade 6** | English | Vocabulary (90%), Punctuation (85%), Inference (84%) |
+| **Grade 6** | Maths | Algebra (88%), Geometry (84%) |
+| **Grade 6** | Science | Application (85%), Recall (80%), Prediction (79%) |
+
+**Key Insight**: Grade 6 represents a peak performance year across all subjects. This suggests that:
+1. Teaching quality/methods at this level are effective
+2. Student maturity enables better learning
+3. This is the model to study and replicate in other grades
+
+### What Makes These Skills Strong?
+
+Analyzing the common factors in our high-performing areas:
+
+1. **Consistent Practice**: Grammar, arithmetic, and vocabulary are practiced regularly across years
+2. **Clear Progression**: Skills that improve show they're being built upon each year
+3. **Strong Grade 6 Teaching**: Something in the Grade 6 approach is working exceptionally well
+4. **Concrete → Abstract**: Skills that move from concrete examples to abstract concepts show better results
+
+### Recommendations to Maintain Strengths
+
+1. **Document Grade 6 Teaching Methods**: What teachers are doing at this level should be shared with other grades
+2. **Continue Vocabulary Emphasis**: The consistent focus on word meaning is paying off - don't reduce it
+3. **Maintain Arithmetic Practice**: Regular computational practice is building strong foundations
+4. **Protect Instructional Time**: Don't reduce time for areas that are working well
+
+---
+
+## SECTION 2: Foundational Gaps in Grades 3-4 (Areas for Improvement)
 
 These skills are weak in the early years and should be prioritized for mastery before students advance:
 
@@ -58,7 +134,7 @@ These skills are weak in the early years and should be prioritized for mastery b
 
 ---
 
-## SECTION 2: Skills That Never Get Fixed (Persistent Weaknesses)
+## SECTION 3: Skills That Never Get Fixed (Persistent Weaknesses)
 
 These skills remain weak across **3+ grade levels**, indicating systemic instructional gaps:
 
@@ -77,7 +153,7 @@ These skills remain weak across **3+ grade levels**, indicating systemic instruc
 
 ---
 
-## SECTION 3: Skill Progression Analysis
+## SECTION 4: Skill Progression Analysis
 
 ### Skills That IMPROVE Over Time (What's Working)
 
@@ -101,7 +177,7 @@ These skills remain weak across **3+ grade levels**, indicating systemic instruc
 
 ---
 
-## SECTION 4: Grade 7 Performance Cliff
+## SECTION 5: Grade 7 Performance Cliff
 
 Grade 7 shows sharp declines compared to Grade 6 in multiple areas:
 
@@ -123,7 +199,7 @@ Grade 7 shows sharp declines compared to Grade 6 in multiple areas:
 
 ---
 
-## SECTION 5: Weak Student Analysis
+## SECTION 6: Weak Student Analysis
 
 ### Students Struggling Across ALL THREE Subjects
 
@@ -197,7 +273,7 @@ Many students weak across subjects also show:
 
 ---
 
-## SECTION 6: Recommended Actions
+## SECTION 7: Recommended Actions
 
 ### Immediate Actions (This Term)
 
@@ -260,7 +336,7 @@ Many students weak across subjects also show:
 
 ---
 
-## SECTION 7: The 5 Skills to Fix First
+## SECTION 8: The 5 Skills to Fix First
 
 If you can only focus on 5 things, fix these foundational skills:
 
