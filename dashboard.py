@@ -1,8 +1,10 @@
 """
-EI ASSET Performance Dashboard - CSV Edition
+EI ASSET Performance Dashboard
 
-Interactive Streamlit dashboard with MEDIAN-FIRST analysis.
-All primary metrics use median; averages shown as secondary reference.
+Interactive Streamlit dashboard focused on:
+- National percentile standings (how students compare nationally)
+- Skill-level analysis (actionable insights for teachers)
+- Group analysis (for Montessori-style grouping)
 
 Features:
 - Password-based authentication with role-based access
@@ -38,24 +40,32 @@ st.markdown("""
         margin: 10px 0;
         box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
-    .median-highlight {
-        color: #1f4e79;
-        font-weight: bold;
-        font-size: 1.2em;
+    .percentile-excellent { color: #28a745; font-weight: bold; }
+    .percentile-good { color: #17a2b8; }
+    .percentile-average { color: #6c757d; }
+    .percentile-below { color: #dc3545; }
+    .award-badge {
+        display: inline-block;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.85em;
+        font-weight: 600;
+        margin: 2px;
     }
-    .average-secondary {
-        color: #6c757d;
-        font-size: 0.9em;
+    .award-outstanding { background-color: #FFD700; color: #333; }
+    .award-distinguished { background-color: #C0C0C0; color: #333; }
+    .award-creditable { background-color: #CD7F32; color: #fff; }
+    .award-participation { background-color: #9E9E9E; color: #fff; }
+    .ats-badge {
+        background-color: #28a745;
+        color: white;
+        padding: 2px 8px;
+        border-radius: 10px;
+        font-size: 0.75em;
+        font-weight: 600;
     }
-    .good-performance { color: #28a745; }
-    .warning-performance { color: #ffc107; }
-    .danger-performance { color: #dc3545; }
-    .primary-metric {
-        background-color: #e3f2fd;
-        border-left: 4px solid #1976d2;
-        padding: 10px;
-        margin: 5px 0;
-    }
+    .skill-weak { background-color: #ffebee; border-left: 4px solid #dc3545; padding: 10px; margin: 5px 0; }
+    .skill-strong { background-color: #e8f5e9; border-left: 4px solid #28a745; padding: 10px; margin: 5px 0; }
     .login-container {
         max-width: 400px;
         margin: 100px auto;
@@ -220,9 +230,31 @@ def get_student_data(data: dict, class_section: str, student_name: str) -> list:
                         'class_average': report['class_average'],
                         'skills': report['skills'],
                         'question_responses': student.get('question_responses', []),
-                        'skill_performance': student.get('skill_performance', {})
+                        'skill_performance': student.get('skill_performance', {}),
+                        'national': student.get('national'),  # National percentile data
+                        'class_rank': None,  # Will be calculated below
+                        'class_size': report['total_students']
                     })
+
+    # Calculate class rank for each subject
+    for subj_data in student_data:
+        # Find all students in this class-subject and sort by percentage
+        for report in data['reports']:
+            if report['class_section'] == class_section and report['subject'] == subj_data['subject']:
+                sorted_students = sorted(report['students'], key=lambda x: x['percentage'], reverse=True)
+                for i, s in enumerate(sorted_students, 1):
+                    if s['name'] == student_name:
+                        subj_data['class_rank'] = i
+                        break
+                break
+
     return student_data
+
+
+def get_student_overall_awards(data: dict, class_section: str, student_name: str) -> dict:
+    """Get overall awards data for a student."""
+    key = f"{class_section}|{student_name}"
+    return data.get('student_overall_awards', {}).get(key)
 
 
 def get_class_students(data: dict, class_section: str) -> list:
@@ -233,6 +265,93 @@ def get_class_students(data: dict, class_section: str) -> list:
             for student in report['students']:
                 students.add(student['name'])
     return sorted(list(students))
+
+
+def get_all_students(data: dict) -> list:
+    """Get all students across all classes with their basic info."""
+    students = {}
+    for report in data['reports']:
+        cls = report['class_section']
+        for student in report['students']:
+            key = (cls, student['name'])
+            if key not in students:
+                students[key] = {
+                    'class': cls,
+                    'name': student['name'],
+                    'display': f"{student['name']} ({cls})"
+                }
+    return sorted(students.values(), key=lambda x: (x['class'], x['name']))
+
+
+def get_percentile_color(percentile: int) -> str:
+    """Return color class based on national percentile."""
+    if percentile >= 85:
+        return "#28a745"  # Green - Excellent
+    elif percentile >= 50:
+        return "#17a2b8"  # Blue - Good/Above average
+    elif percentile >= 25:
+        return "#ffc107"  # Yellow - Average
+    else:
+        return "#dc3545"  # Red - Below average
+
+
+def get_percentile_description(percentile: int) -> str:
+    """Return human-readable description of percentile."""
+    if percentile >= 99:
+        return "Outstanding (Top 1%)"
+    elif percentile >= 94:
+        return "Distinguished (Top 6%)"
+    elif percentile >= 85:
+        return "Excellent (Top 15%)"
+    elif percentile >= 50:
+        return "Above Average"
+    elif percentile >= 25:
+        return "Average"
+    else:
+        return "Needs Support"
+
+
+def get_award_html(award_code: str) -> str:
+    """Return HTML badge for award code."""
+    award_map = {
+        'o': ('Outstanding', 'award-outstanding'),
+        'd': ('Distinguished', 'award-distinguished'),
+        'c': ('Creditable', 'award-creditable'),
+        'p': ('Participation', 'award-participation')
+    }
+    label, css_class = award_map.get(award_code.lower(), ('Unknown', 'award-participation'))
+    return f'<span class="award-badge {css_class}">{label}</span>'
+
+
+def calculate_class_percentile_summary(data: dict, class_section: str) -> dict:
+    """Calculate median percentiles for a class by subject."""
+    summary = {'subjects': {}, 'overall_median': None}
+
+    for report in data['reports']:
+        if report['class_section'] == class_section:
+            subject = report['subject']
+            percentiles = []
+            for student in report['students']:
+                if student.get('national') and student['national'].get('percentile'):
+                    percentiles.append(student['national']['percentile'])
+
+            if percentiles:
+                summary['subjects'][subject] = {
+                    'median_percentile': int(np.median(percentiles)),
+                    'min_percentile': min(percentiles),
+                    'max_percentile': max(percentiles),
+                    'ats_count': sum(1 for s in report['students']
+                                    if s.get('national') and s['national'].get('ats_qualified'))
+                }
+
+    # Calculate overall median across subjects
+    all_percentiles = []
+    for subj_data in summary['subjects'].values():
+        all_percentiles.append(subj_data['median_percentile'])
+    if all_percentiles:
+        summary['overall_median'] = int(np.median(all_percentiles))
+
+    return summary
 
 
 # ==================== CHART FUNCTIONS ====================
@@ -1370,57 +1489,234 @@ def main():
 
     # ==================== TAB 1: SCHOOL OVERVIEW ====================
     if tab_selection == "School Overview":
-        st.header("Overview" if role_info['role'] != 'management' else "School Overview")
+        st.header("School Overview")
 
-        stats = data['school_statistics']
-        col1, col2, col3, col4 = st.columns(4)
+        awards_summary = data.get('awards_summary')
+        student_overall_awards = data.get('student_overall_awards', {})
+        allowed_classes = role_info['allowed_classes']
+        is_filtered = len(allowed_classes) < 6  # Not full access
 
-        with col1:
-            st.metric("Median", f"{stats['median']:.1f}%")
-            st.caption(f"Average: {stats['average']:.1f}%")
-        with col2:
-            st.metric("Total Students", stats['total_students'])
-        with col3:
-            st.metric("Total Assessments", stats['total_assessments'])
-        with col4:
-            at_risk_df = identify_at_risk_students(data)
-            st.metric("At-Risk Students", len(at_risk_df))
+        # Calculate filtered awards for the user's classes
+        if is_filtered and student_overall_awards:
+            filtered_awards = {'outstanding': 0, 'distinguished': 0, 'creditable': 0, 'participation': 0}
+            filtered_ats = set()
+            filtered_ats_by_subject = {}
 
+            for key, award_data in student_overall_awards.items():
+                cls = key.split('|')[0]
+                if cls in allowed_classes:
+                    award = award_data.get('overall_award', 'p').lower()
+                    if award == 'o':
+                        filtered_awards['outstanding'] += 1
+                    elif award == 'd':
+                        filtered_awards['distinguished'] += 1
+                    elif award == 'c':
+                        filtered_awards['creditable'] += 1
+                    else:
+                        filtered_awards['participation'] += 1
+
+            # Count ATS by looking at student data in filtered reports
+            for report in data['reports']:
+                if report['class_section'] in allowed_classes:
+                    subj = report['subject']
+                    for student in report['students']:
+                        if student.get('national') and student['national'].get('ats_qualified'):
+                            student_key = f"{report['class_section']}|{student['name']}"
+                            filtered_ats.add(student_key)
+                            if subj not in filtered_ats_by_subject:
+                                filtered_ats_by_subject[subj] = 0
+                            filtered_ats_by_subject[subj] += 1
+
+            filtered_total = sum(filtered_awards.values())
+            filtered_ats_count = len(filtered_ats)
+
+        # ===== Section 1: Overall Awards Distribution =====
+        if awards_summary:
+            st.subheader("Overall Awards Distribution")
+            if is_filtered:
+                st.caption(f"School-wide totals shown. **Your classes ({', '.join(allowed_classes)}):** {filtered_total} students")
+            else:
+                st.caption("Overall awards are based on combined performance across ALL subjects nationally.")
+
+            col1, col2, col3, col4, col5 = st.columns(5)
+            dist = awards_summary['award_distribution']
+
+            with col1:
+                if is_filtered:
+                    st.metric("Outstanding", dist['outstanding'], delta=f"{filtered_awards['outstanding']} yours", delta_color="off")
+                else:
+                    st.metric("Outstanding", dist['outstanding'])
+                st.caption("Top 1% nationally")
+            with col2:
+                if is_filtered:
+                    st.metric("Distinguished", dist['distinguished'], delta=f"{filtered_awards['distinguished']} yours", delta_color="off")
+                else:
+                    st.metric("Distinguished", dist['distinguished'])
+                st.caption("Top 2-6%")
+            with col3:
+                if is_filtered:
+                    st.metric("Creditable", dist['creditable'], delta=f"{filtered_awards['creditable']} yours", delta_color="off")
+                else:
+                    st.metric("Creditable", dist['creditable'])
+                st.caption("Top 7-17%")
+            with col4:
+                if is_filtered:
+                    st.metric("Participation", dist['participation'], delta=f"{filtered_awards['participation']} yours", delta_color="off")
+                else:
+                    st.metric("Participation", dist['participation'])
+                st.caption("Below top 17%")
+            with col5:
+                if is_filtered:
+                    st.metric("Total Students", awards_summary['total_students_with_awards'], delta=f"{filtered_total} yours", delta_color="off")
+                else:
+                    st.metric("Total Students", awards_summary['total_students_with_awards'])
+
+            # ATS Summary
+            st.divider()
+            st.subheader("Asset Talent Search (ATS) Qualifiers")
+            if is_filtered:
+                st.caption(f"Students in top 15% nationally. **Your classes:** {filtered_ats_count} unique qualifiers")
+            else:
+                st.caption("Students in top 15% nationally for each subject. A student can qualify in multiple subjects.")
+
+            if awards_summary.get('ats_by_subject'):
+                ats_cols = st.columns(len(awards_summary['ats_by_subject']) + 1)
+                with ats_cols[0]:
+                    if is_filtered:
+                        st.metric("Total Unique", awards_summary['ats_qualified_count'], delta=f"{filtered_ats_count} yours", delta_color="off")
+                    else:
+                        st.metric("Total Unique", awards_summary['ats_qualified_count'])
+                    st.caption("Students with ATS")
+                for i, (subj, count) in enumerate(sorted(awards_summary['ats_by_subject'].items())):
+                    with ats_cols[i + 1]:
+                        if is_filtered:
+                            yours = filtered_ats_by_subject.get(subj, 0)
+                            st.metric(subj, count, delta=f"{yours} yours", delta_color="off")
+                        else:
+                            st.metric(subj, count)
+
+        # ===== Section 2: Class-wise National Standing =====
         st.divider()
+        st.subheader("Class-wise National Standing")
+        st.caption("Median national percentile for each class-subject. 50th = national average. Higher is better.")
 
-        # Performance Heatmap
-        st.subheader("Performance by Class and Subject (Median %)")
-        heatmap_fig, heatmap_df = create_school_heatmap(data)
-        st.plotly_chart(heatmap_fig, use_container_width=True)
-
-        # Grade-level median summary
-        st.subheader("Grade-Level Medians")
-        grade_data = []
+        # Build percentile heatmap data
+        percentile_data = []
         for cls in data['classes']:
-            if cls in data['grade_medians']:
-                grade_info = data['grade_medians'][cls]
-                row = {
-                    'Class': cls,
-                    'Overall Median': f"{grade_info['overall_median']:.1f}%",
-                    'Overall Average': f"{grade_info['overall_average']:.1f}%"
-                }
+            row = {'Class': cls}
+            class_summary = calculate_class_percentile_summary(data, cls)
+            for subj in data['subjects']:
+                if subj in class_summary['subjects']:
+                    median_pct = class_summary['subjects'][subj]['median_percentile']
+                    row[subj] = median_pct
+                else:
+                    row[subj] = None
+            if class_summary['overall_median']:
+                row['Overall'] = class_summary['overall_median']
+            percentile_data.append(row)
+
+        percentile_df = pd.DataFrame(percentile_data)
+
+        # Create heatmap
+        if not percentile_df.empty:
+            subjects_for_heatmap = data['subjects'] + ['Overall']
+            heatmap_values = percentile_df[subjects_for_heatmap].values
+
+            fig = go.Figure(data=go.Heatmap(
+                z=heatmap_values,
+                x=subjects_for_heatmap,
+                y=percentile_df['Class'].tolist(),
+                colorscale=[[0, "#dc3545"], [0.5, "#ffc107"], [1, "#28a745"]],
+                zmin=25,
+                zmax=90,
+                text=[[f"{v:.0f}" if pd.notna(v) else "" for v in row] for row in heatmap_values],
+                texttemplate="%{text}",
+                textfont=dict(size=14, color="black"),
+                hovertemplate='Class: %{y}<br>Subject: %{x}<br>Median Percentile: %{z:.0f}th<extra></extra>',
+                colorbar=dict(title="Percentile")
+            ))
+
+            fig.update_layout(
+                title="Median National Percentile by Class",
+                height=max(300, len(data['classes']) * 60),
+                margin=dict(l=80, r=40, t=50, b=60),
+                xaxis=dict(tickfont=dict(size=12)),
+                yaxis=dict(tickfont=dict(size=12))
+            )
+
+            st.plotly_chart(fig, use_container_width=True)
+
+        # Table with more details
+        with st.expander("View detailed class breakdown"):
+            detail_data = []
+            for cls in data['classes']:
+                class_summary = calculate_class_percentile_summary(data, cls)
+                row = {'Class': cls}
                 for subj in data['subjects']:
-                    if subj in grade_info['by_subject']:
-                        subj_stats = grade_info['by_subject'][subj]
-                        row[f"{subj} Median"] = f"{subj_stats['median']:.1f}%"
-                grade_data.append(row)
+                    if subj in class_summary['subjects']:
+                        s = class_summary['subjects'][subj]
+                        row[f"{subj} Median"] = f"{s['median_percentile']}th"
+                        row[f"{subj} ATS"] = s['ats_count']
+                    else:
+                        row[f"{subj} Median"] = "N/A"
+                        row[f"{subj} ATS"] = 0
+                detail_data.append(row)
 
-        st.dataframe(pd.DataFrame(grade_data), use_container_width=True, hide_index=True)
+            st.dataframe(pd.DataFrame(detail_data), use_container_width=True, hide_index=True)
 
-        # At-risk students
-        st.subheader("At-Risk Students (Below 60% in 2+ Subjects)")
-        if len(at_risk_df) > 0:
-            st.dataframe(at_risk_df, use_container_width=True, hide_index=True)
-        else:
-            st.success("No students currently at risk.")
+        # ===== Section 3: Quick Student Lookup =====
+        st.divider()
+        st.subheader("Quick Student Lookup")
+        st.caption("Select any student to see their national percentiles.")
 
-        # Weak skills
-        st.subheader("Skills Needing Attention (< 65%)")
+        all_students = get_all_students(data)
+        student_options = [s['display'] for s in all_students]
+        selected_display = st.selectbox("Select Student", student_options, key="overview_student_lookup")
+
+        if selected_display:
+            # Find the student
+            selected_student_info = next((s for s in all_students if s['display'] == selected_display), None)
+            if selected_student_info:
+                student_class = selected_student_info['class']
+                student_name = selected_student_info['name']
+
+                # Get overall awards
+                overall_awards = get_student_overall_awards(data, student_class, student_name)
+                student_subj_data = get_student_data(data, student_class, student_name)
+
+                # Display student info
+                col1, col2 = st.columns([1, 3])
+
+                with col1:
+                    if overall_awards:
+                        st.markdown(get_award_html(overall_awards['overall_award']), unsafe_allow_html=True)
+                        if overall_awards['total_percentile'] > 0:
+                            st.metric("Overall Percentile", f"{overall_awards['total_percentile']:.0f}th")
+                        else:
+                            st.caption("Overall: Incomplete")
+
+                with col2:
+                    # Subject percentiles
+                    subj_cols = st.columns(len(student_subj_data))
+                    for i, subj_data in enumerate(student_subj_data):
+                        with subj_cols[i]:
+                            st.markdown(f"**{subj_data['subject']}**")
+                            if subj_data.get('national'):
+                                nat = subj_data['national']
+                                pct_color = get_percentile_color(nat['percentile'])
+                                st.markdown(f"<span style='color: {pct_color}; font-size: 1.5em; font-weight: bold;'>{nat['percentile']}th</span>",
+                                           unsafe_allow_html=True)
+                                st.caption(f"Scaled: {nat['scaled_score']}")
+                                if nat['ats_qualified']:
+                                    st.markdown('<span class="ats-badge">ATS Qualified</span>', unsafe_allow_html=True)
+                            else:
+                                st.caption("N/A")
+
+        # ===== Section 4: Skills Needing Attention =====
+        st.divider()
+        st.subheader("Skills Needing Attention Across School")
+        st.caption("Skills where class performance is below 65%.")
+
         weak_skills = []
         for report in data['reports']:
             for skill in report['skills']:
@@ -1429,18 +1725,18 @@ def main():
                         'Class': report['class_section'],
                         'Subject': report['subject'],
                         'Skill': skill['skill_name'],
-                        'Performance': f"{skill['section_performance']:.1f}%"
+                        'Class Score': f"{skill['section_performance']:.0f}%"
                     })
 
         if weak_skills:
-            weak_df = pd.DataFrame(weak_skills).sort_values('Performance')
-            st.dataframe(weak_df.head(20), use_container_width=True, hide_index=True)
+            weak_df = pd.DataFrame(weak_skills).sort_values('Class Score')
+            st.dataframe(weak_df.head(15), use_container_width=True, hide_index=True)
         else:
-            st.success("All skills performing above 65%.")
+            st.success("All skills performing above 65% across the school.")
 
-    # ==================== TAB 2: CLASS ANALYSIS ====================
+    # ==================== TAB 2: CLASS VIEW ====================
     elif tab_selection == "Class Analysis":
-        st.header("Class Analysis")
+        st.header("Class View")
 
         col1, col2 = st.columns(2)
         with col1:
@@ -1455,122 +1751,130 @@ def main():
                 break
 
         if report:
-            st.subheader(f"{selected_class} - {selected_subject}")
+            # ===== Section 1: National Standing Summary =====
+            st.subheader(f"{selected_class} - {selected_subject}: National Standing")
 
-            col1, col2, col3, col4, col5 = st.columns(5)
-            percentages = [s['percentage'] for s in report['students']]
+            students_with_national = [s for s in report['students'] if s.get('national')]
 
-            with col1:
-                st.metric("Class Median", f"{report['class_median']:.1f}%")
-                st.caption("PRIMARY METRIC")
-            with col2:
-                st.metric("Class Average", f"{report['class_average']:.1f}%")
-                st.caption("Secondary")
-            with col3:
-                st.metric("Highest", f"{max(percentages):.1f}%")
-            with col4:
-                st.metric("Lowest", f"{min(percentages):.1f}%")
-            with col5:
-                below_60 = sum(1 for p in percentages if p < 60)
-                st.metric("Below 60%", below_60)
+            if students_with_national:
+                percentiles = [s['national']['percentile'] for s in students_with_national]
+                ats_qualifiers = [s['name'] for s in students_with_national if s['national'].get('ats_qualified')]
 
+                col1, col2, col3, col4 = st.columns(4)
+                with col1:
+                    median_pct = int(np.median(percentiles))
+                    st.metric("Class Median Percentile", f"{median_pct}th")
+                    st.caption(get_percentile_description(median_pct))
+                with col2:
+                    st.metric("Highest", f"{max(percentiles)}th")
+                with col3:
+                    st.metric("Lowest", f"{min(percentiles)}th")
+                with col4:
+                    st.metric("ATS Qualified", len(ats_qualifiers))
+                    st.caption("Top 15% nationally")
+
+                if ats_qualifiers:
+                    st.success(f"**ATS Qualified:** {', '.join(ats_qualifiers)}")
+
+                st.divider()
+
+                # ===== Section 2: All Students - National Percentiles =====
+                st.subheader("Student National Percentiles")
+                st.caption("Sorted by national percentile. Click column headers to re-sort.")
+
+                # Build student table sorted by national percentile
+                students_sorted = sorted(students_with_national,
+                                        key=lambda x: x['national']['percentile'], reverse=True)
+
+                student_table = []
+                for s in students_sorted:
+                    nat = s['national']
+                    row = {
+                        'Name': s['name'],
+                        'National Percentile': nat['percentile'],
+                        'Percentile Band': get_percentile_description(nat['percentile']),
+                        'Scaled Score': nat['scaled_score'],
+                        'Test Score': f"{s['score']}/{s['total_questions']}",
+                        'ATS': "Yes" if nat['ats_qualified'] else ""
+                    }
+                    student_table.append(row)
+
+                st.dataframe(pd.DataFrame(student_table), use_container_width=True, hide_index=True)
+
+            else:
+                st.info("National percentile data not available for this class/subject.")
+                # Show basic score info instead
+                st.subheader("Test Scores")
+                score_table = []
+                for s in sorted(report['students'], key=lambda x: x['percentage'], reverse=True):
+                    score_table.append({
+                        'Name': s['name'],
+                        'Score': f"{s['score']}/{s['total_questions']}",
+                        'Percentage': f"{s['percentage']:.1f}%"
+                    })
+                st.dataframe(pd.DataFrame(score_table), use_container_width=True, hide_index=True)
+
+            # ===== Section 3: Skill Analysis =====
             st.divider()
+            st.subheader("Skill Analysis")
+            st.caption("Which skills does this class need to work on?")
 
-            col1, col2 = st.columns(2)
-            with col1:
-                st.plotly_chart(create_class_distribution_chart(report), use_container_width=True)
-            with col2:
-                st.subheader("Distribution Statistics")
-                q1 = np.percentile(percentages, 25)
-                q3 = np.percentile(percentages, 75)
-                iqr = q3 - q1
-
-                st.markdown(f"""
-                | Statistic | Value |
-                |-----------|-------|
-                | **Median (Q2)** | **{report['class_median']:.1f}%** |
-                | Average | {report['class_average']:.1f}% |
-                | Q1 (25th percentile) | {q1:.1f}% |
-                | Q3 (75th percentile) | {q3:.1f}% |
-                | IQR | {iqr:.1f}% |
-                | Min | {min(percentages):.1f}% |
-                | Max | {max(percentages):.1f}% |
-                | Std Dev | {np.std(percentages):.1f}% |
-                """)
-
-            st.subheader("Individual Student Performance")
-            st.plotly_chart(create_student_bar_chart(report), use_container_width=True)
-
-            st.subheader("Skill-wise Performance")
             if report['skills']:
+                # Skill performance chart
                 st.plotly_chart(create_skill_chart(report['skills']), use_container_width=True)
 
                 col1, col2 = st.columns(2)
                 with col1:
                     st.markdown("**Strong Skills (>=75%)**")
                     strong = [s for s in report['skills'] if s['section_performance'] >= 75]
-                    for s in strong:
-                        st.markdown(f"- {s['skill_name']}: {s['section_performance']:.1f}%")
-                    if not strong:
-                        st.caption("None")
+                    if strong:
+                        for s in sorted(strong, key=lambda x: -x['section_performance']):
+                            st.markdown(f"- {s['skill_name']}: **{s['section_performance']:.0f}%**")
+                    else:
+                        st.caption("None above 75%")
+
                 with col2:
-                    st.markdown("**Skills Needing Attention (<65%)**")
+                    st.markdown("**Skills Needing Work (<65%)**")
                     weak = [s for s in report['skills'] if s['section_performance'] < 65]
-                    for s in weak:
-                        st.markdown(f"- {s['skill_name']}: {s['section_performance']:.1f}%")
-                    if not weak:
-                        st.caption("None")
+                    if weak:
+                        for s in sorted(weak, key=lambda x: x['section_performance']):
+                            st.error(f"{s['skill_name']}: **{s['section_performance']:.0f}%**")
+                    else:
+                        st.success("All skills above 65%!")
 
-                # Class-wide skill analysis section (secondary)
+                # Detailed skill gaps
                 st.divider()
-                st.subheader("Detailed Skill Analysis")
+                st.subheader("Which Students Need Help on Which Skills?")
 
-                # Show skill gaps analysis
                 skill_gaps = calculate_class_skill_gaps(report)
                 if skill_gaps:
-                    st.markdown("**Skills Where Students Struggle Most:**")
-                    gap_data = []
-                    for gap in skill_gaps:
-                        if gap['pct_struggling'] > 0:
+                    # Filter to only skills with struggling students
+                    gaps_with_issues = [g for g in skill_gaps if g['students_below_65'] > 0]
+
+                    if gaps_with_issues:
+                        gap_data = []
+                        for gap in sorted(gaps_with_issues, key=lambda x: -x['pct_struggling']):
                             gap_data.append({
                                 'Skill': gap['skill_name'],
-                                'Class Avg': f"{gap['class_performance']:.1f}%",
-                                'Students <65%': gap['students_below_65'],
-                                'Students <50%': gap['students_below_50'],
-                                '% Struggling': f"{gap['pct_struggling']:.0f}%",
+                                'Class Score': f"{gap['class_performance']:.0f}%",
+                                'Students Struggling': gap['students_below_65'],
                                 'Questions': ', '.join(f"Q{q}" for q in gap['questions'])
                             })
-                    if gap_data:
                         st.dataframe(pd.DataFrame(gap_data), use_container_width=True, hide_index=True)
+
+                        # Student × Skill Heatmap
+                        with st.expander("View Student × Skill Heatmap"):
+                            heatmap = create_class_skill_heatmap(report)
+                            if heatmap:
+                                st.plotly_chart(heatmap, use_container_width=True)
+                                st.caption("Green = strong (>=75%), Yellow = moderate (65-74%), Red = needs support (<65%)")
+                            else:
+                                st.info("Individual skill data not available.")
                     else:
-                        st.success("No significant skill gaps identified!")
+                        st.success("No students struggling significantly on any skill!")
+            else:
+                st.info("Skill data not available for this class/subject.")
 
-                # Student-by-skill heatmap (in expander to keep it secondary)
-                with st.expander("View Student × Skill Heatmap"):
-                    heatmap = create_class_skill_heatmap(report)
-                    if heatmap:
-                        st.plotly_chart(heatmap, use_container_width=True)
-                        st.caption("This heatmap shows how each student performs on each skill. "
-                                   "Green = strong (>=75%), Yellow = moderate (65-74%), Red = needs support (<65%)")
-                    else:
-                        st.info("Individual skill performance data not available for this class.")
-
-            st.subheader("Student Rankings")
-            students_sorted = sorted(report['students'], key=lambda x: x['percentage'], reverse=True)
-            ranking_data = []
-            for i, s in enumerate(students_sorted, 1):
-                vs_median = s['percentage'] - report['class_median']
-                status = "Above Median" if vs_median >= 0 else "Below Median"
-                ranking_data.append({
-                    'Rank': i,
-                    'Name': s['name'],
-                    'Score': f"{s['score']}/{s['total_questions']}",
-                    'Percentage': f"{s['percentage']:.1f}%",
-                    'vs Median': f"{vs_median:+.1f}%",
-                    'Status': status
-                })
-
-            st.dataframe(pd.DataFrame(ranking_data), use_container_width=True, hide_index=True)
         else:
             st.warning("No data available for this selection.")
 
@@ -1587,175 +1891,246 @@ def main():
 
         if selected_student:
             student_data = get_student_data(data, selected_class, selected_student)
+            overall_awards = get_student_overall_awards(data, selected_class, selected_student)
 
             if student_data:
-                st.subheader(f"{selected_student}")
+                # ==================== STUDENT DATA CARD ====================
+                # Consolidated view of all key metrics in one place
 
-                st.markdown("### Performance Summary")
-                cols = st.columns(len(student_data))
-
-                for i, subj_data in enumerate(student_data):
-                    with cols[i]:
-                        vs_median = subj_data['percentage'] - subj_data['class_median']
-
-                        st.metric(
-                            label=subj_data['subject'],
-                            value=f"{subj_data['percentage']:.1f}%",
-                            delta=f"{vs_median:+.1f}% vs Median"
-                        )
-                        st.caption(f"Score: {subj_data['score']}/{subj_data['total_questions']}")
-                        st.caption(f"Class Median: {subj_data['class_median']:.1f}%")
-                        st.caption(f"Class Avg: {subj_data['class_average']:.1f}%")
+                # Header with name and overall award
+                header_col1, header_col2 = st.columns([3, 1])
+                with header_col1:
+                    st.subheader(f"{selected_student}")
+                    st.caption(f"Class: {selected_class}")
+                with header_col2:
+                    if overall_awards:
+                        st.markdown(get_award_html(overall_awards['overall_award']), unsafe_allow_html=True)
+                        if overall_awards['total_percentile'] > 0:
+                            st.markdown(f"**Overall: {overall_awards['total_percentile']:.0f}th percentile**")
 
                 st.divider()
 
-                st.subheader("Multi-Subject Comparison")
-                st.plotly_chart(create_spider_chart(student_data, selected_student), use_container_width=True)
+                # ===== SECTION 1: National Performance Table (Color-coded) =====
+                st.markdown("### National Performance")
 
-                st.subheader("Performance Analysis")
+                # Collect data for the table
+                percentiles = []
+                scaled_scores = []
+                ats_count = 0
+
+                subject_rows = []
+                for subj_data in student_data:
+                    if subj_data.get('national'):
+                        nat = subj_data['national']
+                        pct = nat['percentile']
+                        scaled = nat['scaled_score']
+                        percentiles.append(pct)
+                        scaled_scores.append(scaled)
+                        if nat['ats_qualified']:
+                            ats_count += 1
+
+                        subject_rows.append({
+                            'Subject': subj_data['subject'],
+                            'Test Score': f"{subj_data['score']}/{subj_data['total_questions']}",
+                            'Test %': f"{subj_data['percentage']:.0f}%",
+                            'Nat. Percentile': pct,
+                            'Scaled Score': scaled,
+                            'ATS': "✓" if nat['ats_qualified'] else ""
+                        })
+                    else:
+                        subject_rows.append({
+                            'Subject': subj_data['subject'],
+                            'Test Score': f"{subj_data['score']}/{subj_data['total_questions']}",
+                            'Test %': f"{subj_data['percentage']:.0f}%",
+                            'Nat. Percentile': None,
+                            'Scaled Score': None,
+                            'ATS': ""
+                        })
+
+                # Add overall row
+                if percentiles and overall_awards:
+                    overall_pct = overall_awards['total_percentile'] if overall_awards['total_percentile'] > 0 else np.mean(percentiles)
+                    overall_scaled = overall_awards.get('total_scaled_score_avg', np.mean(scaled_scores))
+
+                    subject_rows.append({
+                        'Subject': '📊 OVERALL',
+                        'Test Score': '—',
+                        'Test %': '—',
+                        'Nat. Percentile': int(overall_pct),
+                        'Scaled Score': int(overall_scaled) if overall_scaled else None,
+                        'ATS': f"{ats_count} subj" if ats_count > 0 else ""
+                    })
+
+                # Create DataFrame
+                perf_df = pd.DataFrame(subject_rows)
+
+                # Function to color percentile cells
+                def color_percentile(val):
+                    if pd.isna(val) or val is None:
+                        return 'color: #999'
+                    val = int(val)
+                    if val >= 85:
+                        return 'background-color: #d4edda; color: #155724; font-weight: bold'
+                    elif val >= 50:
+                        return 'background-color: #d1ecf1; color: #0c5460; font-weight: bold'
+                    elif val >= 25:
+                        return 'background-color: #fff3cd; color: #856404; font-weight: bold'
+                    else:
+                        return 'background-color: #f8d7da; color: #721c24; font-weight: bold'
+
+                # Style the dataframe
+                styled_df = perf_df.style.applymap(
+                    color_percentile,
+                    subset=['Nat. Percentile']
+                ).format({
+                    'Nat. Percentile': lambda x: f"{int(x)}th" if pd.notna(x) and x is not None else "N/A",
+                    'Scaled Score': lambda x: f"{int(x)}" if pd.notna(x) and x is not None else "N/A"
+                })
+
+                st.dataframe(
+                    styled_df,
+                    use_container_width=True,
+                    hide_index=True,
+                    column_config={
+                        'Subject': st.column_config.TextColumn(width="medium"),
+                        'Test Score': st.column_config.TextColumn(width="small"),
+                        'Test %': st.column_config.TextColumn(width="small"),
+                        'Nat. Percentile': st.column_config.TextColumn(width="small"),
+                        'Scaled Score': st.column_config.TextColumn(width="small"),
+                        'ATS': st.column_config.TextColumn(width="small"),
+                    }
+                )
+
+                # Legend
+                st.caption("**Percentile colors:** 🟢 85th+ | 🔵 50-84th | 🟡 25-49th | 🔴 <25th  •  **Scaled Score:** 500 = National Median")
+
+                # ===== Subject Insights =====
+                if len(percentiles) >= 2:
+                    # Find strongest and weakest subjects
+                    subj_pct_pairs = [(subj_data['subject'], subj_data['national']['percentile'])
+                                      for subj_data in student_data if subj_data.get('national')]
+                    subj_pct_pairs.sort(key=lambda x: x[1], reverse=True)
+
+                    strongest = subj_pct_pairs[0]
+                    weakest = subj_pct_pairs[-1]
+                    gap = strongest[1] - weakest[1]
+
+                    if gap >= 20:
+                        st.info(f"**Subject Gap:** {strongest[0]} ({strongest[1]}th) is significantly stronger than {weakest[0]} ({weakest[1]}th) — {gap} percentile points difference.")
+                    elif gap >= 10:
+                        st.caption(f"**Subject Gap:** {strongest[0]} ({strongest[1]}th) vs {weakest[0]} ({weakest[1]}th) — {gap} points difference.")
+
+                st.divider()
+
+                # ===== SECTION 2: Skills Summary by Subject =====
+                st.markdown("### Skills Summary")
+
+                for subj_data in student_data:
+                    if subj_data.get('skill_performance'):
+                        st.markdown(f"**{subj_data['subject']}**")
+
+                        # Build skills table for this subject
+                        skills_table = []
+                        for skill_name, perf in sorted(subj_data['skill_performance'].items(),
+                                                       key=lambda x: x[1]):
+                            # Determine status
+                            if perf >= 75:
+                                status = "Strong"
+                            elif perf >= 65:
+                                status = "OK"
+                            else:
+                                status = "Needs Work"
+
+                            # Get questions for this skill
+                            skill_questions = []
+                            for skill in subj_data['skills']:
+                                if skill['skill_name'] == skill_name:
+                                    skill_questions = skill.get('questions', [])
+                                    break
+
+                            # Find wrong questions for this skill
+                            wrong_qs = []
+                            if subj_data.get('question_responses'):
+                                for q in skill_questions:
+                                    if q <= len(subj_data['question_responses']):
+                                        if subj_data['question_responses'][q - 1] == 0:
+                                            wrong_qs.append(q)
+
+                            skills_table.append({
+                                'Skill': skill_name,
+                                'Score': f"{perf:.0f}%",
+                                'Status': status,
+                                'Questions': ', '.join(f"Q{q}" for q in skill_questions[:5]) + ('...' if len(skill_questions) > 5 else ''),
+                                'Missed': ', '.join(f"Q{q}" for q in wrong_qs) if wrong_qs else "-"
+                            })
+
+                        st.dataframe(
+                            pd.DataFrame(skills_table),
+                            use_container_width=True,
+                            hide_index=True,
+                            column_config={
+                                'Skill': st.column_config.TextColumn(width="large"),
+                                'Score': st.column_config.TextColumn(width="small"),
+                                'Status': st.column_config.TextColumn(width="small"),
+                                'Questions': st.column_config.TextColumn(width="medium"),
+                                'Missed': st.column_config.TextColumn(width="medium"),
+                            }
+                        )
+                        st.markdown("")  # Spacing
+
+                # ===== SECTION 3: Quick Summary Boxes =====
+                st.divider()
+                st.markdown("### Key Takeaways")
+
+                # Collect all strengths and weaknesses across subjects
+                all_strengths = []
+                all_weaknesses = []
+
+                for subj_data in student_data:
+                    if subj_data.get('skill_performance'):
+                        subj = subj_data['subject']
+                        for skill_name, perf in subj_data['skill_performance'].items():
+                            if perf >= 75:
+                                all_strengths.append((subj, skill_name, perf))
+                            elif perf < 65:
+                                all_weaknesses.append((subj, skill_name, perf))
+
+                # Sort and display
                 col1, col2 = st.columns(2)
 
-                best_subj = max(student_data, key=lambda x: x['percentage'] - x['class_median'])
-                worst_subj = min(student_data, key=lambda x: x['percentage'] - x['class_median'])
-
                 with col1:
-                    st.markdown("**Strongest Subject (vs Median)**")
-                    delta = best_subj['percentage'] - best_subj['class_median']
-                    st.success(f"{best_subj['subject']}: {best_subj['percentage']:.1f}% ({delta:+.1f}% vs median)")
+                    st.markdown("**Strengths (≥75%)**")
+                    if all_strengths:
+                        # Sort by performance descending, take top 5
+                        top_strengths = sorted(all_strengths, key=lambda x: -x[2])[:5]
+                        for subj, skill, perf in top_strengths:
+                            st.markdown(f"- **{subj}**: {skill} ({perf:.0f}%)")
+                    else:
+                        st.caption("No skills at 75%+")
 
                 with col2:
-                    st.markdown("**Needs Focus (vs Median)**")
-                    delta = worst_subj['percentage'] - worst_subj['class_median']
-                    if delta < 0:
-                        st.warning(f"{worst_subj['subject']}: {worst_subj['percentage']:.1f}% ({delta:+.1f}% vs median)")
+                    st.markdown("**Areas for Improvement (<65%)**")
+                    if all_weaknesses:
+                        # Sort by performance ascending, take top 5
+                        top_weaknesses = sorted(all_weaknesses, key=lambda x: x[2])[:5]
+                        for subj, skill, perf in top_weaknesses:
+                            st.markdown(f"- **{subj}**: {skill} ({perf:.0f}%)")
                     else:
-                        st.info(f"{worst_subj['subject']}: {worst_subj['percentage']:.1f}% ({delta:+.1f}% vs median)")
+                        st.success("All skills at 65%+")
 
-                st.subheader("Subject Details & Skill Analysis")
-                for subj_data in student_data:
-                    with st.expander(f"{subj_data['subject']} - {subj_data['percentage']:.1f}%", expanded=False):
-                        # Basic stats
-                        col1, col2, col3 = st.columns(3)
-                        with col1:
-                            st.metric("Score", f"{subj_data['score']}/{subj_data['total_questions']}")
-                        with col2:
-                            vs_med = subj_data['percentage'] - subj_data['class_median']
-                            st.metric("vs Median", f"{vs_med:+.1f}%")
-                        with col3:
-                            vs_avg = subj_data['percentage'] - subj_data['class_average']
-                            st.metric("vs Average", f"{vs_avg:+.1f}%")
-
-                        # Skill-level analysis
-                        if subj_data['skill_performance']:
-                            st.markdown("---")
-                            st.markdown("#### Skill-Level Performance")
-
-                            # View selector for different visualizations
-                            chart_type = st.radio(
-                                "Visualization",
-                                ["Bar Comparison", "Skill Radar", "Treemap"],
-                                horizontal=True,
-                                key=f"chart_type_{subj_data['subject']}"
+                # ===== SECTION 4: Detailed View (Optional) =====
+                st.divider()
+                with st.expander("View Detailed Charts"):
+                    for subj_data in student_data:
+                        if subj_data.get('skill_performance') and subj_data['skills']:
+                            st.markdown(f"**{subj_data['subject']} - Skill Comparison**")
+                            skill_chart = create_skill_bar_comparison(
+                                subj_data['skill_performance'],
+                                subj_data['skills']
                             )
+                            if skill_chart:
+                                st.plotly_chart(skill_chart, use_container_width=True)
 
-                            if chart_type == "Bar Comparison":
-                                skill_chart = create_skill_bar_comparison(
-                                    subj_data['skill_performance'],
-                                    subj_data['skills']
-                                )
-                                if skill_chart:
-                                    st.plotly_chart(skill_chart, use_container_width=True)
-                            elif chart_type == "Skill Radar":
-                                radar_chart = create_student_skill_radar(
-                                    subj_data['skill_performance'],
-                                    subj_data['skills'],
-                                    selected_student
-                                )
-                                if radar_chart:
-                                    st.plotly_chart(radar_chart, use_container_width=True)
-                            else:  # Treemap
-                                treemap = create_skill_treemap(
-                                    subj_data['skill_performance'],
-                                    title=f"Skill Areas - {subj_data['subject']}"
-                                )
-                                if treemap:
-                                    st.plotly_chart(treemap, use_container_width=True)
-                                    st.caption("Size represents relative performance. Colors: Green (>=75%), Yellow (65-74%), Red (<65%)")
-
-                            # Identify strengths and areas for improvement
-                            col1, col2 = st.columns(2)
-                            with col1:
-                                st.markdown("**Strengths (>=75%)**")
-                                strengths = [(k, v) for k, v in subj_data['skill_performance'].items() if v >= 75]
-                                if strengths:
-                                    for skill, perf in sorted(strengths, key=lambda x: -x[1]):
-                                        st.markdown(f"- {skill}: **{perf:.0f}%**")
-                                else:
-                                    st.caption("None identified")
-
-                            with col2:
-                                st.markdown("**Areas for Improvement (<65%)**")
-                                weak = [(k, v) for k, v in subj_data['skill_performance'].items() if v < 65]
-                                if weak:
-                                    for skill, perf in sorted(weak, key=lambda x: x[1]):
-                                        st.markdown(f"- {skill}: **{perf:.0f}%**")
-                                else:
-                                    st.success("All skills above 65%!")
-
-                            # Question-level details (use checkbox instead of nested expander)
-                            if subj_data['question_responses']:
-                                st.markdown("---")
-                                show_q_details = st.checkbox(
-                                    "Show Question-Level Details",
-                                    key=f"q_details_{subj_data['subject']}"
-                                )
-                                if show_q_details:
-                                    # Question heatmap grouped by skill
-                                    q_heatmap = create_question_heatmap(
-                                        subj_data['question_responses'],
-                                        subj_data['skills'],
-                                        subj_data['total_questions']
-                                    )
-                                    if q_heatmap:
-                                        st.plotly_chart(q_heatmap, use_container_width=True)
-                                        st.caption("Green = Correct, Red = Incorrect. Numbers show question numbers.")
-
-                                    # Summary stats
-                                    correct = sum(subj_data['question_responses'])
-                                    total = len(subj_data['question_responses'])
-                                    st.markdown(f"**Summary:** {correct}/{total} questions correct ({100*correct/total:.1f}%)")
-
-                                    # List wrong questions by skill
-                                    st.markdown("**Questions Incorrect by Skill:**")
-                                    q_to_skill = {}
-                                    for skill in subj_data['skills']:
-                                        for q in skill['questions']:
-                                            if q <= subj_data['total_questions']:
-                                                q_to_skill[q] = skill['skill_name']
-
-                                    wrong_by_skill = {}
-                                    for i, resp in enumerate(subj_data['question_responses']):
-                                        if resp == 0:
-                                            q_num = i + 1
-                                            skill = q_to_skill.get(q_num, "Other")
-                                            if skill not in wrong_by_skill:
-                                                wrong_by_skill[skill] = []
-                                            wrong_by_skill[skill].append(q_num)
-
-                                    if wrong_by_skill:
-                                        for skill, questions in sorted(wrong_by_skill.items()):
-                                            st.markdown(f"- **{skill}**: Q{', Q'.join(map(str, questions))}")
-                                    else:
-                                        st.success("All questions correct!")
-
-                        elif subj_data['skills']:
-                            # Fallback to class-level skill performance if no per-student data
-                            st.markdown("---")
-                            st.markdown("**Class Skill Performance** (individual question data not available)")
-                            st.plotly_chart(
-                                create_skill_chart(subj_data['skills'], ""),
-                                use_container_width=True
-                            )
             else:
                 st.warning("No data available for this student.")
 

@@ -8,6 +8,7 @@ Parses the actual EI CSV structure:
 - Student Performance: Header rows + question-by-question answers
 - Skills: Skill name, questions, section/school performance
 - Question-level responses: Individual student answers (correct/incorrect)
+- Awards & Scores: National percentiles, scaled scores, and awards from Excel
 """
 
 import pandas as pd
@@ -18,7 +19,17 @@ import csv
 from pathlib import Path
 from typing import Dict, List, Any, Optional, Tuple
 from dataclasses import dataclass, asdict, field
+from difflib import SequenceMatcher
 from glob import glob
+
+
+@dataclass
+class NationalPerformance:
+    """National percentile and scaled score data for a student-subject."""
+    scaled_score: int                    # 200-800 scale (500 = national median)
+    percentile: int                      # 0-99 percentile rank nationally
+    ats_qualified: bool                  # True if top 15% (qualifies for Asset Talent Search)
+    subject_outstanding: bool            # True if top 1% in this subject
 
 
 @dataclass
@@ -30,6 +41,8 @@ class StudentResult:
     percentage: float
     question_responses: List[int] = field(default_factory=list)  # 1=correct, 0=incorrect for each Q
     skill_performance: Dict[str, float] = field(default_factory=dict)  # skill_name -> percentage
+    # National performance data (from Awards/Scores Excel)
+    national: Optional[NationalPerformance] = None
 
 
 @dataclass
@@ -39,6 +52,15 @@ class SkillPerformance:
     questions: List[int]
     section_performance: float
     school_performance: float
+
+
+@dataclass
+class StudentOverallAwards:
+    """Overall awards data for a student (across all subjects)."""
+    user_id: int
+    overall_award: str           # 'o' (Outstanding), 'd' (Distinguished), 'c' (Creditable), 'p' (Participation)
+    total_percentile: float      # Overall percentile across all subjects
+    total_scaled_score_avg: float  # Average scaled score across subjects
 
 
 @dataclass
@@ -501,7 +523,9 @@ def build_class_report(student_df: pd.DataFrame,
                        skills_df: pd.DataFrame,
                        class_section: str,
                        subject: str,
-                       question_level_data: Optional[Dict[Tuple[str, str], pd.DataFrame]] = None) -> Optional[ClassReport]:
+                       question_level_data: Optional[Dict[Tuple[str, str], pd.DataFrame]] = None,
+                       awards_df: Optional[pd.DataFrame] = None,
+                       awards_name_mapping: Optional[Dict[Tuple[str, str], str]] = None) -> Optional[ClassReport]:
     """
     Build a complete class report with median-first statistics.
 
@@ -511,6 +535,8 @@ def build_class_report(student_df: pd.DataFrame,
         class_section: Class identifier (e.g., "3-A")
         subject: Subject name (e.g., "English")
         question_level_data: Optional dict of question-level responses by (class, subject)
+        awards_df: Optional DataFrame with national percentile data
+        awards_name_mapping: Optional mapping from awards names to existing names
 
     Returns:
         ClassReport object with all data
@@ -549,12 +575,13 @@ def build_class_report(student_df: pd.DataFrame,
 
     total_questions = int(class_students['total_questions'].iloc[0])
 
-    # Build student results with question-level data
+    # Build student results with question-level data and national data
     students = []
     for _, row in class_students.iterrows():
         student_name = row['student_name']
         question_responses = []
         skill_performance = {}
+        national_data = None
 
         # Try to find question-level data for this student
         if q_level_df is not None:
@@ -573,13 +600,20 @@ def build_class_report(student_df: pd.DataFrame,
                     question_responses, skills, total_questions
                 )
 
+        # Try to get national performance data
+        if awards_df is not None and awards_name_mapping is not None:
+            national_data = get_student_national_data(
+                awards_df, awards_name_mapping, class_section, subject, student_name
+            )
+
         students.append(StudentResult(
             name=student_name,
             score=int(row['score']),
             total_questions=total_questions,
             percentage=float(row['percentage']),
             question_responses=question_responses,
-            skill_performance=skill_performance
+            skill_performance=skill_performance,
+            national=national_data
         ))
 
     # Calculate statistics
@@ -611,9 +645,269 @@ def sort_class_sections(classes: List[str]) -> List[str]:
     return sorted(classes, key=sort_key)
 
 
+# ==================== AWARDS & PERCENTILE DATA LOADING ====================
+
+def normalize_name_for_matching(name: str) -> str:
+    """
+    Normalize name for fuzzy matching by removing middle initials.
+    'ADIL S GUPTA' -> 'ADIL GUPTA'
+    """
+    if not isinstance(name, str):
+        return ""
+    parts = name.upper().split()
+    # Filter out single-letter parts (middle initials)
+    filtered = [p for p in parts if len(p) > 1]
+    return ' '.join(filtered)
+
+
+def find_best_name_match(awards_name: str, existing_names: List[str]) -> Tuple[Optional[str], float]:
+    """
+    Find the best matching name from existing names for an awards data name.
+
+    Returns:
+        Tuple of (matched_name, confidence_score)
+    """
+    awards_norm = normalize_name_for_matching(awards_name)
+
+    best_match = None
+    best_score = 0.0
+
+    for existing_name in existing_names:
+        existing_norm = normalize_name_for_matching(existing_name)
+
+        # Exact match after normalization
+        if awards_norm == existing_norm:
+            return existing_name, 1.0
+
+        # Check if all words from awards name are in existing name (handles middle initials)
+        awards_words = set(awards_norm.split())
+        existing_words = set(existing_norm.split())
+
+        if awards_words and existing_words:
+            if awards_words.issubset(existing_words) or existing_words.issubset(awards_words):
+                return existing_name, 0.95
+
+        # Fuzzy match as fallback
+        score = SequenceMatcher(None, awards_norm, existing_norm).ratio()
+        if score > best_score:
+            best_score = score
+            best_match = existing_name
+
+    return best_match, best_score
+
+
+def load_awards_data(
+    awards_file: str = "Awards_and_Scores_Winter_2025_2026_01_29.xlsx"
+) -> Tuple[pd.DataFrame, Dict[str, Dict[str, Any]]]:
+    """
+    Load awards and percentile data from Excel file.
+
+    Returns:
+        Tuple of:
+        - DataFrame with all awards data
+        - Dict mapping (class_section, student_name) -> overall awards info
+    """
+    awards_path = Path(awards_file)
+    if not awards_path.exists():
+        print(f"  Warning: Awards file not found: {awards_file}")
+        return pd.DataFrame(), {}
+
+    try:
+        df = pd.read_excel(awards_file, sheet_name='result')
+    except Exception as e:
+        print(f"  Warning: Failed to load awards file: {e}")
+        return pd.DataFrame(), {}
+
+    # Create full name column
+    df['FULL_NAME'] = df['FIRST_NAME'].astype(str) + ' ' + df['LAST_NAME'].astype(str)
+    # Handle 'nan' in last name (e.g., "AVYUKT nan" -> "AVYUKT NA")
+    df['FULL_NAME'] = df['FULL_NAME'].str.replace(' nan', ' NA', case=False)
+
+    # Normalize class section format
+    df['CLASS_SECTION'] = df['CLASS'].astype(str) + '-' + df['SECTION'].astype(str)
+
+    # Normalize subject name (Math -> Maths)
+    df['SUBJECT_NORM'] = df['SUBJECT_NAME'].apply(normalize_subject)
+
+    # Build overall awards mapping (one entry per student)
+    overall_awards = {}
+    unique_students = df.drop_duplicates(subset=['USER_ID'])
+
+    for _, row in unique_students.iterrows():
+        key = (row['CLASS_SECTION'], row['FULL_NAME'])
+        overall_awards[key] = {
+            'user_id': int(row['USER_ID']),
+            'overall_award': str(row['OVERALL_AWARDS']).lower(),
+            'total_percentile': float(row['TOTAL_PERCENTILE']) if pd.notna(row['TOTAL_PERCENTILE']) else 0.0,
+            'total_scaled_score_avg': float(row['TOTAL_SS_AVG']) if pd.notna(row['TOTAL_SS_AVG']) else 0.0
+        }
+
+    print(f"  Loaded awards data: {len(df)} entries, {len(unique_students)} unique students")
+
+    return df, overall_awards
+
+
+def build_awards_name_mapping(
+    awards_df: pd.DataFrame,
+    existing_students_by_class: Dict[str, List[str]]
+) -> Dict[Tuple[str, str], str]:
+    """
+    Build mapping from (class_section, awards_name) to existing student name.
+
+    Args:
+        awards_df: DataFrame with awards data
+        existing_students_by_class: Dict mapping class_section -> list of student names
+
+    Returns:
+        Dict mapping (class_section, awards_full_name) -> existing_student_name
+    """
+    mapping = {}
+    unmatched = []
+
+    # Get unique students from awards data
+    unique_students = awards_df.drop_duplicates(subset=['USER_ID'])
+
+    for _, row in unique_students.iterrows():
+        class_section = row['CLASS_SECTION']
+        awards_name = row['FULL_NAME']
+
+        existing_names = existing_students_by_class.get(class_section, [])
+        if not existing_names:
+            continue
+
+        matched_name, score = find_best_name_match(awards_name, existing_names)
+
+        if score >= 0.7:
+            mapping[(class_section, awards_name)] = matched_name
+        else:
+            unmatched.append((class_section, awards_name, matched_name, score))
+
+    if unmatched:
+        print(f"  Warning: {len(unmatched)} students could not be matched:")
+        for cls, awards_name, best_guess, score in unmatched[:5]:
+            print(f"    {cls}: '{awards_name}' (best guess: '{best_guess}', score: {score:.2f})")
+
+    return mapping
+
+
+def get_student_national_data(
+    awards_df: pd.DataFrame,
+    name_mapping: Dict[Tuple[str, str], str],
+    class_section: str,
+    subject: str,
+    student_name: str
+) -> Optional[NationalPerformance]:
+    """
+    Get national performance data for a specific student-subject.
+
+    Args:
+        awards_df: DataFrame with awards data
+        name_mapping: Mapping from awards names to existing names
+        class_section: Class like "3-A"
+        subject: Subject like "Maths"
+        student_name: Student name from existing data
+
+    Returns:
+        NationalPerformance object or None if not found
+    """
+    # Find the awards name that maps to this student
+    awards_name = None
+    for (cls, a_name), existing_name in name_mapping.items():
+        if cls == class_section and existing_name == student_name:
+            awards_name = a_name
+            break
+
+    if awards_name is None:
+        return None
+
+    # Look up the subject data
+    mask = (
+        (awards_df['CLASS_SECTION'] == class_section) &
+        (awards_df['FULL_NAME'] == awards_name) &
+        (awards_df['SUBJECT_NORM'] == subject)
+    )
+    row = awards_df[mask]
+
+    if row.empty:
+        return None
+
+    row = row.iloc[0]
+
+    return NationalPerformance(
+        scaled_score=int(row['SCALED_SCORE']) if pd.notna(row['SCALED_SCORE']) else 0,
+        percentile=int(row['PERCENTILE']) if pd.notna(row['PERCENTILE']) else 0,
+        ats_qualified=bool(row['ATS_QUALIFIED']) if pd.notna(row['ATS_QUALIFIED']) else False,
+        subject_outstanding=(str(row['SUBJECT_OUTSTANDING']).lower() == 'o') if pd.notna(row['SUBJECT_OUTSTANDING']) else False
+    )
+
+
+def get_student_overall_awards(
+    overall_awards: Dict[Tuple[str, str], Dict],
+    name_mapping: Dict[Tuple[str, str], str],
+    class_section: str,
+    student_name: str
+) -> Optional[StudentOverallAwards]:
+    """
+    Get overall awards data for a student.
+
+    Returns:
+        StudentOverallAwards object or None if not found
+    """
+    # Find the awards name that maps to this student
+    awards_name = None
+    for (cls, a_name), existing_name in name_mapping.items():
+        if cls == class_section and existing_name == student_name:
+            awards_name = a_name
+            break
+
+    if awards_name is None:
+        return None
+
+    key = (class_section, awards_name)
+    if key not in overall_awards:
+        return None
+
+    info = overall_awards[key]
+    return StudentOverallAwards(
+        user_id=info['user_id'],
+        overall_award=info['overall_award'],
+        total_percentile=info['total_percentile'],
+        total_scaled_score_avg=info['total_scaled_score_avg']
+    )
+
+
+def get_award_label(award_code: str) -> str:
+    """Convert award code to human-readable label."""
+    labels = {
+        'o': 'Outstanding',
+        'd': 'Distinguished',
+        'c': 'Creditable',
+        'p': 'Participation'
+    }
+    return labels.get(award_code.lower(), 'Unknown')
+
+
+def get_percentile_band(percentile: float) -> Tuple[str, str]:
+    """
+    Get the percentile band and description for a given percentile.
+
+    Returns:
+        Tuple of (band_code, band_description)
+    """
+    if percentile >= 99:
+        return ('o', 'Outstanding (Top 1%)')
+    elif percentile >= 94:
+        return ('d', 'Distinguished (Top 6%)')
+    elif percentile >= 83:
+        return ('c', 'Creditable (Top 17%)')
+    else:
+        return ('p', 'Participation')
+
+
 def build_school_data(student_data_dir: str = "EI Student Performance CSV Data",
                       skills_data_dir: str = "EI Skills Tested By Question CSV Data",
                       question_level_dir: str = "EI Student Performance by Question CSV",
+                      awards_file: str = "Awards_and_Scores_Winter_2025_2026_01_29.xlsx",
                       validate: bool = True) -> Dict[str, Any]:
     """
     Build complete school data structure for dashboard.
@@ -624,6 +918,7 @@ def build_school_data(student_data_dir: str = "EI Student Performance CSV Data",
         student_data_dir: Directory with student performance CSVs
         skills_data_dir: Directory with skills mapping CSVs
         question_level_dir: Directory with question-level response CSVs
+        awards_file: Excel file with national percentile and awards data
         validate: Whether to run data validation checks
 
     Returns:
@@ -637,6 +932,9 @@ def build_school_data(student_data_dir: str = "EI Student Performance CSV Data",
 
     print("\nLoading question-level data...")
     question_level_data = load_all_question_level_data(question_level_dir)
+
+    print("\nLoading awards and percentile data...")
+    awards_df, overall_awards = load_awards_data(awards_file)
 
     # Run validation
     if validate and question_level_data:
@@ -656,6 +954,17 @@ def build_school_data(student_data_dir: str = "EI Student Performance CSV Data",
     print(f"\nFound {len(classes)} classes: {classes}")
     print(f"Found {len(subjects)} subjects: {subjects}")
 
+    # Build name mapping for awards data
+    awards_name_mapping = {}
+    if not awards_df.empty:
+        print("\nBuilding awards name mapping...")
+        existing_students_by_class = {}
+        for cls in classes:
+            cls_mask = student_df['class_section'] == cls
+            existing_students_by_class[cls] = student_df[cls_mask]['student_name'].unique().tolist()
+        awards_name_mapping = build_awards_name_mapping(awards_df, existing_students_by_class)
+        print(f"  Mapped {len(awards_name_mapping)} students")
+
     # Build reports for each class-subject combination
     print("\nBuilding class reports...")
     reports = []
@@ -663,15 +972,19 @@ def build_school_data(student_data_dir: str = "EI Student Performance CSV Data",
         for subject in subjects:
             report = build_class_report(
                 student_df, skills_df, class_section, subject,
-                question_level_data=question_level_data
+                question_level_data=question_level_data,
+                awards_df=awards_df if not awards_df.empty else None,
+                awards_name_mapping=awards_name_mapping if awards_name_mapping else None
             )
             if report:
                 reports.append(asdict(report))
-                # Count how many students have question-level data
+                # Count how many students have question-level data and national data
                 students_with_q_data = sum(1 for s in report.students if s.question_responses)
+                students_with_national = sum(1 for s in report.students if s.national)
                 print(f"  {class_section} {subject}: {report.total_students} students, "
                       f"median={report.class_median:.1f}%, avg={report.class_average:.1f}%, "
-                      f"q-level: {students_with_q_data}/{report.total_students}")
+                      f"q-level: {students_with_q_data}/{report.total_students}, "
+                      f"national: {students_with_national}/{report.total_students}")
 
     # Calculate grade-level medians (across all subjects per grade)
     grade_medians = {}
@@ -699,6 +1012,55 @@ def build_school_data(student_data_dir: str = "EI Student Performance CSV Data",
     # Count unique students (by name within each class)
     unique_students = student_df.groupby('class_section')['student_name'].nunique().sum()
 
+    # Build overall awards summary for school
+    awards_summary = None
+    if overall_awards:
+        # Count awards distribution
+        award_counts = {'o': 0, 'd': 0, 'c': 0, 'p': 0}
+        total_ats_qualified = 0
+        all_percentiles = []
+
+        for key, info in overall_awards.items():
+            award_code = info['overall_award']
+            if award_code in award_counts:
+                award_counts[award_code] += 1
+            all_percentiles.append(info['total_percentile'])
+
+        # Count ATS qualifications from detailed data
+        if not awards_df.empty:
+            total_ats_qualified = awards_df[awards_df['ATS_QUALIFIED'] == True]['USER_ID'].nunique()
+            ats_by_subject = awards_df[awards_df['ATS_QUALIFIED'] == True].groupby('SUBJECT_NORM').size().to_dict()
+        else:
+            ats_by_subject = {}
+
+        awards_summary = {
+            'award_distribution': {
+                'outstanding': award_counts['o'],
+                'distinguished': award_counts['d'],
+                'creditable': award_counts['c'],
+                'participation': award_counts['p']
+            },
+            'total_students_with_awards': len(overall_awards),
+            'ats_qualified_count': total_ats_qualified,
+            'ats_by_subject': ats_by_subject,
+            'median_percentile': float(np.median(all_percentiles)) if all_percentiles else 0,
+            'avg_percentile': float(round(np.mean(all_percentiles), 1)) if all_percentiles else 0
+        }
+
+    # Build student overall awards mapping for dashboard
+    student_overall_awards = {}
+    if awards_name_mapping and overall_awards:
+        for (cls, awards_name), existing_name in awards_name_mapping.items():
+            key = (cls, awards_name)
+            if key in overall_awards:
+                info = overall_awards[key]
+                student_overall_awards[(cls, existing_name)] = {
+                    'overall_award': info['overall_award'],
+                    'overall_award_label': get_award_label(info['overall_award']),
+                    'total_percentile': info['total_percentile'],
+                    'total_scaled_score_avg': info['total_scaled_score_avg']
+                }
+
     return {
         'school_info': {
             'school_name': 'PEP School V2',
@@ -715,7 +1077,9 @@ def build_school_data(student_data_dir: str = "EI Student Performance CSV Data",
             'average': school_average,    # Secondary metric
             'total_students': int(unique_students),
             'total_assessments': len(student_df)
-        }
+        },
+        'awards_summary': awards_summary,
+        'student_overall_awards': {f"{k[0]}|{k[1]}": v for k, v in student_overall_awards.items()}
     }
 
 

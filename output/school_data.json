@@ -79,6 +79,12 @@
             "Knows punctuation and sentence formation": 33.3,
             "Understands organisation and context of the passage": 60.0,
             "Understands the usage of grammar concepts": 100.0
+          },
+          "national": {
+            "scaled_score": 485,
+            "percentile": 35,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -133,6 +139,12 @@
             "Knows punctuation and sentence formation": 100.0,
             "Understands organisation and context of the passage": 100.0,
             "Understands the usage of grammar concepts": 100.0
+          },
+          "national": {
+            "scaled_score": 752,
+            "percentile": 98,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -187,6 +199,12 @@
             "Knows punctuation and sentence formation": 66.7,
             "Understands organisation and context of the passage": 40.0,
             "Understands the usage of grammar concepts": 100.0
+          },
+          "national": {
+            "scaled_score": 637,
+            "percentile": 82,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -241,6 +259,12 @@
             "Knows punctuation and sentence formation": 66.7,
             "Understands organisation and context of the passage": 80.0,
             "Understands the usage of grammar concepts": 66.7
+          },
+          "national": {
+            "scaled_score": 641,
+            "percentile": 83,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -295,6 +319,12 @@
             "Knows punctuation and sentence formation": 100.0,
             "Understands organisation and context of the passage": 80.0,
             "Understands the usage of grammar concepts": 66.7
+          },
+          "national": {
+            "scaled_score": 633,
+            "percentile": 81,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -349,6 +379,12 @@
             "Knows punctuation and sentence formation": 66.7,
             "Understands organisation and context of the passage": 20.0,
             "Understands the usage of grammar concepts": 33.3
+          },
+          "national": {
+            "scaled_score": 397,
+            "percentile": 10,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -403,6 +439,12 @@
             "Knows punctuation and sentence formation": 33.3,
             "Understands organisation and context of the passage": 80.0,
             "Understands the usage of grammar concepts": 100.0
+          },
+          "national": {
+            "scaled_score": 604,
+            "percentile": 74,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -457,6 +499,12 @@
             "Knows punctuation and sentence formation": 66.7,
             "Understands organisation and context of the passage": 60.0,
             "Understands the usage of grammar concepts": 100.0
+          },
+          "national": {
+            "scaled_score": 620,
+            "percentile": 78,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -511,6 +559,12 @@
             "Knows punctuation and sentence formation": 0.0,
             "Understands organisation and context of the passage": 0.0,
             "Understands the usage of grammar concepts": 66.7
+          },
+          "national": {
+            "scaled_score": 432,
+            "percentile": 19,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -565,6 +619,12 @@
             "Knows punctuation and sentence formation": 0.0,
             "Understands organisation and context of the passage": 40.0,
             "Understands the usage of grammar concepts": 100.0
+          },
+          "national": {
+            "scaled_score": 462,
+            "percentile": 28,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -619,6 +679,12 @@
             "Knows punctuation and sentence formation": 66.7,
             "Understands organisation and context of the passage": 80.0,
             "Understands the usage of grammar concepts": 100.0
+          },
+          "national": {
+            "scaled_score": 550,
+            "percentile": 57,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -673,6 +739,12 @@
             "Knows punctuation and sentence formation": 100.0,
             "Understands organisation and context of the passage": 100.0,
             "Understands the usage of grammar concepts": 100.0
+          },
+          "national": {
+            "scaled_score": 715,
+            "percentile": 96,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -727,6 +799,12 @@
             "Knows punctuation and sentence formation": 100.0,
             "Understands organisation and context of the passage": 60.0,
             "Understands the usage of grammar concepts": 66.7
+          },
+          "national": {
+            "scaled_score": 631,
+            "percentile": 81,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -781,6 +859,12 @@
             "Knows punctuation and sentence formation": 33.3,
             "Understands organisation and context of the passage": 40.0,
             "Understands the usage of grammar concepts": 66.7
+          },
+          "national": {
+            "scaled_score": 446,
+            "percentile": 23,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -835,6 +919,12 @@
             "Knows punctuation and sentence formation": 0.0,
             "Understands organisation and context of the passage": 0.0,
             "Understands the usage of grammar concepts": 33.3
+          },
+          "national": {
+            "scaled_score": 279,
+            "percentile": 0,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -889,6 +979,12 @@
             "Knows punctuation and sentence formation": 100.0,
             "Understands organisation and context of the passage": 80.0,
             "Understands the usage of grammar concepts": 66.7
+          },
+          "national": {
+            "scaled_score": 625,
+            "percentile": 80,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -943,6 +1039,12 @@
             "Knows punctuation and sentence formation": 66.7,
             "Understands organisation and context of the passage": 20.0,
             "Understands the usage of grammar concepts": 66.7
+          },
+          "national": {
+            "scaled_score": 391,
+            "percentile": 9,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -997,6 +1099,12 @@
             "Knows punctuation and sentence formation": 66.7,
             "Understands organisation and context of the passage": 100.0,
             "Understands the usage of grammar concepts": 100.0
+          },
+          "national": {
+            "scaled_score": 677,
+            "percentile": 91,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -1051,6 +1159,12 @@
             "Knows punctuation and sentence formation": 100.0,
             "Understands organisation and context of the passage": 80.0,
             "Understands the usage of grammar concepts": 100.0
+          },
+          "national": {
+            "scaled_score": 645,
+            "percentile": 84,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -1105,6 +1219,12 @@
             "Knows punctuation and sentence formation": 0.0,
             "Understands organisation and context of the passage": 20.0,
             "Understands the usage of grammar concepts": 33.3
+          },
+          "national": {
+            "scaled_score": 361,
+            "percentile": 4,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -1159,6 +1279,12 @@
             "Knows punctuation and sentence formation": 33.3,
             "Understands organisation and context of the passage": 40.0,
             "Understands the usage of grammar concepts": 33.3
+          },
+          "national": {
+            "scaled_score": 404,
+            "percentile": 12,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -1213,6 +1339,12 @@
             "Knows punctuation and sentence formation": 100.0,
             "Understands organisation and context of the passage": 100.0,
             "Understands the usage of grammar concepts": 100.0
+          },
+          "national": {
+            "scaled_score": 703,
+            "percentile": 94,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         }
       ],
@@ -1370,6 +1502,12 @@
             "Basic shapes and geometry": 100.0,
             "Number sense, related concepts and basic number competency": 85.7,
             "Problem solving: advanced or challenging problems": 100.0
+          },
+          "national": {
+            "scaled_score": 701,
+            "percentile": 94,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -1417,6 +1555,12 @@
             "Basic shapes and geometry": 50.0,
             "Number sense, related concepts and basic number competency": 71.4,
             "Problem solving: advanced or challenging problems": 50.0
+          },
+          "national": {
+            "scaled_score": 552,
+            "percentile": 57,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -1464,6 +1608,12 @@
             "Basic shapes and geometry": 75.0,
             "Number sense, related concepts and basic number competency": 100.0,
             "Problem solving: advanced or challenging problems": 100.0
+          },
+          "national": {
+            "scaled_score": 738,
+            "percentile": 97,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -1511,6 +1661,12 @@
             "Basic shapes and geometry": 100.0,
             "Number sense, related concepts and basic number competency": 85.7,
             "Problem solving: advanced or challenging problems": 100.0
+          },
+          "national": {
+            "scaled_score": 591,
+            "percentile": 69,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -1558,6 +1714,12 @@
             "Basic shapes and geometry": 75.0,
             "Number sense, related concepts and basic number competency": 71.4,
             "Problem solving: advanced or challenging problems": 50.0
+          },
+          "national": {
+            "scaled_score": 593,
+            "percentile": 70,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -1605,6 +1767,12 @@
             "Basic shapes and geometry": 75.0,
             "Number sense, related concepts and basic number competency": 71.4,
             "Problem solving: advanced or challenging problems": 75.0
+          },
+          "national": {
+            "scaled_score": 589,
+            "percentile": 68,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -1652,6 +1820,12 @@
             "Basic shapes and geometry": 50.0,
             "Number sense, related concepts and basic number competency": 57.1,
             "Problem solving: advanced or challenging problems": 0.0
+          },
+          "national": {
+            "scaled_score": 460,
+            "percentile": 27,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -1699,6 +1873,12 @@
             "Basic shapes and geometry": 75.0,
             "Number sense, related concepts and basic number competency": 85.7,
             "Problem solving: advanced or challenging problems": 75.0
+          },
+          "national": {
+            "scaled_score": 628,
+            "percentile": 79,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -1746,6 +1926,12 @@
             "Basic shapes and geometry": 75.0,
             "Number sense, related concepts and basic number competency": 100.0,
             "Problem solving: advanced or challenging problems": 50.0
+          },
+          "national": {
+            "scaled_score": 610,
+            "percentile": 74,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -1793,6 +1979,12 @@
             "Basic shapes and geometry": 50.0,
             "Number sense, related concepts and basic number competency": 42.9,
             "Problem solving: advanced or challenging problems": 50.0
+          },
+          "national": {
+            "scaled_score": 466,
+            "percentile": 29,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -1840,6 +2032,12 @@
             "Basic shapes and geometry": 25.0,
             "Number sense, related concepts and basic number competency": 57.1,
             "Problem solving: advanced or challenging problems": 25.0
+          },
+          "national": {
+            "scaled_score": 481,
+            "percentile": 34,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -1887,6 +2085,12 @@
             "Basic shapes and geometry": 75.0,
             "Number sense, related concepts and basic number competency": 71.4,
             "Problem solving: advanced or challenging problems": 50.0
+          },
+          "national": {
+            "scaled_score": 580,
+            "percentile": 66,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -1934,6 +2138,12 @@
             "Basic shapes and geometry": 100.0,
             "Number sense, related concepts and basic number competency": 100.0,
             "Problem solving: advanced or challenging problems": 50.0
+          },
+          "national": {
+            "scaled_score": 645,
+            "percentile": 84,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -1981,6 +2191,12 @@
             "Basic shapes and geometry": 50.0,
             "Number sense, related concepts and basic number competency": 71.4,
             "Problem solving: advanced or challenging problems": 75.0
+          },
+          "national": {
+            "scaled_score": 579,
+            "percentile": 65,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -2028,6 +2244,12 @@
             "Basic shapes and geometry": 25.0,
             "Number sense, related concepts and basic number competency": 85.7,
             "Problem solving: advanced or challenging problems": 50.0
+          },
+          "national": {
+            "scaled_score": 556,
+            "percentile": 58,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -2075,6 +2297,12 @@
             "Basic shapes and geometry": 0.0,
             "Number sense, related concepts and basic number competency": 28.6,
             "Problem solving: advanced or challenging problems": 0.0
+          },
+          "national": {
+            "scaled_score": 377,
+            "percentile": 6,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -2122,6 +2350,12 @@
             "Basic shapes and geometry": 50.0,
             "Number sense, related concepts and basic number competency": 57.1,
             "Problem solving: advanced or challenging problems": 25.0
+          },
+          "national": {
+            "scaled_score": 523,
+            "percentile": 48,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -2169,6 +2403,12 @@
             "Basic shapes and geometry": 75.0,
             "Number sense, related concepts and basic number competency": 42.9,
             "Problem solving: advanced or challenging problems": 25.0
+          },
+          "national": {
+            "scaled_score": 514,
+            "percentile": 44,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -2216,6 +2456,12 @@
             "Basic shapes and geometry": 75.0,
             "Number sense, related concepts and basic number competency": 71.4,
             "Problem solving: advanced or challenging problems": 100.0
+          },
+          "national": {
+            "scaled_score": 570,
+            "percentile": 63,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -2263,6 +2509,12 @@
             "Basic shapes and geometry": 75.0,
             "Number sense, related concepts and basic number competency": 100.0,
             "Problem solving: advanced or challenging problems": 75.0
+          },
+          "national": {
+            "scaled_score": 717,
+            "percentile": 96,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -2310,6 +2562,12 @@
             "Basic shapes and geometry": 0.0,
             "Number sense, related concepts and basic number competency": 57.1,
             "Problem solving: advanced or challenging problems": 25.0
+          },
+          "national": {
+            "scaled_score": 426,
+            "percentile": 17,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -2357,6 +2615,12 @@
             "Basic shapes and geometry": 0.0,
             "Number sense, related concepts and basic number competency": 28.6,
             "Problem solving: advanced or challenging problems": 0.0
+          },
+          "national": {
+            "scaled_score": 361,
+            "percentile": 4,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -2404,6 +2668,12 @@
             "Basic shapes and geometry": 75.0,
             "Number sense, related concepts and basic number competency": 100.0,
             "Problem solving: advanced or challenging problems": 75.0
+          },
+          "national": {
+            "scaled_score": 651,
+            "percentile": 85,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         }
       ],
@@ -2543,6 +2813,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 66.7,
             "Recollection or recognition of science facts and concepts": 60.0,
             "Representing, relating or explaining scientific processes or observed phenomena": 66.7
+          },
+          "national": {
+            "scaled_score": 591,
+            "percentile": 69,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -2591,6 +2867,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 66.7,
             "Recollection or recognition of science facts and concepts": 40.0,
             "Representing, relating or explaining scientific processes or observed phenomena": 33.3
+          },
+          "national": {
+            "scaled_score": 483,
+            "percentile": 33,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -2639,6 +2921,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 66.7,
             "Recollection or recognition of science facts and concepts": 100.0,
             "Representing, relating or explaining scientific processes or observed phenomena": 100.0
+          },
+          "national": {
+            "scaled_score": 723,
+            "percentile": 95,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -2687,6 +2975,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 66.7,
             "Recollection or recognition of science facts and concepts": 80.0,
             "Representing, relating or explaining scientific processes or observed phenomena": 66.7
+          },
+          "national": {
+            "scaled_score": 573,
+            "percentile": 63,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -2735,6 +3029,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 100.0,
             "Recollection or recognition of science facts and concepts": 60.0,
             "Representing, relating or explaining scientific processes or observed phenomena": 66.7
+          },
+          "national": {
+            "scaled_score": 634,
+            "percentile": 80,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -2783,6 +3083,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 100.0,
             "Recollection or recognition of science facts and concepts": 80.0,
             "Representing, relating or explaining scientific processes or observed phenomena": 33.3
+          },
+          "national": {
+            "scaled_score": 638,
+            "percentile": 81,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -2831,6 +3137,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 66.7,
             "Recollection or recognition of science facts and concepts": 40.0,
             "Representing, relating or explaining scientific processes or observed phenomena": 0.0
+          },
+          "national": {
+            "scaled_score": 405,
+            "percentile": 12,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -2879,6 +3191,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 66.7,
             "Recollection or recognition of science facts and concepts": 80.0,
             "Representing, relating or explaining scientific processes or observed phenomena": 100.0
+          },
+          "national": {
+            "scaled_score": 662,
+            "percentile": 86,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -2927,6 +3245,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 100.0,
             "Recollection or recognition of science facts and concepts": 80.0,
             "Representing, relating or explaining scientific processes or observed phenomena": 100.0
+          },
+          "national": {
+            "scaled_score": 641,
+            "percentile": 82,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -2975,6 +3299,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 100.0,
             "Recollection or recognition of science facts and concepts": 40.0,
             "Representing, relating or explaining scientific processes or observed phenomena": 66.7
+          },
+          "national": {
+            "scaled_score": 561,
+            "percentile": 59,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -3023,6 +3353,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 66.7,
             "Recollection or recognition of science facts and concepts": 20.0,
             "Representing, relating or explaining scientific processes or observed phenomena": 66.7
+          },
+          "national": {
+            "scaled_score": 464,
+            "percentile": 27,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -3071,6 +3407,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 66.7,
             "Recollection or recognition of science facts and concepts": 40.0,
             "Representing, relating or explaining scientific processes or observed phenomena": 66.7
+          },
+          "national": {
+            "scaled_score": 447,
+            "percentile": 22,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -3119,6 +3461,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 100.0,
             "Recollection or recognition of science facts and concepts": 80.0,
             "Representing, relating or explaining scientific processes or observed phenomena": 66.7
+          },
+          "national": {
+            "scaled_score": 672,
+            "percentile": 88,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -3167,6 +3515,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 100.0,
             "Recollection or recognition of science facts and concepts": 80.0,
             "Representing, relating or explaining scientific processes or observed phenomena": 100.0
+          },
+          "national": {
+            "scaled_score": 649,
+            "percentile": 83,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -3215,6 +3569,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 33.3,
             "Recollection or recognition of science facts and concepts": 80.0,
             "Representing, relating or explaining scientific processes or observed phenomena": 33.3
+          },
+          "national": {
+            "scaled_score": 461,
+            "percentile": 26,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -3263,6 +3623,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 0.0,
             "Recollection or recognition of science facts and concepts": 0.0,
             "Representing, relating or explaining scientific processes or observed phenomena": 0.0
+          },
+          "national": {
+            "scaled_score": 309,
+            "percentile": 1,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -3311,6 +3677,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 66.7,
             "Recollection or recognition of science facts and concepts": 60.0,
             "Representing, relating or explaining scientific processes or observed phenomena": 66.7
+          },
+          "national": {
+            "scaled_score": 561,
+            "percentile": 59,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -3359,6 +3731,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 66.7,
             "Recollection or recognition of science facts and concepts": 40.0,
             "Representing, relating or explaining scientific processes or observed phenomena": 33.3
+          },
+          "national": {
+            "scaled_score": 437,
+            "percentile": 20,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -3407,6 +3785,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 66.7,
             "Recollection or recognition of science facts and concepts": 80.0,
             "Representing, relating or explaining scientific processes or observed phenomena": 66.7
+          },
+          "national": {
+            "scaled_score": 570,
+            "percentile": 62,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -3455,6 +3839,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 66.7,
             "Recollection or recognition of science facts and concepts": 60.0,
             "Representing, relating or explaining scientific processes or observed phenomena": 66.7
+          },
+          "national": {
+            "scaled_score": 549,
+            "percentile": 55,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -3503,6 +3893,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 100.0,
             "Recollection or recognition of science facts and concepts": 60.0,
             "Representing, relating or explaining scientific processes or observed phenomena": 66.7
+          },
+          "national": {
+            "scaled_score": 498,
+            "percentile": 38,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -3551,6 +3947,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 66.7,
             "Recollection or recognition of science facts and concepts": 60.0,
             "Representing, relating or explaining scientific processes or observed phenomena": 33.3
+          },
+          "national": {
+            "scaled_score": 393,
+            "percentile": 10,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -3599,6 +4001,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 66.7,
             "Recollection or recognition of science facts and concepts": 80.0,
             "Representing, relating or explaining scientific processes or observed phenomena": 100.0
+          },
+          "national": {
+            "scaled_score": 659,
+            "percentile": 85,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         }
       ],
@@ -3767,6 +4175,12 @@
             "Knows punctuation and sentence formation": 33.3,
             "Understands organisation and context of the passage": 33.3,
             "Understands the usage of grammar concepts": 50.0
+          },
+          "national": {
+            "scaled_score": 461,
+            "percentile": 32,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -3837,6 +4251,12 @@
             "Knows punctuation and sentence formation": 50.0,
             "Understands organisation and context of the passage": 66.7,
             "Understands the usage of grammar concepts": 83.3
+          },
+          "national": {
+            "scaled_score": 514,
+            "percentile": 49,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -3907,6 +4327,12 @@
             "Knows punctuation and sentence formation": 83.3,
             "Understands organisation and context of the passage": 100.0,
             "Understands the usage of grammar concepts": 83.3
+          },
+          "national": {
+            "scaled_score": 671,
+            "percentile": 90,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -3977,6 +4403,12 @@
             "Knows punctuation and sentence formation": 16.7,
             "Understands organisation and context of the passage": 66.7,
             "Understands the usage of grammar concepts": 50.0
+          },
+          "national": {
+            "scaled_score": 432,
+            "percentile": 23,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -4047,6 +4479,12 @@
             "Knows punctuation and sentence formation": 100.0,
             "Understands organisation and context of the passage": 100.0,
             "Understands the usage of grammar concepts": 83.3
+          },
+          "national": {
+            "scaled_score": 718,
+            "percentile": 96,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -4117,6 +4555,12 @@
             "Knows punctuation and sentence formation": 83.3,
             "Understands organisation and context of the passage": 0.0,
             "Understands the usage of grammar concepts": 100.0
+          },
+          "national": {
+            "scaled_score": 588,
+            "percentile": 72,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -4187,6 +4631,12 @@
             "Knows punctuation and sentence formation": 33.3,
             "Understands organisation and context of the passage": 0.0,
             "Understands the usage of grammar concepts": 66.7
+          },
+          "national": {
+            "scaled_score": 562,
+            "percentile": 65,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -4257,6 +4707,12 @@
             "Knows punctuation and sentence formation": 83.3,
             "Understands organisation and context of the passage": 33.3,
             "Understands the usage of grammar concepts": 83.3
+          },
+          "national": {
+            "scaled_score": 696,
+            "percentile": 94,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -4327,6 +4783,12 @@
             "Knows punctuation and sentence formation": 83.3,
             "Understands organisation and context of the passage": 100.0,
             "Understands the usage of grammar concepts": 83.3
+          },
+          "national": {
+            "scaled_score": 687,
+            "percentile": 93,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -4397,6 +4859,12 @@
             "Knows punctuation and sentence formation": 66.7,
             "Understands organisation and context of the passage": 66.7,
             "Understands the usage of grammar concepts": 83.3
+          },
+          "national": {
+            "scaled_score": 573,
+            "percentile": 68,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -4467,6 +4935,12 @@
             "Knows punctuation and sentence formation": 50.0,
             "Understands organisation and context of the passage": 100.0,
             "Understands the usage of grammar concepts": 66.7
+          },
+          "national": {
+            "scaled_score": 596,
+            "percentile": 74,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -4537,6 +5011,12 @@
             "Knows punctuation and sentence formation": 50.0,
             "Understands organisation and context of the passage": 0.0,
             "Understands the usage of grammar concepts": 66.7
+          },
+          "national": {
+            "scaled_score": 509,
+            "percentile": 47,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -4607,6 +5087,12 @@
             "Knows punctuation and sentence formation": 83.3,
             "Understands organisation and context of the passage": 100.0,
             "Understands the usage of grammar concepts": 50.0
+          },
+          "national": {
+            "scaled_score": 655,
+            "percentile": 88,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -4677,6 +5163,12 @@
             "Knows punctuation and sentence formation": 66.7,
             "Understands organisation and context of the passage": 100.0,
             "Understands the usage of grammar concepts": 66.7
+          },
+          "national": {
+            "scaled_score": 587,
+            "percentile": 72,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         }
       ],
@@ -4868,6 +5360,12 @@
             "Measurement and data interpretation": 25.0,
             "Number sense, related concepts and basic number competency": 60.0,
             "Problem solving: advanced or challenging problems": 66.7
+          },
+          "national": {
+            "scaled_score": 458,
+            "percentile": 27,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -4927,6 +5425,12 @@
             "Measurement and data interpretation": 25.0,
             "Number sense, related concepts and basic number competency": 100.0,
             "Problem solving: advanced or challenging problems": 66.7
+          },
+          "national": {
+            "scaled_score": 645,
+            "percentile": 81,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -4986,6 +5490,12 @@
             "Measurement and data interpretation": 25.0,
             "Number sense, related concepts and basic number competency": 80.0,
             "Problem solving: advanced or challenging problems": 0.0
+          },
+          "national": {
+            "scaled_score": 535,
+            "percentile": 52,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -5045,6 +5555,12 @@
             "Measurement and data interpretation": 100.0,
             "Number sense, related concepts and basic number competency": 100.0,
             "Problem solving: advanced or challenging problems": 100.0
+          },
+          "national": {
+            "scaled_score": 693,
+            "percentile": 90,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -5104,6 +5620,12 @@
             "Measurement and data interpretation": 75.0,
             "Number sense, related concepts and basic number competency": 80.0,
             "Problem solving: advanced or challenging problems": 66.7
+          },
+          "national": {
+            "scaled_score": 554,
+            "percentile": 58,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -5163,6 +5685,12 @@
             "Measurement and data interpretation": 100.0,
             "Number sense, related concepts and basic number competency": 100.0,
             "Problem solving: advanced or challenging problems": 66.7
+          },
+          "national": {
+            "scaled_score": 769,
+            "percentile": 98,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -5222,6 +5750,12 @@
             "Measurement and data interpretation": 50.0,
             "Number sense, related concepts and basic number competency": 40.0,
             "Problem solving: advanced or challenging problems": 33.3
+          },
+          "national": {
+            "scaled_score": 441,
+            "percentile": 21,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -5281,6 +5815,12 @@
             "Measurement and data interpretation": 100.0,
             "Number sense, related concepts and basic number competency": 40.0,
             "Problem solving: advanced or challenging problems": 100.0
+          },
+          "national": {
+            "scaled_score": 599,
+            "percentile": 71,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -5340,6 +5880,12 @@
             "Measurement and data interpretation": 100.0,
             "Number sense, related concepts and basic number competency": 100.0,
             "Problem solving: advanced or challenging problems": 66.7
+          },
+          "national": {
+            "scaled_score": 732,
+            "percentile": 95,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -5399,6 +5945,12 @@
             "Measurement and data interpretation": 50.0,
             "Number sense, related concepts and basic number competency": 80.0,
             "Problem solving: advanced or challenging problems": 66.7
+          },
+          "national": {
+            "scaled_score": 597,
+            "percentile": 70,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -5458,6 +6010,12 @@
             "Measurement and data interpretation": 50.0,
             "Number sense, related concepts and basic number competency": 100.0,
             "Problem solving: advanced or challenging problems": 33.3
+          },
+          "national": {
+            "scaled_score": 577,
+            "percentile": 65,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -5517,6 +6075,12 @@
             "Measurement and data interpretation": 75.0,
             "Number sense, related concepts and basic number competency": 100.0,
             "Problem solving: advanced or challenging problems": 66.7
+          },
+          "national": {
+            "scaled_score": 622,
+            "percentile": 76,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -5576,6 +6140,12 @@
             "Measurement and data interpretation": 50.0,
             "Number sense, related concepts and basic number competency": 60.0,
             "Problem solving: advanced or challenging problems": 66.7
+          },
+          "national": {
+            "scaled_score": 592,
+            "percentile": 69,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -5635,6 +6205,12 @@
             "Measurement and data interpretation": 50.0,
             "Number sense, related concepts and basic number competency": 80.0,
             "Problem solving: advanced or challenging problems": 66.7
+          },
+          "national": {
+            "scaled_score": 578,
+            "percentile": 65,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -5694,6 +6270,12 @@
             "Measurement and data interpretation": 100.0,
             "Number sense, related concepts and basic number competency": 80.0,
             "Problem solving: advanced or challenging problems": 100.0
+          },
+          "national": {
+            "scaled_score": 675,
+            "percentile": 87,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         }
       ],
@@ -5862,6 +6444,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 20.0,
             "Recollection or recognition of science facts and concepts": 25.0,
             "Representing, relating or explaining scientific processes or observed phenomena": 25.0
+          },
+          "national": {
+            "scaled_score": 440,
+            "percentile": 21,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -5915,6 +6503,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 80.0,
             "Recollection or recognition of science facts and concepts": 50.0,
             "Representing, relating or explaining scientific processes or observed phenomena": 75.0
+          },
+          "national": {
+            "scaled_score": 580,
+            "percentile": 67,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -5968,6 +6562,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 80.0,
             "Recollection or recognition of science facts and concepts": 50.0,
             "Representing, relating or explaining scientific processes or observed phenomena": 0.0
+          },
+          "national": {
+            "scaled_score": 520,
+            "percentile": 46,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -6021,6 +6621,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 60.0,
             "Recollection or recognition of science facts and concepts": 100.0,
             "Representing, relating or explaining scientific processes or observed phenomena": 100.0
+          },
+          "national": {
+            "scaled_score": 691,
+            "percentile": 93,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -6074,6 +6680,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 80.0,
             "Recollection or recognition of science facts and concepts": 50.0,
             "Representing, relating or explaining scientific processes or observed phenomena": 25.0
+          },
+          "national": {
+            "scaled_score": 550,
+            "percentile": 56,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -6127,6 +6739,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 100.0,
             "Recollection or recognition of science facts and concepts": 100.0,
             "Representing, relating or explaining scientific processes or observed phenomena": 75.0
+          },
+          "national": {
+            "scaled_score": 701,
+            "percentile": 94,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -6180,6 +6798,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 60.0,
             "Recollection or recognition of science facts and concepts": 50.0,
             "Representing, relating or explaining scientific processes or observed phenomena": 50.0
+          },
+          "national": {
+            "scaled_score": 535,
+            "percentile": 51,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -6233,6 +6857,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 60.0,
             "Recollection or recognition of science facts and concepts": 100.0,
             "Representing, relating or explaining scientific processes or observed phenomena": 50.0
+          },
+          "national": {
+            "scaled_score": 560,
+            "percentile": 60,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -6286,6 +6916,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 100.0,
             "Recollection or recognition of science facts and concepts": 100.0,
             "Representing, relating or explaining scientific processes or observed phenomena": 100.0
+          },
+          "national": {
+            "scaled_score": 736,
+            "percentile": 97,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -6339,6 +6975,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 60.0,
             "Recollection or recognition of science facts and concepts": 50.0,
             "Representing, relating or explaining scientific processes or observed phenomena": 50.0
+          },
+          "national": {
+            "scaled_score": 577,
+            "percentile": 66,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -6392,6 +7034,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 20.0,
             "Recollection or recognition of science facts and concepts": 100.0,
             "Representing, relating or explaining scientific processes or observed phenomena": 25.0
+          },
+          "national": {
+            "scaled_score": 463,
+            "percentile": 27,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -6445,6 +7093,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 60.0,
             "Recollection or recognition of science facts and concepts": 100.0,
             "Representing, relating or explaining scientific processes or observed phenomena": 75.0
+          },
+          "national": {
+            "scaled_score": 560,
+            "percentile": 60,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -6498,6 +7152,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 40.0,
             "Recollection or recognition of science facts and concepts": 75.0,
             "Representing, relating or explaining scientific processes or observed phenomena": 75.0
+          },
+          "national": {
+            "scaled_score": 607,
+            "percentile": 75,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -6551,6 +7211,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 80.0,
             "Recollection or recognition of science facts and concepts": 100.0,
             "Representing, relating or explaining scientific processes or observed phenomena": 50.0
+          },
+          "national": {
+            "scaled_score": 655,
+            "percentile": 87,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -6604,6 +7270,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 100.0,
             "Recollection or recognition of science facts and concepts": 75.0,
             "Representing, relating or explaining scientific processes or observed phenomena": 75.0
+          },
+          "national": {
+            "scaled_score": 640,
+            "percentile": 84,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         }
       ],
@@ -6777,6 +7449,12 @@
             "Knows punctuation and sentence formation": 100.0,
             "Understands organisation and context of the passage": 100.0,
             "Understands the usage of grammar concepts": 100.0
+          },
+          "national": {
+            "scaled_score": 742,
+            "percentile": 98,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -6847,6 +7525,12 @@
             "Knows punctuation and sentence formation": 100.0,
             "Understands organisation and context of the passage": 33.3,
             "Understands the usage of grammar concepts": 57.1
+          },
+          "national": {
+            "scaled_score": 623,
+            "percentile": 83,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -6917,6 +7601,12 @@
             "Knows punctuation and sentence formation": 100.0,
             "Understands organisation and context of the passage": 66.7,
             "Understands the usage of grammar concepts": 71.4
+          },
+          "national": {
+            "scaled_score": 564,
+            "percentile": 66,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -6987,6 +7677,12 @@
             "Knows punctuation and sentence formation": 0.0,
             "Understands organisation and context of the passage": 0.0,
             "Understands the usage of grammar concepts": 28.6
+          },
+          "national": {
+            "scaled_score": 375,
+            "percentile": 6,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -7057,6 +7753,12 @@
             "Knows punctuation and sentence formation": 100.0,
             "Understands organisation and context of the passage": 100.0,
             "Understands the usage of grammar concepts": 71.4
+          },
+          "national": {
+            "scaled_score": 677,
+            "percentile": 93,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -7127,6 +7829,12 @@
             "Knows punctuation and sentence formation": 100.0,
             "Understands organisation and context of the passage": 66.7,
             "Understands the usage of grammar concepts": 100.0
+          },
+          "national": {
+            "scaled_score": 740,
+            "percentile": 98,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -7197,6 +7905,12 @@
             "Knows punctuation and sentence formation": 50.0,
             "Understands organisation and context of the passage": 66.7,
             "Understands the usage of grammar concepts": 57.1
+          },
+          "national": {
+            "scaled_score": 511,
+            "percentile": 47,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -7267,6 +7981,12 @@
             "Knows punctuation and sentence formation": 50.0,
             "Understands organisation and context of the passage": 66.7,
             "Understands the usage of grammar concepts": 57.1
+          },
+          "national": {
+            "scaled_score": 502,
+            "percentile": 44,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -7337,6 +8057,12 @@
             "Knows punctuation and sentence formation": 25.0,
             "Understands organisation and context of the passage": 100.0,
             "Understands the usage of grammar concepts": 71.4
+          },
+          "national": {
+            "scaled_score": 577,
+            "percentile": 70,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -7407,6 +8133,12 @@
             "Knows punctuation and sentence formation": 75.0,
             "Understands organisation and context of the passage": 33.3,
             "Understands the usage of grammar concepts": 57.1
+          },
+          "national": {
+            "scaled_score": 572,
+            "percentile": 68,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -7477,6 +8209,12 @@
             "Knows punctuation and sentence formation": 100.0,
             "Understands organisation and context of the passage": 100.0,
             "Understands the usage of grammar concepts": 71.4
+          },
+          "national": {
+            "scaled_score": 682,
+            "percentile": 93,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -7547,6 +8285,12 @@
             "Knows punctuation and sentence formation": 75.0,
             "Understands organisation and context of the passage": 66.7,
             "Understands the usage of grammar concepts": 100.0
+          },
+          "national": {
+            "scaled_score": 607,
+            "percentile": 79,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -7617,6 +8361,12 @@
             "Knows punctuation and sentence formation": 100.0,
             "Understands organisation and context of the passage": 100.0,
             "Understands the usage of grammar concepts": 85.7
+          },
+          "national": {
+            "scaled_score": 692,
+            "percentile": 94,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -7687,6 +8437,12 @@
             "Knows punctuation and sentence formation": 50.0,
             "Understands organisation and context of the passage": 100.0,
             "Understands the usage of grammar concepts": 85.7
+          },
+          "national": {
+            "scaled_score": 588,
+            "percentile": 73,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -7757,6 +8513,12 @@
             "Knows punctuation and sentence formation": 100.0,
             "Understands organisation and context of the passage": 100.0,
             "Understands the usage of grammar concepts": 100.0
+          },
+          "national": {
+            "scaled_score": 631,
+            "percentile": 85,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -7827,6 +8589,12 @@
             "Knows punctuation and sentence formation": 75.0,
             "Understands organisation and context of the passage": 66.7,
             "Understands the usage of grammar concepts": 85.7
+          },
+          "national": {
+            "scaled_score": 626,
+            "percentile": 83,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         }
       ],
@@ -8017,6 +8785,12 @@
             "Measurement and data interpretation": 100.0,
             "Number sense, related concepts and basic number competency": 100.0,
             "Problem solving: advanced or challenging problems": 100.0
+          },
+          "national": {
+            "scaled_score": 782,
+            "percentile": 99,
+            "ats_qualified": true,
+            "subject_outstanding": true
           }
         },
         {
@@ -8075,6 +8849,12 @@
             "Measurement and data interpretation": 75.0,
             "Number sense, related concepts and basic number competency": 80.0,
             "Problem solving: advanced or challenging problems": 80.0
+          },
+          "national": {
+            "scaled_score": 607,
+            "percentile": 77,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -8133,6 +8913,12 @@
             "Measurement and data interpretation": 100.0,
             "Number sense, related concepts and basic number competency": 100.0,
             "Problem solving: advanced or challenging problems": 100.0
+          },
+          "national": {
+            "scaled_score": 606,
+            "percentile": 77,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -8191,6 +8977,12 @@
             "Measurement and data interpretation": 0.0,
             "Number sense, related concepts and basic number competency": 40.0,
             "Problem solving: advanced or challenging problems": 40.0
+          },
+          "national": {
+            "scaled_score": 350,
+            "percentile": 2,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -8249,6 +9041,12 @@
             "Measurement and data interpretation": 50.0,
             "Number sense, related concepts and basic number competency": 100.0,
             "Problem solving: advanced or challenging problems": 100.0
+          },
+          "national": {
+            "scaled_score": 737,
+            "percentile": 97,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -8307,6 +9105,12 @@
             "Measurement and data interpretation": 75.0,
             "Number sense, related concepts and basic number competency": 100.0,
             "Problem solving: advanced or challenging problems": 80.0
+          },
+          "national": {
+            "scaled_score": 689,
+            "percentile": 92,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -8365,6 +9169,12 @@
             "Measurement and data interpretation": 75.0,
             "Number sense, related concepts and basic number competency": 80.0,
             "Problem solving: advanced or challenging problems": 80.0
+          },
+          "national": {
+            "scaled_score": 582,
+            "percentile": 71,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -8423,6 +9233,12 @@
             "Measurement and data interpretation": 50.0,
             "Number sense, related concepts and basic number competency": 20.0,
             "Problem solving: advanced or challenging problems": 60.0
+          },
+          "national": {
+            "scaled_score": 495,
+            "percentile": 43,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -8481,6 +9297,12 @@
             "Measurement and data interpretation": 75.0,
             "Number sense, related concepts and basic number competency": 80.0,
             "Problem solving: advanced or challenging problems": 60.0
+          },
+          "national": {
+            "scaled_score": 569,
+            "percentile": 67,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -8539,6 +9361,12 @@
             "Measurement and data interpretation": 100.0,
             "Number sense, related concepts and basic number competency": 60.0,
             "Problem solving: advanced or challenging problems": 20.0
+          },
+          "national": {
+            "scaled_score": 494,
+            "percentile": 43,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -8597,6 +9425,12 @@
             "Measurement and data interpretation": 25.0,
             "Number sense, related concepts and basic number competency": 40.0,
             "Problem solving: advanced or challenging problems": 80.0
+          },
+          "national": {
+            "scaled_score": 475,
+            "percentile": 36,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -8655,6 +9489,12 @@
             "Measurement and data interpretation": 75.0,
             "Number sense, related concepts and basic number competency": 80.0,
             "Problem solving: advanced or challenging problems": 100.0
+          },
+          "national": {
+            "scaled_score": 642,
+            "percentile": 85,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -8713,6 +9553,12 @@
             "Measurement and data interpretation": 75.0,
             "Number sense, related concepts and basic number competency": 40.0,
             "Problem solving: advanced or challenging problems": 60.0
+          },
+          "national": {
+            "scaled_score": 504,
+            "percentile": 46,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -8771,6 +9617,12 @@
             "Measurement and data interpretation": 100.0,
             "Number sense, related concepts and basic number competency": 80.0,
             "Problem solving: advanced or challenging problems": 100.0
+          },
+          "national": {
+            "scaled_score": 701,
+            "percentile": 94,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -8829,6 +9681,12 @@
             "Measurement and data interpretation": 75.0,
             "Number sense, related concepts and basic number competency": 40.0,
             "Problem solving: advanced or challenging problems": 0.0
+          },
+          "national": {
+            "scaled_score": 429,
+            "percentile": 19,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -8887,6 +9745,12 @@
             "Measurement and data interpretation": 75.0,
             "Number sense, related concepts and basic number competency": 60.0,
             "Problem solving: advanced or challenging problems": 60.0
+          },
+          "national": {
+            "scaled_score": 538,
+            "percentile": 58,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -8945,6 +9809,12 @@
             "Measurement and data interpretation": 75.0,
             "Number sense, related concepts and basic number competency": 100.0,
             "Problem solving: advanced or challenging problems": 100.0
+          },
+          "national": {
+            "scaled_score": 687,
+            "percentile": 92,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -9003,6 +9873,12 @@
             "Measurement and data interpretation": 50.0,
             "Number sense, related concepts and basic number competency": 40.0,
             "Problem solving: advanced or challenging problems": 40.0
+          },
+          "national": {
+            "scaled_score": 396,
+            "percentile": 9,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         }
       ],
@@ -9165,6 +10041,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 100.0,
             "Recollection or recognition of science facts and concepts": 100.0,
             "Representing, relating or explaining scientific processes or observed phenomena": 50.0
+          },
+          "national": {
+            "scaled_score": 718,
+            "percentile": 96,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -9219,6 +10101,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 66.7,
             "Recollection or recognition of science facts and concepts": 66.7,
             "Representing, relating or explaining scientific processes or observed phenomena": 100.0
+          },
+          "national": {
+            "scaled_score": 680,
+            "percentile": 92,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -9273,6 +10161,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 33.3,
             "Recollection or recognition of science facts and concepts": 66.7,
             "Representing, relating or explaining scientific processes or observed phenomena": 0.0
+          },
+          "national": {
+            "scaled_score": 446,
+            "percentile": 23,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -9327,6 +10221,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 33.3,
             "Recollection or recognition of science facts and concepts": 33.3,
             "Representing, relating or explaining scientific processes or observed phenomena": 50.0
+          },
+          "national": {
+            "scaled_score": 431,
+            "percentile": 18,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -9381,6 +10281,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 100.0,
             "Recollection or recognition of science facts and concepts": 66.7,
             "Representing, relating or explaining scientific processes or observed phenomena": 75.0
+          },
+          "national": {
+            "scaled_score": 707,
+            "percentile": 95,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -9435,6 +10341,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 100.0,
             "Recollection or recognition of science facts and concepts": 100.0,
             "Representing, relating or explaining scientific processes or observed phenomena": 50.0
+          },
+          "national": {
+            "scaled_score": 663,
+            "percentile": 89,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -9489,6 +10401,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 33.3,
             "Recollection or recognition of science facts and concepts": 33.3,
             "Representing, relating or explaining scientific processes or observed phenomena": 25.0
+          },
+          "national": {
+            "scaled_score": 462,
+            "percentile": 28,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -9543,6 +10461,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 100.0,
             "Recollection or recognition of science facts and concepts": 66.7,
             "Representing, relating or explaining scientific processes or observed phenomena": 0.0
+          },
+          "national": {
+            "scaled_score": 553,
+            "percentile": 60,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -9597,6 +10521,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 33.3,
             "Recollection or recognition of science facts and concepts": 66.7,
             "Representing, relating or explaining scientific processes or observed phenomena": 50.0
+          },
+          "national": {
+            "scaled_score": 529,
+            "percentile": 52,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -9651,6 +10581,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 66.7,
             "Recollection or recognition of science facts and concepts": 100.0,
             "Representing, relating or explaining scientific processes or observed phenomena": 25.0
+          },
+          "national": {
+            "scaled_score": 536,
+            "percentile": 54,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -9705,6 +10641,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 66.7,
             "Recollection or recognition of science facts and concepts": 100.0,
             "Representing, relating or explaining scientific processes or observed phenomena": 75.0
+          },
+          "national": {
+            "scaled_score": 628,
+            "percentile": 82,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -9759,6 +10701,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 33.3,
             "Recollection or recognition of science facts and concepts": 66.7,
             "Representing, relating or explaining scientific processes or observed phenomena": 25.0
+          },
+          "national": {
+            "scaled_score": 529,
+            "percentile": 52,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -9813,6 +10761,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 66.7,
             "Recollection or recognition of science facts and concepts": 100.0,
             "Representing, relating or explaining scientific processes or observed phenomena": 50.0
+          },
+          "national": {
+            "scaled_score": 645,
+            "percentile": 86,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -9867,6 +10821,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 33.3,
             "Recollection or recognition of science facts and concepts": 66.7,
             "Representing, relating or explaining scientific processes or observed phenomena": 0.0
+          },
+          "national": {
+            "scaled_score": 441,
+            "percentile": 21,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -9921,6 +10881,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 0.0,
             "Recollection or recognition of science facts and concepts": 66.7,
             "Representing, relating or explaining scientific processes or observed phenomena": 75.0
+          },
+          "national": {
+            "scaled_score": 544,
+            "percentile": 57,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -9975,6 +10941,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 33.3,
             "Recollection or recognition of science facts and concepts": 66.7,
             "Representing, relating or explaining scientific processes or observed phenomena": 50.0
+          },
+          "national": {
+            "scaled_score": 592,
+            "percentile": 73,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         }
       ],
@@ -10167,6 +11139,12 @@
             "Understands idioms, proverbs and figures of speech": 50.0,
             "Understands organisation and context of the passage": 0.0,
             "Understands the usage of grammar concepts": 66.7
+          },
+          "national": {
+            "scaled_score": 430,
+            "percentile": 21,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -10249,6 +11227,12 @@
             "Understands idioms, proverbs and figures of speech": 100.0,
             "Understands organisation and context of the passage": 83.3,
             "Understands the usage of grammar concepts": 100.0
+          },
+          "national": {
+            "scaled_score": 792,
+            "percentile": 99,
+            "ats_qualified": true,
+            "subject_outstanding": true
           }
         },
         {
@@ -10331,6 +11315,12 @@
             "Understands idioms, proverbs and figures of speech": 100.0,
             "Understands organisation and context of the passage": 50.0,
             "Understands the usage of grammar concepts": 50.0
+          },
+          "national": {
+            "scaled_score": 656,
+            "percentile": 89,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -10413,6 +11403,12 @@
             "Understands idioms, proverbs and figures of speech": 50.0,
             "Understands organisation and context of the passage": 33.3,
             "Understands the usage of grammar concepts": 83.3
+          },
+          "national": {
+            "scaled_score": 610,
+            "percentile": 79,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -10495,6 +11491,12 @@
             "Understands idioms, proverbs and figures of speech": 100.0,
             "Understands organisation and context of the passage": 83.3,
             "Understands the usage of grammar concepts": 83.3
+          },
+          "national": {
+            "scaled_score": 693,
+            "percentile": 94,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -10577,6 +11579,12 @@
             "Understands idioms, proverbs and figures of speech": 75.0,
             "Understands organisation and context of the passage": 66.7,
             "Understands the usage of grammar concepts": 83.3
+          },
+          "national": {
+            "scaled_score": 652,
+            "percentile": 88,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -10659,6 +11667,12 @@
             "Understands idioms, proverbs and figures of speech": 100.0,
             "Understands organisation and context of the passage": 33.3,
             "Understands the usage of grammar concepts": 83.3
+          },
+          "national": {
+            "scaled_score": 625,
+            "percentile": 82,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -10741,6 +11755,12 @@
             "Understands idioms, proverbs and figures of speech": 100.0,
             "Understands organisation and context of the passage": 66.7,
             "Understands the usage of grammar concepts": 83.3
+          },
+          "national": {
+            "scaled_score": 650,
+            "percentile": 87,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -10823,6 +11843,12 @@
             "Understands idioms, proverbs and figures of speech": 100.0,
             "Understands organisation and context of the passage": 66.7,
             "Understands the usage of grammar concepts": 83.3
+          },
+          "national": {
+            "scaled_score": 674,
+            "percentile": 91,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -10905,6 +11931,12 @@
             "Understands idioms, proverbs and figures of speech": 100.0,
             "Understands organisation and context of the passage": 83.3,
             "Understands the usage of grammar concepts": 100.0
+          },
+          "national": {
+            "scaled_score": 689,
+            "percentile": 93,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -10987,6 +12019,12 @@
             "Understands idioms, proverbs and figures of speech": 100.0,
             "Understands organisation and context of the passage": 66.7,
             "Understands the usage of grammar concepts": 83.3
+          },
+          "national": {
+            "scaled_score": 648,
+            "percentile": 87,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -11069,6 +12107,12 @@
             "Understands idioms, proverbs and figures of speech": 100.0,
             "Understands organisation and context of the passage": 16.7,
             "Understands the usage of grammar concepts": 83.3
+          },
+          "national": {
+            "scaled_score": 598,
+            "percentile": 75,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -11151,6 +12195,12 @@
             "Understands idioms, proverbs and figures of speech": 100.0,
             "Understands organisation and context of the passage": 66.7,
             "Understands the usage of grammar concepts": 83.3
+          },
+          "national": {
+            "scaled_score": 701,
+            "percentile": 95,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -11233,6 +12283,12 @@
             "Understands idioms, proverbs and figures of speech": 100.0,
             "Understands organisation and context of the passage": 66.7,
             "Understands the usage of grammar concepts": 50.0
+          },
+          "national": {
+            "scaled_score": 650,
+            "percentile": 87,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -11315,6 +12371,12 @@
             "Understands idioms, proverbs and figures of speech": 100.0,
             "Understands organisation and context of the passage": 100.0,
             "Understands the usage of grammar concepts": 100.0
+          },
+          "national": {
+            "scaled_score": 720,
+            "percentile": 96,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         }
       ],
@@ -11531,6 +12593,12 @@
             "Number sense, related concepts and basic number competency": 50.0,
             "Pre-algebra and algebra skills": 75.0,
             "Problem solving: advanced or challenging problems": 66.7
+          },
+          "national": {
+            "scaled_score": 621,
+            "percentile": 82,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -11591,6 +12659,12 @@
             "Number sense, related concepts and basic number competency": 75.0,
             "Pre-algebra and algebra skills": 100.0,
             "Problem solving: advanced or challenging problems": 66.7
+          },
+          "national": {
+            "scaled_score": 667,
+            "percentile": 90,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -11651,6 +12725,12 @@
             "Number sense, related concepts and basic number competency": 75.0,
             "Pre-algebra and algebra skills": 100.0,
             "Problem solving: advanced or challenging problems": 100.0
+          },
+          "national": {
+            "scaled_score": 743,
+            "percentile": 97,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -11711,6 +12791,12 @@
             "Number sense, related concepts and basic number competency": 75.0,
             "Pre-algebra and algebra skills": 100.0,
             "Problem solving: advanced or challenging problems": 66.7
+          },
+          "national": {
+            "scaled_score": 664,
+            "percentile": 89,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -11771,6 +12857,12 @@
             "Number sense, related concepts and basic number competency": 75.0,
             "Pre-algebra and algebra skills": 100.0,
             "Problem solving: advanced or challenging problems": 66.7
+          },
+          "national": {
+            "scaled_score": 701,
+            "percentile": 94,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -11831,6 +12923,12 @@
             "Number sense, related concepts and basic number competency": 25.0,
             "Pre-algebra and algebra skills": 75.0,
             "Problem solving: advanced or challenging problems": 0.0
+          },
+          "national": {
+            "scaled_score": 591,
+            "percentile": 76,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -11891,6 +12989,12 @@
             "Number sense, related concepts and basic number competency": 25.0,
             "Pre-algebra and algebra skills": 100.0,
             "Problem solving: advanced or challenging problems": 66.7
+          },
+          "national": {
+            "scaled_score": 581,
+            "percentile": 73,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -11951,6 +13055,12 @@
             "Number sense, related concepts and basic number competency": 100.0,
             "Pre-algebra and algebra skills": 100.0,
             "Problem solving: advanced or challenging problems": 100.0
+          },
+          "national": {
+            "scaled_score": 722,
+            "percentile": 95,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -12011,6 +13121,12 @@
             "Number sense, related concepts and basic number competency": 75.0,
             "Pre-algebra and algebra skills": 75.0,
             "Problem solving: advanced or challenging problems": 100.0
+          },
+          "national": {
+            "scaled_score": 650,
+            "percentile": 87,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -12071,6 +13187,12 @@
             "Number sense, related concepts and basic number competency": 50.0,
             "Pre-algebra and algebra skills": 100.0,
             "Problem solving: advanced or challenging problems": 100.0
+          },
+          "national": {
+            "scaled_score": 672,
+            "percentile": 90,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -12131,6 +13253,12 @@
             "Number sense, related concepts and basic number competency": 25.0,
             "Pre-algebra and algebra skills": 75.0,
             "Problem solving: advanced or challenging problems": 33.3
+          },
+          "national": {
+            "scaled_score": 537,
+            "percentile": 61,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -12191,6 +13319,12 @@
             "Number sense, related concepts and basic number competency": 75.0,
             "Pre-algebra and algebra skills": 50.0,
             "Problem solving: advanced or challenging problems": 66.7
+          },
+          "national": {
+            "scaled_score": 521,
+            "percentile": 55,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -12251,6 +13385,12 @@
             "Number sense, related concepts and basic number competency": 100.0,
             "Pre-algebra and algebra skills": 100.0,
             "Problem solving: advanced or challenging problems": 100.0
+          },
+          "national": {
+            "scaled_score": 786,
+            "percentile": 99,
+            "ats_qualified": true,
+            "subject_outstanding": true
           }
         },
         {
@@ -12311,6 +13451,12 @@
             "Number sense, related concepts and basic number competency": 75.0,
             "Pre-algebra and algebra skills": 75.0,
             "Problem solving: advanced or challenging problems": 33.3
+          },
+          "national": {
+            "scaled_score": 581,
+            "percentile": 73,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -12371,6 +13517,12 @@
             "Number sense, related concepts and basic number competency": 75.0,
             "Pre-algebra and algebra skills": 100.0,
             "Problem solving: advanced or challenging problems": 100.0
+          },
+          "national": {
+            "scaled_score": 725,
+            "percentile": 96,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         }
       ],
@@ -12558,6 +13710,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 50.0,
             "Recollection or recognition of science facts and concepts": 100.0,
             "Representing, relating or explaining scientific processes or observed phenomena": 60.0
+          },
+          "national": {
+            "scaled_score": 611,
+            "percentile": 80,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -12623,6 +13781,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 100.0,
             "Recollection or recognition of science facts and concepts": 100.0,
             "Representing, relating or explaining scientific processes or observed phenomena": 80.0
+          },
+          "national": {
+            "scaled_score": 800,
+            "percentile": 99,
+            "ats_qualified": true,
+            "subject_outstanding": true
           }
         },
         {
@@ -12688,6 +13852,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 75.0,
             "Recollection or recognition of science facts and concepts": 66.7,
             "Representing, relating or explaining scientific processes or observed phenomena": 60.0
+          },
+          "national": {
+            "scaled_score": 673,
+            "percentile": 92,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -12753,6 +13923,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 100.0,
             "Recollection or recognition of science facts and concepts": 66.7,
             "Representing, relating or explaining scientific processes or observed phenomena": 40.0
+          },
+          "national": {
+            "scaled_score": 602,
+            "percentile": 77,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -12818,6 +13994,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 100.0,
             "Recollection or recognition of science facts and concepts": 100.0,
             "Representing, relating or explaining scientific processes or observed phenomena": 80.0
+          },
+          "national": {
+            "scaled_score": 712,
+            "percentile": 96,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -12883,6 +14065,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 100.0,
             "Recollection or recognition of science facts and concepts": 66.7,
             "Representing, relating or explaining scientific processes or observed phenomena": 60.0
+          },
+          "national": {
+            "scaled_score": 605,
+            "percentile": 78,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -12948,6 +14136,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 25.0,
             "Recollection or recognition of science facts and concepts": 100.0,
             "Representing, relating or explaining scientific processes or observed phenomena": 20.0
+          },
+          "national": {
+            "scaled_score": 534,
+            "percentile": 56,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -13013,6 +14207,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 75.0,
             "Recollection or recognition of science facts and concepts": 66.7,
             "Representing, relating or explaining scientific processes or observed phenomena": 60.0
+          },
+          "national": {
+            "scaled_score": 640,
+            "percentile": 86,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -13078,6 +14278,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 100.0,
             "Recollection or recognition of science facts and concepts": 66.7,
             "Representing, relating or explaining scientific processes or observed phenomena": 40.0
+          },
+          "national": {
+            "scaled_score": 603,
+            "percentile": 78,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -13143,6 +14349,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 100.0,
             "Recollection or recognition of science facts and concepts": 66.7,
             "Representing, relating or explaining scientific processes or observed phenomena": 60.0
+          },
+          "national": {
+            "scaled_score": 704,
+            "percentile": 96,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -13208,6 +14420,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 100.0,
             "Recollection or recognition of science facts and concepts": 33.3,
             "Representing, relating or explaining scientific processes or observed phenomena": 0.0
+          },
+          "national": {
+            "scaled_score": 617,
+            "percentile": 81,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -13273,6 +14491,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 50.0,
             "Recollection or recognition of science facts and concepts": 66.7,
             "Representing, relating or explaining scientific processes or observed phenomena": 40.0
+          },
+          "national": {
+            "scaled_score": 603,
+            "percentile": 78,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -13338,6 +14562,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 75.0,
             "Recollection or recognition of science facts and concepts": 100.0,
             "Representing, relating or explaining scientific processes or observed phenomena": 80.0
+          },
+          "national": {
+            "scaled_score": 748,
+            "percentile": 98,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -13403,6 +14633,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 75.0,
             "Recollection or recognition of science facts and concepts": 100.0,
             "Representing, relating or explaining scientific processes or observed phenomena": 20.0
+          },
+          "national": {
+            "scaled_score": 548,
+            "percentile": 61,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -13468,6 +14704,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 100.0,
             "Recollection or recognition of science facts and concepts": 100.0,
             "Representing, relating or explaining scientific processes or observed phenomena": 80.0
+          },
+          "national": {
+            "scaled_score": 696,
+            "percentile": 95,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         }
       ],
@@ -13676,6 +14918,12 @@
             "Understands idioms, proverbs and figures of speech": 75.0,
             "Understands organisation and context of the passage": 83.3,
             "Understands the usage of grammar concepts": 37.5
+          },
+          "national": {
+            "scaled_score": 663,
+            "percentile": 89,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -13757,6 +15005,12 @@
             "Understands idioms, proverbs and figures of speech": 100.0,
             "Understands organisation and context of the passage": 66.7,
             "Understands the usage of grammar concepts": 62.5
+          },
+          "national": {
+            "scaled_score": 650,
+            "percentile": 87,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -13838,6 +15092,12 @@
             "Understands idioms, proverbs and figures of speech": 100.0,
             "Understands organisation and context of the passage": 83.3,
             "Understands the usage of grammar concepts": 62.5
+          },
+          "national": {
+            "scaled_score": 684,
+            "percentile": 92,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -13919,6 +15179,12 @@
             "Understands idioms, proverbs and figures of speech": 100.0,
             "Understands organisation and context of the passage": 83.3,
             "Understands the usage of grammar concepts": 87.5
+          },
+          "national": {
+            "scaled_score": 689,
+            "percentile": 93,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -14000,6 +15266,12 @@
             "Understands idioms, proverbs and figures of speech": 75.0,
             "Understands organisation and context of the passage": 100.0,
             "Understands the usage of grammar concepts": 87.5
+          },
+          "national": {
+            "scaled_score": 720,
+            "percentile": 96,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -14081,6 +15353,12 @@
             "Understands idioms, proverbs and figures of speech": 25.0,
             "Understands organisation and context of the passage": 33.3,
             "Understands the usage of grammar concepts": 25.0
+          },
+          "national": {
+            "scaled_score": 355,
+            "percentile": 4,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -14162,6 +15440,12 @@
             "Understands idioms, proverbs and figures of speech": 75.0,
             "Understands organisation and context of the passage": 66.7,
             "Understands the usage of grammar concepts": 75.0
+          },
+          "national": {
+            "scaled_score": 621,
+            "percentile": 81,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -14243,6 +15527,12 @@
             "Understands idioms, proverbs and figures of speech": 75.0,
             "Understands organisation and context of the passage": 66.7,
             "Understands the usage of grammar concepts": 37.5
+          },
+          "national": {
+            "scaled_score": 589,
+            "percentile": 73,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -14324,6 +15614,12 @@
             "Understands idioms, proverbs and figures of speech": 75.0,
             "Understands organisation and context of the passage": 33.3,
             "Understands the usage of grammar concepts": 62.5
+          },
+          "national": {
+            "scaled_score": 625,
+            "percentile": 82,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -14405,6 +15701,12 @@
             "Understands idioms, proverbs and figures of speech": 75.0,
             "Understands organisation and context of the passage": 83.3,
             "Understands the usage of grammar concepts": 87.5
+          },
+          "national": {
+            "scaled_score": 756,
+            "percentile": 98,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -14486,6 +15788,12 @@
             "Understands idioms, proverbs and figures of speech": 100.0,
             "Understands organisation and context of the passage": 100.0,
             "Understands the usage of grammar concepts": 62.5
+          },
+          "national": {
+            "scaled_score": 751,
+            "percentile": 98,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -14567,6 +15875,12 @@
             "Understands idioms, proverbs and figures of speech": 75.0,
             "Understands organisation and context of the passage": 83.3,
             "Understands the usage of grammar concepts": 75.0
+          },
+          "national": {
+            "scaled_score": 717,
+            "percentile": 96,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -14648,6 +15962,12 @@
             "Understands idioms, proverbs and figures of speech": 75.0,
             "Understands organisation and context of the passage": 50.0,
             "Understands the usage of grammar concepts": 25.0
+          },
+          "national": {
+            "scaled_score": 455,
+            "percentile": 31,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -14729,6 +16049,12 @@
             "Understands idioms, proverbs and figures of speech": 100.0,
             "Understands organisation and context of the passage": 100.0,
             "Understands the usage of grammar concepts": 75.0
+          },
+          "national": {
+            "scaled_score": 772,
+            "percentile": 99,
+            "ats_qualified": true,
+            "subject_outstanding": true
           }
         },
         {
@@ -14810,6 +16136,12 @@
             "Understands idioms, proverbs and figures of speech": 100.0,
             "Understands organisation and context of the passage": 83.3,
             "Understands the usage of grammar concepts": 75.0
+          },
+          "national": {
+            "scaled_score": 735,
+            "percentile": 97,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         }
       ],
@@ -15019,6 +16351,12 @@
             "Mensuration: area and perimeter; concepts, computation": 60.0,
             "Number sense, related competency and computation skills": 75.0,
             "Problem solving: advanced or challenging problems": 83.3
+          },
+          "national": {
+            "scaled_score": 637,
+            "percentile": 85,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -15079,6 +16417,12 @@
             "Mensuration: area and perimeter; concepts, computation": 0.0,
             "Number sense, related competency and computation skills": 50.0,
             "Problem solving: advanced or challenging problems": 50.0
+          },
+          "national": {
+            "scaled_score": 451,
+            "percentile": 28,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -15139,6 +16483,12 @@
             "Mensuration: area and perimeter; concepts, computation": 100.0,
             "Number sense, related competency and computation skills": 50.0,
             "Problem solving: advanced or challenging problems": 100.0
+          },
+          "national": {
+            "scaled_score": 752,
+            "percentile": 97,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -15199,6 +16549,12 @@
             "Mensuration: area and perimeter; concepts, computation": 60.0,
             "Number sense, related competency and computation skills": 100.0,
             "Problem solving: advanced or challenging problems": 66.7
+          },
+          "national": {
+            "scaled_score": 658,
+            "percentile": 89,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -15259,6 +16615,12 @@
             "Mensuration: area and perimeter; concepts, computation": 100.0,
             "Number sense, related competency and computation skills": 100.0,
             "Problem solving: advanced or challenging problems": 100.0
+          },
+          "national": {
+            "scaled_score": 800,
+            "percentile": 99,
+            "ats_qualified": true,
+            "subject_outstanding": true
           }
         },
         {
@@ -15319,6 +16681,12 @@
             "Mensuration: area and perimeter; concepts, computation": 60.0,
             "Number sense, related competency and computation skills": 0.0,
             "Problem solving: advanced or challenging problems": 16.7
+          },
+          "national": {
+            "scaled_score": 440,
+            "percentile": 24,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -15379,6 +16747,12 @@
             "Mensuration: area and perimeter; concepts, computation": 80.0,
             "Number sense, related competency and computation skills": 75.0,
             "Problem solving: advanced or challenging problems": 83.3
+          },
+          "national": {
+            "scaled_score": 660,
+            "percentile": 89,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -15439,6 +16813,12 @@
             "Mensuration: area and perimeter; concepts, computation": 20.0,
             "Number sense, related competency and computation skills": 50.0,
             "Problem solving: advanced or challenging problems": 83.3
+          },
+          "national": {
+            "scaled_score": 530,
+            "percentile": 58,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -15499,6 +16879,12 @@
             "Mensuration: area and perimeter; concepts, computation": 40.0,
             "Number sense, related competency and computation skills": 75.0,
             "Problem solving: advanced or challenging problems": 16.7
+          },
+          "national": {
+            "scaled_score": 455,
+            "percentile": 30,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -15559,6 +16945,12 @@
             "Mensuration: area and perimeter; concepts, computation": 80.0,
             "Number sense, related competency and computation skills": 75.0,
             "Problem solving: advanced or challenging problems": 66.7
+          },
+          "national": {
+            "scaled_score": 676,
+            "percentile": 91,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -15619,6 +17011,12 @@
             "Mensuration: area and perimeter; concepts, computation": 100.0,
             "Number sense, related competency and computation skills": 50.0,
             "Problem solving: advanced or challenging problems": 50.0
+          },
+          "national": {
+            "scaled_score": 568,
+            "percentile": 70,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -15679,6 +17077,12 @@
             "Mensuration: area and perimeter; concepts, computation": 40.0,
             "Number sense, related competency and computation skills": 75.0,
             "Problem solving: advanced or challenging problems": 33.3
+          },
+          "national": {
+            "scaled_score": 485,
+            "percentile": 42,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -15739,6 +17143,12 @@
             "Mensuration: area and perimeter; concepts, computation": 20.0,
             "Number sense, related competency and computation skills": 0.0,
             "Problem solving: advanced or challenging problems": 16.7
+          },
+          "national": {
+            "scaled_score": 423,
+            "percentile": 18,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -15799,6 +17209,12 @@
             "Mensuration: area and perimeter; concepts, computation": 60.0,
             "Number sense, related competency and computation skills": 75.0,
             "Problem solving: advanced or challenging problems": 100.0
+          },
+          "national": {
+            "scaled_score": 683,
+            "percentile": 92,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -15859,6 +17275,12 @@
             "Mensuration: area and perimeter; concepts, computation": 60.0,
             "Number sense, related competency and computation skills": 100.0,
             "Problem solving: advanced or challenging problems": 66.7
+          },
+          "national": {
+            "scaled_score": 654,
+            "percentile": 88,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         }
       ],
@@ -16046,6 +17468,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 100.0,
             "Recollection or recognition of science facts and concepts": 66.7,
             "Representing, relating or explaining scientific processes or observed phenomena": 100.0
+          },
+          "national": {
+            "scaled_score": 636,
+            "percentile": 88,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -16111,6 +17539,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 40.0,
             "Recollection or recognition of science facts and concepts": 83.3,
             "Representing, relating or explaining scientific processes or observed phenomena": 100.0
+          },
+          "national": {
+            "scaled_score": 556,
+            "percentile": 67,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -16176,6 +17610,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 80.0,
             "Recollection or recognition of science facts and concepts": 50.0,
             "Representing, relating or explaining scientific processes or observed phenomena": 50.0
+          },
+          "national": {
+            "scaled_score": 615,
+            "percentile": 83,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -16241,6 +17681,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 80.0,
             "Recollection or recognition of science facts and concepts": 33.3,
             "Representing, relating or explaining scientific processes or observed phenomena": 50.0
+          },
+          "national": {
+            "scaled_score": 596,
+            "percentile": 79,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -16306,6 +17752,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 80.0,
             "Recollection or recognition of science facts and concepts": 100.0,
             "Representing, relating or explaining scientific processes or observed phenomena": 100.0
+          },
+          "national": {
+            "scaled_score": 762,
+            "percentile": 99,
+            "ats_qualified": true,
+            "subject_outstanding": true
           }
         },
         {
@@ -16371,6 +17823,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 80.0,
             "Recollection or recognition of science facts and concepts": 66.7,
             "Representing, relating or explaining scientific processes or observed phenomena": 75.0
+          },
+          "national": {
+            "scaled_score": 556,
+            "percentile": 67,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -16436,6 +17894,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 60.0,
             "Recollection or recognition of science facts and concepts": 66.7,
             "Representing, relating or explaining scientific processes or observed phenomena": 100.0
+          },
+          "national": {
+            "scaled_score": 663,
+            "percentile": 92,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -16501,6 +17965,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 40.0,
             "Recollection or recognition of science facts and concepts": 33.3,
             "Representing, relating or explaining scientific processes or observed phenomena": 50.0
+          },
+          "national": {
+            "scaled_score": 545,
+            "percentile": 63,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -16566,6 +18036,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 40.0,
             "Recollection or recognition of science facts and concepts": 16.7,
             "Representing, relating or explaining scientific processes or observed phenomena": 25.0
+          },
+          "national": {
+            "scaled_score": 443,
+            "percentile": 25,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -16631,6 +18107,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 80.0,
             "Recollection or recognition of science facts and concepts": 83.3,
             "Representing, relating or explaining scientific processes or observed phenomena": 75.0
+          },
+          "national": {
+            "scaled_score": 697,
+            "percentile": 96,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -16696,6 +18178,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 60.0,
             "Recollection or recognition of science facts and concepts": 50.0,
             "Representing, relating or explaining scientific processes or observed phenomena": 75.0
+          },
+          "national": {
+            "scaled_score": 588,
+            "percentile": 76,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -16761,6 +18249,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 60.0,
             "Recollection or recognition of science facts and concepts": 50.0,
             "Representing, relating or explaining scientific processes or observed phenomena": 25.0
+          },
+          "national": {
+            "scaled_score": 532,
+            "percentile": 59,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -16826,6 +18320,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 20.0,
             "Recollection or recognition of science facts and concepts": 50.0,
             "Representing, relating or explaining scientific processes or observed phenomena": 50.0
+          },
+          "national": {
+            "scaled_score": 485,
+            "percentile": 41,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -16891,6 +18391,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 80.0,
             "Recollection or recognition of science facts and concepts": 83.3,
             "Representing, relating or explaining scientific processes or observed phenomena": 100.0
+          },
+          "national": {
+            "scaled_score": 654,
+            "percentile": 91,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         },
         {
@@ -16956,6 +18462,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 60.0,
             "Recollection or recognition of science facts and concepts": 83.3,
             "Representing, relating or explaining scientific processes or observed phenomena": 75.0
+          },
+          "national": {
+            "scaled_score": 681,
+            "percentile": 94,
+            "ats_qualified": true,
+            "subject_outstanding": false
           }
         }
       ],
@@ -17164,6 +18676,12 @@
             "Understands idioms, proverbs and figures of speech": 50.0,
             "Understands organisation and context of the passage": 66.7,
             "Understands the usage of grammar concepts": 42.9
+          },
+          "national": {
+            "scaled_score": 589,
+            "percentile": 74,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -17245,6 +18763,12 @@
             "Understands idioms, proverbs and figures of speech": 100.0,
             "Understands organisation and context of the passage": 100.0,
             "Understands the usage of grammar concepts": 71.4
+          },
+          "national": {
+            "scaled_score": 698,
+            "percentile": 94,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         }
       ],
@@ -17453,6 +18977,12 @@
             "Mensuration: area and perimeter; volume": 50.0,
             "Number sense, related competency and computation skills": 50.0,
             "Problem solving: advanced or challenging problems": 25.0
+          },
+          "national": {
+            "scaled_score": 512,
+            "percentile": 54,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -17512,6 +19042,12 @@
             "Mensuration: area and perimeter; volume": 0.0,
             "Number sense, related competency and computation skills": 75.0,
             "Problem solving: advanced or challenging problems": 75.0
+          },
+          "national": {
+            "scaled_score": 507,
+            "percentile": 52,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         }
       ],
@@ -17692,6 +19228,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 50.0,
             "Recollection or recognition of science facts and concepts": 50.0,
             "Representing, relating or explaining scientific processes or observed phenomena": 16.7
+          },
+          "national": {
+            "scaled_score": 495,
+            "percentile": 46,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         },
         {
@@ -17757,6 +19299,12 @@
             "Knowledge of use of scientific instruments, tools and procedures": 75.0,
             "Recollection or recognition of science facts and concepts": 50.0,
             "Representing, relating or explaining scientific processes or observed phenomena": 83.3
+          },
+          "national": {
+            "scaled_score": 580,
+            "percentile": 75,
+            "ats_qualified": false,
+            "subject_outstanding": false
           }
         }
       ],
@@ -17994,5 +19542,552 @@
     "average": 67.7,
     "total_students": 88,
     "total_assessments": 258
+  },
+  "awards_summary": {
+    "award_distribution": {
+      "outstanding": 5,
+      "distinguished": 14,
+      "creditable": 14,
+      "participation": 54
+    },
+    "total_students_with_awards": 88,
+    "ats_qualified_count": 44,
+    "ats_by_subject": {
+      "English": 36,
+      "Maths": 31,
+      "Science": 26
+    },
+    "median_percentile": 76.0,
+    "avg_percentile": 66.2
+  },
+  "student_overall_awards": {
+    "3-A|NIRVI JAIN": {
+      "overall_award": "p",
+      "overall_award_label": "Participation",
+      "total_percentile": 75.0,
+      "total_scaled_score_avg": 606.0
+    },
+    "3-A|AMAL SHYAM": {
+      "overall_award": "p",
+      "overall_award_label": "Participation",
+      "total_percentile": 13.0,
+      "total_scaled_score_avg": 421.0
+    },
+    "3-A|ISHANVI A BHOSALE": {
+      "overall_award": "p",
+      "overall_award_label": "Participation",
+      "total_percentile": 80.0,
+      "total_scaled_score_avg": 620.0
+    },
+    "3-A|IVAAN HARSH": {
+      "overall_award": "p",
+      "overall_award_label": "Participation",
+      "total_percentile": 33.0,
+      "total_scaled_score_avg": 488.0
+    },
+    "3-A|MAHATHI BG": {
+      "overall_award": "p",
+      "overall_award_label": "Participation",
+      "total_percentile": 63.0,
+      "total_scaled_score_avg": 570.0
+    },
+    "3-A|VIKRANT K REDDY": {
+      "overall_award": "p",
+      "overall_award_label": "Participation",
+      "total_percentile": 15.0,
+      "total_scaled_score_avg": 428.0
+    },
+    "3-A|VIRAJ A ARAVIND": {
+      "overall_award": "p",
+      "overall_award_label": "Participation",
+      "total_percentile": 5.0,
+      "total_scaled_score_avg": 386.0
+    },
+    "3-A|ABHIRAM DONDETI": {
+      "overall_award": "p",
+      "overall_award_label": "Participation",
+      "total_percentile": 40.0,
+      "total_scaled_score_avg": 507.0
+    },
+    "3-A|AARAV SHAH": {
+      "overall_award": "p",
+      "overall_award_label": "Participation",
+      "total_percentile": 0.0,
+      "total_scaled_score_avg": 0.0
+    },
+    "3-A|DHRUVA JAINAPUOR": {
+      "overall_award": "p",
+      "overall_award_label": "Participation",
+      "total_percentile": 32.0,
+      "total_scaled_score_avg": 486.0
+    },
+    "3-A|ISHAN GAJJALA": {
+      "overall_award": "c",
+      "overall_award_label": "Creditable",
+      "total_percentile": 93.0,
+      "total_scaled_score_avg": 677.0
+    },
+    "3-A|ADIRA C AGARWAL": {
+      "overall_award": "p",
+      "overall_award_label": "Participation",
+      "total_percentile": 73.0,
+      "total_scaled_score_avg": 600.0
+    },
+    "3-A|ARJUN O SERANGARAM": {
+      "overall_award": "p",
+      "overall_award_label": "Participation",
+      "total_percentile": 81.0,
+      "total_scaled_score_avg": 624.0
+    },
+    "3-A|DISHA THANGAMMA": {
+      "overall_award": "p",
+      "overall_award_label": "Participation",
+      "total_percentile": 27.0,
+      "total_scaled_score_avg": 469.0
+    },
+    "3-A|ADIL S GUPTA": {
+      "overall_award": "o",
+      "overall_award_label": "Outstanding",
+      "total_percentile": 99.0,
+      "total_scaled_score_avg": 738.0
+    },
+    "3-A|MAUSAM P G": {
+      "overall_award": "p",
+      "overall_award_label": "Participation",
+      "total_percentile": 20.0,
+      "total_scaled_score_avg": 447.0
+    },
+    "3-A|AHANA GOWDA": {
+      "overall_award": "p",
+      "overall_award_label": "Participation",
+      "total_percentile": 80.0,
+      "total_scaled_score_avg": 620.0
+    },
+    "3-A|ARIT KRISHANG": {
+      "overall_award": "p",
+      "overall_award_label": "Participation",
+      "total_percentile": 83.0,
+      "total_scaled_score_avg": 631.0
+    },
+    "3-A|GURU R GANTA": {
+      "overall_award": "p",
+      "overall_award_label": "Participation",
+      "total_percentile": 47.0,
+      "total_scaled_score_avg": 526.0
+    },
+    "3-A|VATSAL A BHABHRA": {
+      "overall_award": "c",
+      "overall_award_label": "Creditable",
+      "total_percentile": 84.0,
+      "total_scaled_score_avg": 637.0
+    },
+    "3-A|ADVIKA NAVANEETH": {
+      "overall_award": "p",
+      "overall_award_label": "Participation",
+      "total_percentile": 80.0,
+      "total_scaled_score_avg": 623.0
+    },
+    "3-A|KHUSHIKA R LOMADA": {
+      "overall_award": "p",
+      "overall_award_label": "Participation",
+      "total_percentile": 0.0,
+      "total_scaled_score_avg": 322.0
+    },
+    "3-A|ZIVA ADIL": {
+      "overall_award": "c",
+      "overall_award_label": "Creditable",
+      "total_percentile": 92.0,
+      "total_scaled_score_avg": 671.0
+    },
+    "4-A|ARYAN SUMESH": {
+      "overall_award": "p",
+      "overall_award_label": "Participation",
+      "total_percentile": 0.0,
+      "total_scaled_score_avg": 0.0
+    },
+    "4-A|ESHAN J AJITH": {
+      "overall_award": "d",
+      "overall_award_label": "Distinguished",
+      "total_percentile": 98.0,
+      "total_scaled_score_avg": 729.0
+    },
+    "4-A|NEVILLE AMBROSE": {
+      "overall_award": "d",
+      "overall_award_label": "Distinguished",
+      "total_percentile": 97.0,
+      "total_scaled_score_avg": 721.0
+    },
+    "4-A|SAANVI SHARMA": {
+      "overall_award": "p",
+      "overall_award_label": "Participation",
+      "total_percentile": 53.0,
+      "total_scaled_score_avg": 538.0
+    },
+    "4-A|BALI S SHAH": {
+      "overall_award": "d",
+      "overall_award_label": "Distinguished",
+      "total_percentile": 94.0,
+      "total_scaled_score_avg": 685.0
+    },
+    "4-A|MANASVITHA BOJJA": {
+      "overall_award": "p",
+      "overall_award_label": "Participation",
+      "total_percentile": 47.0,
+      "total_scaled_score_avg": 521.0
+    },
+    "4-A|SIRI HASINI": {
+      "overall_award": "p",
+      "overall_award_label": "Participation",
+      "total_percentile": 72.0,
+      "total_scaled_score_avg": 593.0
+    },
+    "4-A|SRIRAM V KALIDINDI": {
+      "overall_award": "p",
+      "overall_award_label": "Participation",
+      "total_percentile": 64.0,
+      "total_scaled_score_avg": 569.0
+    },
+    "4-A|DISHA PUNEETH": {
+      "overall_award": "p",
+      "overall_award_label": "Participation",
+      "total_percentile": 43.0,
+      "total_scaled_score_avg": 512.0
+    },
+    "4-A|MEHDI M VAKIL": {
+      "overall_award": "p",
+      "overall_award_label": "Participation",
+      "total_percentile": 66.0,
+      "total_scaled_score_avg": 574.0
+    },
+    "4-A|AKSHATH V IYER": {
+      "overall_award": "p",
+      "overall_award_label": "Participation",
+      "total_percentile": 24.0,
+      "total_scaled_score_avg": 453.0
+    },
+    "4-A|ATHARV R ACHARYA": {
+      "overall_award": "p",
+      "overall_award_label": "Participation",
+      "total_percentile": 47.0,
+      "total_scaled_score_avg": 523.0
+    },
+    "4-A|NIHARIKA A RAKESH": {
+      "overall_award": "p",
+      "overall_award_label": "Participation",
+      "total_percentile": 81.0,
+      "total_scaled_score_avg": 620.0
+    },
+    "4-A|VEDANSHI M GARLAPATI": {
+      "overall_award": "c",
+      "overall_award_label": "Creditable",
+      "total_percentile": 84.0,
+      "total_scaled_score_avg": 634.0
+    },
+    "4-A|SRUSHTI R PARUI": {
+      "overall_award": "p",
+      "overall_award_label": "Participation",
+      "total_percentile": 83.0,
+      "total_scaled_score_avg": 629.0
+    },
+    "5-A|AADYA AGRAWAL": {
+      "overall_award": "o",
+      "overall_award_label": "Outstanding",
+      "total_percentile": 99.0,
+      "total_scaled_score_avg": 747.0
+    },
+    "5-A|ANAYA V CHOUKSEY": {
+      "overall_award": "d",
+      "overall_award_label": "Distinguished",
+      "total_percentile": 96.0,
+      "total_scaled_score_avg": 697.0
+    },
+    "5-A|IRA IYER": {
+      "overall_award": "c",
+      "overall_award_label": "Creditable",
+      "total_percentile": 90.0,
+      "total_scaled_score_avg": 651.0
+    },
+    "5-A|AARON NEIL": {
+      "overall_award": "p",
+      "overall_award_label": "Participation",
+      "total_percentile": 5.0,
+      "total_scaled_score_avg": 385.0
+    },
+    "5-A|AADYA VERMA": {
+      "overall_award": "c",
+      "overall_award_label": "Creditable",
+      "total_percentile": 87.0,
+      "total_scaled_score_avg": 637.0
+    },
+    "5-A|AYAANSH NARAIN": {
+      "overall_award": "p",
+      "overall_award_label": "Participation",
+      "total_percentile": 57.0,
+      "total_scaled_score_avg": 541.0
+    },
+    "5-A|AARIB N JATU": {
+      "overall_award": "p",
+      "overall_award_label": "Participation",
+      "total_percentile": 57.0,
+      "total_scaled_score_avg": 539.0
+    },
+    "5-A|BANSI SIRIGIRI": {
+      "overall_award": "p",
+      "overall_award_label": "Participation",
+      "total_percentile": 54.0,
+      "total_scaled_score_avg": 533.0
+    },
+    "5-A|SIDDHIKSHA KATIYAR": {
+      "overall_award": "c",
+      "overall_award_label": "Creditable",
+      "total_percentile": 87.0,
+      "total_scaled_score_avg": 635.0
+    },
+    "5-A|MANYA MADHAN": {
+      "overall_award": "d",
+      "overall_award_label": "Distinguished",
+      "total_percentile": 94.0,
+      "total_scaled_score_avg": 679.0
+    },
+    "5-A|SPRUHA SHINDE": {
+      "overall_award": "p",
+      "overall_award_label": "Participation",
+      "total_percentile": 0.0,
+      "total_scaled_score_avg": 0.0
+    },
+    "5-A|AGASTYA R NAIR": {
+      "overall_award": "d",
+      "overall_award_label": "Distinguished",
+      "total_percentile": 97.0,
+      "total_scaled_score_avg": 707.0
+    },
+    "5-A|DHWANI ARUN": {
+      "overall_award": "p",
+      "overall_award_label": "Participation",
+      "total_percentile": 52.0,
+      "total_scaled_score_avg": 528.0
+    },
+    "5-A|RISHITA SHAH": {
+      "overall_award": "p",
+      "overall_award_label": "Participation",
+      "total_percentile": 37.0,
+      "total_scaled_score_avg": 486.0
+    },
+    "5-A|ROSE": {
+      "overall_award": "p",
+      "overall_award_label": "Participation",
+      "total_percentile": 68.0,
+      "total_scaled_score_avg": 571.0
+    },
+    "5-A|AROHI B": {
+      "overall_award": "p",
+      "overall_award_label": "Participation",
+      "total_percentile": 0.0,
+      "total_scaled_score_avg": 0.0
+    },
+    "5-A|AVYUKT NA": {
+      "overall_award": "p",
+      "overall_award_label": "Participation",
+      "total_percentile": 38.0,
+      "total_scaled_score_avg": 489.0
+    },
+    "5-A|KYRA B JOSEPH": {
+      "overall_award": "p",
+      "overall_award_label": "Participation",
+      "total_percentile": 60.0,
+      "total_scaled_score_avg": 547.0
+    },
+    "6-A|KARTHIKA KISHORE": {
+      "overall_award": "p",
+      "overall_award_label": "Participation",
+      "total_percentile": 72.0,
+      "total_scaled_score_avg": 580.0
+    },
+    "6-A|NEIL A DADEL": {
+      "overall_award": "c",
+      "overall_award_label": "Creditable",
+      "total_percentile": 88.0,
+      "total_scaled_score_avg": 642.0
+    },
+    "6-A|NITHIL AMBROSE": {
+      "overall_award": "d",
+      "overall_award_label": "Distinguished",
+      "total_percentile": 95.0,
+      "total_scaled_score_avg": 688.0
+    },
+    "6-A|KRISHNARJUN PASUPULETI": {
+      "overall_award": "c",
+      "overall_award_label": "Creditable",
+      "total_percentile": 93.0,
+      "total_scaled_score_avg": 671.0
+    },
+    "6-A|ISHITA NAVANEETH": {
+      "overall_award": "p",
+      "overall_award_label": "Participation",
+      "total_percentile": 83.0,
+      "total_scaled_score_avg": 616.0
+    },
+    "6-A|AAKASH ARULKUMAR": {
+      "overall_award": "p",
+      "overall_award_label": "Participation",
+      "total_percentile": 64.0,
+      "total_scaled_score_avg": 554.0
+    },
+    "6-A|ANSHIKA KASLIWAL": {
+      "overall_award": "o",
+      "overall_award_label": "Outstanding",
+      "total_percentile": 99.0,
+      "total_scaled_score_avg": 753.0
+    },
+    "6-A|PARTH R MALEKAR": {
+      "overall_award": "p",
+      "overall_award_label": "Participation",
+      "total_percentile": 71.0,
+      "total_scaled_score_avg": 574.0
+    },
+    "6-A|SAHAN RAJAKUMAR": {
+      "overall_award": "o",
+      "overall_award_label": "Outstanding",
+      "total_percentile": 99.0,
+      "total_scaled_score_avg": 745.0
+    },
+    "6-A|ARHAN SHAH": {
+      "overall_award": "d",
+      "overall_award_label": "Distinguished",
+      "total_percentile": 95.0,
+      "total_scaled_score_avg": 691.0
+    },
+    "6-A|NUHA M ADIL": {
+      "overall_award": "p",
+      "overall_award_label": "Participation",
+      "total_percentile": 79.0,
+      "total_scaled_score_avg": 601.0
+    },
+    "6-A|SATHVIK SRIRAM": {
+      "overall_award": "p",
+      "overall_award_label": "Participation",
+      "total_percentile": 77.0,
+      "total_scaled_score_avg": 593.0
+    },
+    "6-A|ARHAT GARUD": {
+      "overall_award": "c",
+      "overall_award_label": "Creditable",
+      "total_percentile": 85.0,
+      "total_scaled_score_avg": 625.0
+    },
+    "6-A|ASMI JAIN": {
+      "overall_award": "d",
+      "overall_award_label": "Distinguished",
+      "total_percentile": 96.0,
+      "total_scaled_score_avg": 702.0
+    },
+    "6-A|SAYAN RAJAKUMAR": {
+      "overall_award": "d",
+      "overall_award_label": "Distinguished",
+      "total_percentile": 97.0,
+      "total_scaled_score_avg": 714.0
+    },
+    "7-A|AYANSH MAKWANA": {
+      "overall_award": "o",
+      "overall_award_label": "Outstanding",
+      "total_percentile": 99.0,
+      "total_scaled_score_avg": 761.0
+    },
+    "7-A|MYRA ASHREE": {
+      "overall_award": "d",
+      "overall_award_label": "Distinguished",
+      "total_percentile": 97.0,
+      "total_scaled_score_avg": 710.0
+    },
+    "7-A|SHUBHI GOGOI": {
+      "overall_award": "p",
+      "overall_award_label": "Participation",
+      "total_percentile": 27.0,
+      "total_scaled_score_avg": 454.0
+    },
+    "7-A|ARCHANA MISRA": {
+      "overall_award": "c",
+      "overall_award_label": "Creditable",
+      "total_percentile": 90.0,
+      "total_scaled_score_avg": 648.0
+    },
+    "7-A|EKAANSH PRASAD": {
+      "overall_award": "p",
+      "overall_award_label": "Participation",
+      "total_percentile": 25.0,
+      "total_scaled_score_avg": 450.0
+    },
+    "7-A|ANIK R KOLLI": {
+      "overall_award": "d",
+      "overall_award_label": "Distinguished",
+      "total_percentile": 95.0,
+      "total_scaled_score_avg": 684.0
+    },
+    "7-A|AASHMI IYER": {
+      "overall_award": "c",
+      "overall_award_label": "Creditable",
+      "total_percentile": 90.0,
+      "total_scaled_score_avg": 645.0
+    },
+    "7-A|ABHIGYA V URS": {
+      "overall_award": "p",
+      "overall_award_label": "Participation",
+      "total_percentile": 65.0,
+      "total_scaled_score_avg": 552.0
+    },
+    "7-A|SHLOK N SRIVASTAVA": {
+      "overall_award": "p",
+      "overall_award_label": "Participation",
+      "total_percentile": 73.0,
+      "total_scaled_score_avg": 578.0
+    },
+    "7-A|TRISHA IYER": {
+      "overall_award": "d",
+      "overall_award_label": "Distinguished",
+      "total_percentile": 97.0,
+      "total_scaled_score_avg": 703.0
+    },
+    "7-A|KANAV BHALOTIA": {
+      "overall_award": "c",
+      "overall_award_label": "Creditable",
+      "total_percentile": 90.0,
+      "total_scaled_score_avg": 648.0
+    },
+    "7-A|MILAN WASEEM": {
+      "overall_award": "p",
+      "overall_award_label": "Participation",
+      "total_percentile": 66.0,
+      "total_scaled_score_avg": 555.0
+    },
+    "7-A|MYTHILI SHYAM": {
+      "overall_award": "c",
+      "overall_award_label": "Creditable",
+      "total_percentile": 88.0,
+      "total_scaled_score_avg": 636.0
+    },
+    "7-A|VEDAANT DODAMANI": {
+      "overall_award": "d",
+      "overall_award_label": "Distinguished",
+      "total_percentile": 95.0,
+      "total_scaled_score_avg": 690.0
+    },
+    "7-A|MOHAMMED A VAKIL": {
+      "overall_award": "p",
+      "overall_award_label": "Participation",
+      "total_percentile": 48.0,
+      "total_scaled_score_avg": 508.0
+    },
+    "8-A|KRISHNASRUTHI PASUPULETI": {
+      "overall_award": "p",
+      "overall_award_label": "Participation",
+      "total_percentile": 59.0,
+      "total_scaled_score_avg": 532.0
+    },
+    "8-A|TULIP R PARUI": {
+      "overall_award": "nan",
+      "overall_award_label": "Unknown",
+      "total_percentile": 80.0,
+      "total_scaled_score_avg": 595.0
+    }
   }
 }
